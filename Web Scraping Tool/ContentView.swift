@@ -16,8 +16,8 @@ private let dateFormatter: DateFormatter = {
 }()
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext)
-    var viewContext   
+    @Environment(\.managedObjectContext) var viewContext
+    @State var showScrapingDetail = false
  
     var body: some View {
         NavigationView {
@@ -27,32 +27,36 @@ struct ContentView: View {
                     leading: EditButton(),
                     trailing: Button(
                         action: {
-                            withAnimation { Event.create(in: self.viewContext) }
+//                            withAnimation { Event.create(in: self.viewContext) }
+                            self.showScrapingDetail = true
                         }
-                    ) { 
+                    ) {
                         Image(systemName: "plus")
                     }
                 )
-            Text("Detail view content goes here")
-                .navigationBarTitle(Text("Detail"))
+//            Text("Detail view content goes here")
+//                .navigationBarTitle(Text("Detail"))
+            .sheet(isPresented: $showScrapingDetail) {
+                DetailView()
+            }
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
 }
 
 struct MasterView: View {
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Event.timestamp, ascending: true)], 
+        sortDescriptors: [NSSortDescriptor(keyPath: \Event.timestamp, ascending: true)],
         animation: .default)
     var events: FetchedResults<Event>
 
-    @Environment(\.managedObjectContext)
-    var viewContext
+    @Environment(\.managedObjectContext) var viewContext
 
     var body: some View {
         List {
             ForEach(events, id: \.self) { event in
                 NavigationLink(
-                    destination: DetailView(event: event)
+//                    destination: DetailView(event: event)
+                    destination: DetailView()
                 ) {
                     Text("\(event.timestamp!, formatter: dateFormatter)")
                 }
@@ -64,11 +68,35 @@ struct MasterView: View {
 }
 
 struct DetailView: View {
-    @ObservedObject var event: Event
+//    @ObservedObject var event: Event
+    @Environment (\.presentationMode) var presentationMode
+    @State var title = ""
 
     var body: some View {
-        Text("\(event.timestamp!, formatter: dateFormatter)")
-            .navigationBarTitle(Text("Detail"))
+//        Text("\(event.timestamp!, formatter: dateFormatter)")
+//            .navigationBarTitle(Text("Detail"))
+//        Text("detail page")
+        NavigationView {
+            Form {
+                Group {
+                    TextField("Scraping Title", text: $title)
+                }
+            }
+            .navigationBarItems(
+                leading: Text("Add Scraping"),
+//                trailing: Button("Save") {
+//                    self.presentationMode.wrappedValue.dismiss()
+//                }
+                trailing: Button(
+                    action: {
+                        print("saved")
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                ) {
+                    Text("Save")
+                }
+            )
+        }
     }
 }
 

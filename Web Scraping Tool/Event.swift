@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 
 extension Event {
-    static func create(in managedObjectContext: NSManagedObjectContext){
+    static func create(in managedObjectContext: NSManagedObjectContext) {
         let newEvent = self.init(context: managedObjectContext)
         newEvent.timestamp = Date()
         

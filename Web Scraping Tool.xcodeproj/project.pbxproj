@@ -17,6 +17,9 @@
 		CB1918842493D43600B26363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB1918822493D43600B26363 /* LaunchScreen.storyboard */; };
 		CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19188E2493D43600B26363 /* Web_Scraping_ToolTests.swift */; };
 		CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918992493D43700B26363 /* Web_Scraping_ToolUITests.swift */; };
+		CB1918A82494DC0000B26363 /* ScrapingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918A72494DC0000B26363 /* ScrapingDetail.swift */; };
+		CB1918A92494DC0000B26363 /* ScrapingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918A72494DC0000B26363 /* ScrapingDetail.swift */; };
+		CB1918AA2494DC0000B26363 /* ScrapingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918A72494DC0000B26363 /* ScrapingDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,7 @@
 		CB1918952493D43700B26363 /* Web Scraping ToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web Scraping ToolUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1918992493D43700B26363 /* Web_Scraping_ToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Scraping_ToolUITests.swift; sourceTree = "<group>"; };
 		CB19189B2493D43700B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB1918A72494DC0000B26363 /* ScrapingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				CB1918772493D43500B26363 /* SceneDelegate.swift */,
 				CB1918792493D43500B26363 /* Event.swift */,
 				CB19187B2493D43500B26363 /* ContentView.swift */,
+				CB1918A72494DC0000B26363 /* ScrapingDetail.swift */,
 				CB19187D2493D43600B26363 /* Assets.xcassets */,
 				CB1918822493D43600B26363 /* LaunchScreen.storyboard */,
 				CB1918852493D43600B26363 /* Info.plist */,
@@ -278,6 +283,7 @@
 				CB1918732493D43500B26363 /* AppDelegate.swift in Sources */,
 				CB1918762493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld in Sources */,
 				CB1918782493D43500B26363 /* SceneDelegate.swift in Sources */,
+				CB1918A82494DC0000B26363 /* ScrapingDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */,
+				CB1918A92494DC0000B26363 /* ScrapingDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */,
+				CB1918AA2494DC0000B26363 /* ScrapingDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
