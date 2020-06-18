@@ -27,17 +27,14 @@ struct ContentView: View {
                     leading: EditButton(),
                     trailing: Button(
                         action: {
-//                            withAnimation { Event.create(in: self.viewContext) }
                             self.showScrapingDetail = true
                         }
                     ) {
                         Image(systemName: "plus")
                     }
                 )
-//            Text("Detail view content goes here")
-//                .navigationBarTitle(Text("Detail"))
             .sheet(isPresented: $showScrapingDetail) {
-                DetailView()
+                DetailView().environment(\.managedObjectContext, self.viewContext)
             }
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
@@ -45,51 +42,55 @@ struct ContentView: View {
 
 struct MasterView: View {
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Event.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPage.id, ascending: true)],
         animation: .default)
-    var events: FetchedResults<Event>
+    var scrapingPages: FetchedResults<ScrapingPage>
 
     @Environment(\.managedObjectContext) var viewContext
 
     var body: some View {
         List {
-            ForEach(events, id: \.self) { event in
+            ForEach(scrapingPages, id: \.self) { scrapingPage in
                 NavigationLink(
-//                    destination: DetailView(event: event)
                     destination: DetailView()
                 ) {
-                    Text("\(event.timestamp!, formatter: dateFormatter)")
+                    Text("\(scrapingPage.name!)")
                 }
             }.onDelete { indices in
-                self.events.delete(at: indices, from: self.viewContext)
+                self.scrapingPages.delete(at: indices, from: self.viewContext)
             }
         }
     }
 }
 
 struct DetailView: View {
-//    @ObservedObject var event: Event
-    @Environment (\.presentationMode) var presentationMode
-    @State var title = ""
+    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.presentationMode) var presentationMode
+    @State var scrapingName = ""
 
     var body: some View {
-//        Text("\(event.timestamp!, formatter: dateFormatter)")
-//            .navigationBarTitle(Text("Detail"))
-//        Text("detail page")
         NavigationView {
             Form {
-                Group {
-                    TextField("Scraping Title", text: $title)
+                Section {
+                    TextField("Scraping Name", text: $scrapingName)
                 }
             }
             .navigationBarItems(
                 leading: Text("Add Scraping"),
-//                trailing: Button("Save") {
-//                    self.presentationMode.wrappedValue.dismiss()
-//                }
                 trailing: Button(
                     action: {
-                        print("saved")
+                        let newScrapingPage = ScrapingPage(context: self.viewContext)
+                        newScrapingPage.name = self.scrapingName
+                        
+                        do {
+                            try  self.viewContext.save()
+                        } catch {
+                            // Replace this implementation with code to handle the error appropriately.
+                            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                            let nserror = error as NSError
+                            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                        }
+                        
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 ) {

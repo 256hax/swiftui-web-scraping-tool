@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB007A03249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPage+extensions.swift */; };
+		CB007A04249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPage+extensions.swift */; };
+		CB007A05249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPage+extensions.swift */; };
 		CB1918732493D43500B26363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918722493D43500B26363 /* AppDelegate.swift */; };
 		CB1918762493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB1918742493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld */; };
 		CB1918782493D43500B26363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918772493D43500B26363 /* SceneDelegate.swift */; };
@@ -40,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB007A02249BA692006BC83A /* ScrapingPage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrapingPage+extensions.swift"; sourceTree = "<group>"; };
 		CB19186F2493D43500B26363 /* Web Scraping Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Web Scraping Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1918722493D43500B26363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB1918752493D43500B26363 /* Web_Scraping_Tool.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Web_Scraping_Tool.xcdatamodel; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB007A01249B220C006BC83A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB007A02249BA692006BC83A /* ScrapingPage+extensions.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CB1918662493D43500B26363 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +119,7 @@
 		CB1918712493D43500B26363 /* Web Scraping Tool */ = {
 			isa = PBXGroup;
 			children = (
+				CB007A01249B220C006BC83A /* Models */,
 				CB1918722493D43500B26363 /* AppDelegate.swift */,
 				CB1918772493D43500B26363 /* SceneDelegate.swift */,
 				CB1918792493D43500B26363 /* Event.swift */,
@@ -282,6 +295,7 @@
 				CB19187C2493D43500B26363 /* ContentView.swift in Sources */,
 				CB1918732493D43500B26363 /* AppDelegate.swift in Sources */,
 				CB1918762493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld in Sources */,
+				CB007A03249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */,
 				CB1918782493D43500B26363 /* SceneDelegate.swift in Sources */,
 				CB1918A82494DC0000B26363 /* ScrapingDetail.swift in Sources */,
 			);
@@ -291,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB007A04249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */,
 				CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */,
 				CB1918A92494DC0000B26363 /* ScrapingDetail.swift in Sources */,
 			);
@@ -300,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB007A05249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */,
 				CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */,
 				CB1918AA2494DC0000B26363 /* ScrapingDetail.swift in Sources */,
 			);
