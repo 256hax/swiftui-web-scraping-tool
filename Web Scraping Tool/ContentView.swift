@@ -67,30 +67,25 @@ struct DetailView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
     @State var scrapingName = ""
+    @State var scrapingUrl = ""
 
     var body: some View {
         NavigationView {
             Form {
                 Section {
                     TextField("Scraping Name", text: $scrapingName)
+                    TextField("Scraping Url", text: $scrapingUrl)
                 }
             }
             .navigationBarItems(
                 leading: Text("Add Scraping"),
                 trailing: Button(
                     action: {
-                        let newScrapingPage = ScrapingPage(context: self.viewContext)
-                        newScrapingPage.name = self.scrapingName
-                        
-                        do {
-                            try  self.viewContext.save()
-                        } catch {
-                            // Replace this implementation with code to handle the error appropriately.
-                            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                            let nserror = error as NSError
-                            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                        }
-                        
+                        ScrapingPage.create(
+                            in: self.viewContext,
+                            scrapingName: self.scrapingName,
+                            scrapingUrl: self.scrapingUrl
+                        )
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 ) {

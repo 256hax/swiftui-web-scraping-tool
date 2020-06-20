@@ -12,22 +12,22 @@ import CoreData
 extension ScrapingPage: Identifiable {
 }
 
-//extension ScrapingPage {
-//    static func create(in managedObjectContext: NSManagedObjectContext) {
-//        let newScrapingPage = self.init(context: managedObjectContext)
-//        newScrapingPage.id = UUID()
-//        newScrapingPage.name = scrapingName
-//
-//        do {
-//            try  managedObjectContext.save()
-//        } catch {
-//            // Replace this implementation with code to handle the error appropriately.
-//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//            let nserror = error as NSError
-//            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//        }
-//    }
-//}
+extension ScrapingPage {
+    static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String) {
+        let newScrapingPage  = ScrapingPage(context: viewContext)
+        newScrapingPage.name = scrapingName
+        newScrapingPage.url  = scrapingUrl
+        
+        do {
+            try  viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+}
 
 extension Collection where Element == ScrapingPage, Index == Int {
     func delete(at indices: IndexSet, from managedObjectContext: NSManagedObjectContext) {

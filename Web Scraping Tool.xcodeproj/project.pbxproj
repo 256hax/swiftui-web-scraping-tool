@@ -54,10 +54,10 @@
 		CB1918802493D43600B26363 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB1918832493D43600B26363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB1918852493D43600B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web Scraping ToolTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB19188A2493D43600B26363 /* Web_Scraping_ToolTests.swift */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Web_Scraping_ToolTests.swift; path = "../../../../../../../../Documents/Programming/iOS/swiftui-web-scraping-tool/Web Scraping ToolTests/Web_Scraping_ToolTests.swift"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB19188E2493D43600B26363 /* Web_Scraping_ToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Scraping_ToolTests.swift; sourceTree = "<group>"; };
 		CB1918902493D43600B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB1918952493D43700B26363 /* Web Scraping ToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web Scraping ToolUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB1918952493D43700B26363 /* Web_Scraping_ToolUITests.swift */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Web_Scraping_ToolUITests.swift; path = "../../../../../../../../Documents/Programming/iOS/Web Scraping Toola/Web Scraping ToolUITests/Web_Scraping_ToolUITests.swift"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1918992493D43700B26363 /* Web_Scraping_ToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Scraping_ToolUITests.swift; sourceTree = "<group>"; };
 		CB19189B2493D43700B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB1918A72494DC0000B26363 /* ScrapingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingDetail.swift; sourceTree = "<group>"; };
@@ -110,8 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				CB19186F2493D43500B26363 /* Web Scraping Tool.app */,
-				CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */,
-				CB1918952493D43700B26363 /* Web Scraping ToolUITests.xctest */,
+				CB19188A2493D43600B26363 /* Web_Scraping_ToolTests.swift */,
+				CB1918952493D43700B26363 /* Web_Scraping_ToolUITests.swift */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 			);
 			name = "Web Scraping ToolTests";
 			productName = "Web Scraping ToolTests";
-			productReference = CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */;
+			productReference = CB19188A2493D43600B26363 /* Web_Scraping_ToolTests.swift */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		CB1918942493D43600B26363 /* Web Scraping ToolUITests */ = {
@@ -213,7 +213,7 @@
 			);
 			name = "Web Scraping ToolUITests";
 			productName = "Web Scraping ToolUITests";
-			productReference = CB1918952493D43700B26363 /* Web Scraping ToolUITests.xctest */;
+			productReference = CB1918952493D43700B26363 /* Web_Scraping_ToolUITests.swift */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
