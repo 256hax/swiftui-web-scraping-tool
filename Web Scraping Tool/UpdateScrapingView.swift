@@ -35,7 +35,7 @@ struct UpdateScrapingView: View {
                 }
             }
             .navigationBarItems(
-                leading: Text("Add Scraping"),
+                leading: Text("Update Scraping"),
                 trailing: Button(
                     action: {
                         ScrapingPage.create(

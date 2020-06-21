@@ -41,20 +41,26 @@ struct ContentView: View {
 }
 
 struct MasterView: View {
+    @State var showScrapingDetail = false
+    @Environment(\.managedObjectContext) var viewContext
+
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPage.id, ascending: true)],
         animation: .default)
     var scrapingPages: FetchedResults<ScrapingPage>
 
-    @Environment(\.managedObjectContext) var viewContext
-
     var body: some View {
         List {
             ForEach(scrapingPages, id: \.self) { scrapingPage in
-                NavigationLink(
-                    destination: DetailView()
+                Button(
+                    action: {
+                        self.showScrapingDetail = true
+                    }
                 ) {
                     Text("\(scrapingPage.name!)")
+                }
+                .sheet(isPresented: self.$showScrapingDetail) {
+                    UpdateScrapingView(scrapingPage: scrapingPage).environment(\.managedObjectContext, self.viewContext)
                 }
             }.onDelete { indices in
                 self.scrapingPages.delete(at: indices, from: self.viewContext)
