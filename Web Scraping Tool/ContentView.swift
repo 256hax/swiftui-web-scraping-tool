@@ -16,6 +16,7 @@ private let dateFormatter: DateFormatter = {
 }()
 
 struct ContentView: View {
+    // Handling for CoreData Object
     @Environment(\.managedObjectContext) var viewContext
     @State var showScrapingDetail = false
  
@@ -44,6 +45,7 @@ struct MasterView: View {
     @State var showScrapingDetail = false
     @Environment(\.managedObjectContext) var viewContext
 
+    // Get ScrapingPage object from CoreData
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPage.id, ascending: true)],
         animation: .default)

@@ -16,9 +16,11 @@ class UpdateUserInput: ObservableObject {
 
 struct UpdateScrapingView: View {
     @Environment(\.managedObjectContext) var viewContext
-    @Environment(\.presentationMode) var presentationMode
+    // Observe for user input
     @ObservedObject var updateUserInput = UpdateUserInput()
-    
+    @Environment(\.presentationMode) var presentationMode
+
+    // Declare ScrapingPage data
     let scrapingPage: ScrapingPage
     init(scrapingPage: ScrapingPage) {
         self.scrapingPage = scrapingPage
@@ -38,23 +40,14 @@ struct UpdateScrapingView: View {
                 leading: Text("Update Scraping"),
                 trailing: Button(
                     action: {
-//                        ScrapingPage.create(
-//                            in: self.viewContext,
-//                            scrapingName: self.updateUserInput.name,
-//                            scrapingUrl: self.updateUserInput.url
-//                        )
-                        self.scrapingPage.name = self.updateUserInput.name
-                        self.scrapingPage.url = self.updateUserInput.url
-                        self.presentationMode.wrappedValue.dismiss()
+                        ScrapingPage.update(
+                            in: self.viewContext,
+                            scrapingPage: self.scrapingPage,
+                            scrapingName: self.updateUserInput.name,
+                            scrapingUrl: self.updateUserInput.url
+                        )
                         
-                        do {
-                            try  self.viewContext.save()
-                        } catch {
-                            // Replace this implementation with code to handle the error appropriately.
-                            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                            let nserror = error as NSError
-                            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                        }
+                        self.presentationMode.wrappedValue.dismiss()
                     }
                 ) {
                     Text("Save")
