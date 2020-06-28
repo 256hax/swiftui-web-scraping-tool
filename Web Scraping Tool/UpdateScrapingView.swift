@@ -9,7 +9,7 @@
 import SwiftUI
 import CoreData
 
-class UpdateData: ObservableObject {
+class UpdateUserInput: ObservableObject {
     @Published var name = ""
     @Published var url = ""
 }
@@ -17,33 +17,44 @@ class UpdateData: ObservableObject {
 struct UpdateScrapingView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var updateData = UpdateData()
+    @ObservedObject var updateUserInput = UpdateUserInput()
     
     let scrapingPage: ScrapingPage
     init(scrapingPage: ScrapingPage) {
         self.scrapingPage = scrapingPage
-        self.updateData.name = scrapingPage.name ?? "new name"
-        self.updateData.url = scrapingPage.url ?? ""
+        self.updateUserInput.name = scrapingPage.name ?? "new name"
+        self.updateUserInput.url = scrapingPage.url ?? ""
     }
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Scraping Name", text: $updateData.name)
-                    TextField("Scraping Url", text: $updateData.url)
+                    TextField("Scraping Name", text: $updateUserInput.name)
+                    TextField("Scraping Url", text: $updateUserInput.url)
                 }
             }
             .navigationBarItems(
                 leading: Text("Update Scraping"),
                 trailing: Button(
                     action: {
-                        ScrapingPage.create(
-                            in: self.viewContext,
-                            scrapingName: self.updateData.name,
-                            scrapingUrl: self.updateData.url
-                        )
+//                        ScrapingPage.create(
+//                            in: self.viewContext,
+//                            scrapingName: self.updateUserInput.name,
+//                            scrapingUrl: self.updateUserInput.url
+//                        )
+                        self.scrapingPage.name = self.updateUserInput.name
+                        self.scrapingPage.url = self.updateUserInput.url
                         self.presentationMode.wrappedValue.dismiss()
+                        
+                        do {
+                            try  self.viewContext.save()
+                        } catch {
+                            // Replace this implementation with code to handle the error appropriately.
+                            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                            let nserror = error as NSError
+                            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                        }
                     }
                 ) {
                     Text("Save")
