@@ -14,9 +14,10 @@ extension ScrapingPage: Identifiable {
 
 extension ScrapingPage {
     static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String) {
-        let newScrapingPage  = ScrapingPage(context: viewContext)
-        newScrapingPage.name = scrapingName.isEmpty ? "No Name" : scrapingName
-        newScrapingPage.url  = scrapingUrl
+        let newScrapingPage       = ScrapingPage(context: viewContext)
+        newScrapingPage.name      = scrapingName.isEmpty ? "No Name" : scrapingName
+        newScrapingPage.url       = scrapingUrl
+        newScrapingPage.updatedAt = Date()
         
         do {
             try  viewContext.save()
@@ -29,10 +30,10 @@ extension ScrapingPage {
     }
     
     static func update(in viewContext: NSManagedObjectContext, scrapingPage: ScrapingPage, scrapingName: String, scrapingUrl: String) {
-        let scrapingPage = scrapingPage
-        
-        scrapingPage.name = scrapingName
-        scrapingPage.url = scrapingUrl
+        let scrapingPage        = scrapingPage
+        scrapingPage.name       = scrapingName
+        scrapingPage.url        = scrapingUrl
+        scrapingPage.updatedAt  = Date()
         
         do {
             try  viewContext.save()

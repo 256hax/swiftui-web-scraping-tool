@@ -3,9 +3,10 @@
     <entity name="ScrapingPage" representedClassName="ScrapingPage" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="ScrapingPage" positionX="261" positionY="198" width="128" height="88"/>
+        <element name="ScrapingPage" positionX="261" positionY="198" width="128" height="103"/>
     </elements>
 </model>

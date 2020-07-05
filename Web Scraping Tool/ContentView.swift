@@ -35,7 +35,7 @@ struct ContentView: View {
                     }
                 )
             .sheet(isPresented: $showScrapingDetail) {
-                DetailView().environment(\.managedObjectContext, self.viewContext)
+                CreateScrapingView().environment(\.managedObjectContext, self.viewContext)
             }
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
@@ -47,7 +47,7 @@ struct MasterView: View {
 
     // Get ScrapingPage object from CoreData
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPage.id, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPage.updatedAt, ascending: false)],
         animation: .default)
     var scrapingPages: FetchedResults<ScrapingPage>
 
@@ -67,39 +67,6 @@ struct MasterView: View {
             }.onDelete { indices in
                 self.scrapingPages.delete(at: indices, from: self.viewContext)
             }
-        }
-    }
-}
-
-struct DetailView: View {
-    @Environment(\.managedObjectContext) var viewContext
-    @Environment(\.presentationMode) var presentationMode
-    @State var scrapingName = ""
-    @State var scrapingUrl = ""
-
-    var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    TextField("Scraping Name", text: $scrapingName)
-                    TextField("Scraping Url", text: $scrapingUrl)
-                }
-            }
-            .navigationBarItems(
-                leading: Text("Add Scraping"),
-                trailing: Button(
-                    action: {
-                        ScrapingPage.create(
-                            in: self.viewContext,
-                            scrapingName: self.scrapingName,
-                            scrapingUrl: self.scrapingUrl
-                        )
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
-                ) {
-                    Text("Save")
-                }
-            )
         }
     }
 }
