@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct ScrapingDetail: View {
-    @ObservedObject var event: Event
-
+//    @ObservedObject var event: Event
+//
     var body: some View {
         Text("detail page")
             .navigationBarTitle(Text("Detail"))

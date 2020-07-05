@@ -15,7 +15,7 @@ extension ScrapingPage: Identifiable {
 extension ScrapingPage {
     static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String) {
         let newScrapingPage  = ScrapingPage(context: viewContext)
-        newScrapingPage.name = scrapingName
+        newScrapingPage.name = scrapingName.isEmpty ? "No Name" : scrapingName
         newScrapingPage.url  = scrapingUrl
         
         do {
