@@ -35,7 +35,7 @@ struct ContentView: View {
                     }
                 )
             .sheet(isPresented: $showScrapingDetail) {
-                CreateScrapingView().environment(\.managedObjectContext, self.viewContext)
+                NewScrapingView().environment(\.managedObjectContext, self.viewContext)
             }
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
@@ -62,7 +62,7 @@ struct MasterView: View {
                     Text("\(scrapingPage.name!)")
                 }
                 .sheet(isPresented: self.$showScrapingDetail) {
-                    UpdateScrapingView(scrapingPage: scrapingPage).environment(\.managedObjectContext, self.viewContext)
+                    EditScrapingView(scrapingPage: scrapingPage).environment(\.managedObjectContext, self.viewContext)
                 }
             }.onDelete { indices in
                 self.scrapingPages.delete(at: indices, from: self.viewContext)

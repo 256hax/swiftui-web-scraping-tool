@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CreateScrapingView: View {
+struct NewScrapingView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
     @State var scrapingName = ""
@@ -43,6 +43,6 @@ struct CreateScrapingView: View {
 
 struct CreateScrapingView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateScrapingView()
+        NewScrapingView()
     }
 }

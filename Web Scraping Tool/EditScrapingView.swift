@@ -14,7 +14,7 @@ class UpdateUserInput: ObservableObject {
     @Published var url = ""
 }
 
-struct UpdateScrapingView: View {
+struct EditScrapingView: View {
     @Environment(\.managedObjectContext) var viewContext
     // Observe for user input
     @ObservedObject var updateUserInput = UpdateUserInput()
@@ -66,6 +66,6 @@ struct UpdateScrapingView_Previews: PreviewProvider {
         scrapingPage.name = "find example in Example.com"
         scrapingPage.url = "https://example.com/"
         
-        return UpdateScrapingView(scrapingPage: scrapingPage).environment(\.managedObjectContext, context)
+        return EditScrapingView(scrapingPage: scrapingPage).environment(\.managedObjectContext, context)
     }
 }
