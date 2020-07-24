@@ -13,6 +13,7 @@ struct NewScrapingView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var scrapingName = ""
     @State var scrapingUrl = ""
+    @State var scrapingKeyword = ""
 
     var body: some View {
         NavigationView {
@@ -20,6 +21,7 @@ struct NewScrapingView: View {
                 Section {
                     TextField("Scraping Name", text: $scrapingName)
                     TextField("Scraping Url", text: $scrapingUrl)
+                    TextField("Search Keyword", text: $scrapingKeyword)
                 }
             }
             .navigationBarItems(
@@ -29,7 +31,8 @@ struct NewScrapingView: View {
                         ScrapingPage.create(
                             in: self.viewContext,
                             scrapingName: self.scrapingName,
-                            scrapingUrl: self.scrapingUrl
+                            scrapingUrl: self.scrapingUrl,
+                            scrapingKeyword: self.scrapingKeyword
                         )
                         self.presentationMode.wrappedValue.dismiss()
                     }

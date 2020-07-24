@@ -12,6 +12,7 @@ import CoreData
 class UpdateUserInput: ObservableObject {
     @Published var name = ""
     @Published var url = ""
+    @Published var keyword = ""
 }
 
 struct EditScrapingView: View {
@@ -24,8 +25,9 @@ struct EditScrapingView: View {
     let scrapingPage: ScrapingPage
     init(scrapingPage: ScrapingPage) {
         self.scrapingPage = scrapingPage
-        self.updateUserInput.name = scrapingPage.name ?? "new name"
-        self.updateUserInput.url = scrapingPage.url ?? ""
+        self.updateUserInput.name    = scrapingPage.name ?? "new name"
+        self.updateUserInput.url     = scrapingPage.url ?? ""
+        self.updateUserInput.keyword = scrapingPage.keyword ?? ""
     }
     
     var body: some View {
@@ -34,6 +36,7 @@ struct EditScrapingView: View {
                 Section {
                     TextField("Scraping Name", text: $updateUserInput.name)
                     TextField("Scraping Url", text: $updateUserInput.url)
+                    TextField("Search Keyword", text: $updateUserInput.keyword)
                 }
             }
             .navigationBarItems(
@@ -44,7 +47,8 @@ struct EditScrapingView: View {
                             in: self.viewContext,
                             scrapingPage: self.scrapingPage,
                             scrapingName: self.updateUserInput.name,
-                            scrapingUrl: self.updateUserInput.url
+                            scrapingUrl: self.updateUserInput.url,
+                            scrapingKeyword: self.updateUserInput.keyword
                         )
                         
                         self.presentationMode.wrappedValue.dismiss()
@@ -63,8 +67,9 @@ struct UpdateScrapingView_Previews: PreviewProvider {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let scrapingPage = ScrapingPage(context: context)
-        scrapingPage.name = "find example in Example.com"
+        scrapingPage.name = "Find example in Example.com"
         scrapingPage.url = "https://example.com/"
+        scrapingPage.keyword = "Example"
         
         return EditScrapingView(scrapingPage: scrapingPage).environment(\.managedObjectContext, context)
     }
