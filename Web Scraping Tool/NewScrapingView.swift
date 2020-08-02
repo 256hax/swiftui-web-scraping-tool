@@ -23,6 +23,11 @@ struct NewScrapingView: View {
                     TextField("Scraping Url", text: $scrapingUrl)
                     TextField("Search Keyword", text: $scrapingKeyword)
                 }
+                Section {
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("Scraping Test")
+                    }
+                }
             }
             .navigationBarItems(
                 leading: Text("Add Scraping"),

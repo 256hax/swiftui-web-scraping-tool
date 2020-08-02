@@ -5,15 +5,7 @@
 //  Created by user on 2020/06/13.
 //  Copyright © 2020 256hax. All rights reserved.
 //
-
 import SwiftUI
-
-private let dateFormatter: DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    dateFormatter.timeStyle = .medium
-    return dateFormatter
-}()
 
 struct ContentView: View {
     // Handling for CoreData Object
