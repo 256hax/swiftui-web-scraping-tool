@@ -126,6 +126,7 @@
 		CB1918712493D43500B26363 /* Web Scraping Tool */ = {
 			isa = PBXGroup;
 			children = (
+				CB2F2AA824E9933A004B1FFA /* Services */,
 				CB007A01249B220C006BC83A /* Models */,
 				CBBE1E8824D6F58500071FA7 /* Utils */,
 				CB19187B2493D43500B26363 /* ContentView.swift */,
@@ -168,10 +169,17 @@
 			path = "Web Scraping ToolUITests";
 			sourceTree = "<group>";
 		};
-		CBBE1E8824D6F58500071FA7 /* Utils */ = {
+		CB2F2AA824E9933A004B1FFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				CBBE1E8924D718F700071FA7 /* Scraping.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CBBE1E8824D6F58500071FA7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
 				CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */,
 			);
 			path = Utils;
