@@ -9,20 +9,14 @@
 import Foundation
 
 class Scraping {
-    func crawling(inputUrl: String, pattern: String) {
+    func test(inputUrl: String, pattern: String) {
         let encodingUrl: String = inputUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: encodingUrl)!
 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else {
-                print("Data is nil.")
-                return
-            }
+            guard let data = data else { return }
+            guard let html = String(data: data, encoding: .utf8) else { return }
             
-            guard let html = String(data: data, encoding: .utf8) else {
-                print("Failed to convert String.")
-                return
-            }
             self.regex(inputText: html, pattern: pattern)
         }
 
@@ -38,4 +32,4 @@ class Scraping {
 //let url = "https://example.com/"
 //let pattern   = "example"
 //let scraping = Scraping()
-//scraping.crawling(inputUrl: url, pattern: pattern)
+//scraping.test(inputUrl: url, pattern: pattern)

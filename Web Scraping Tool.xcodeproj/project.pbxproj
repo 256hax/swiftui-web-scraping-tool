@@ -25,8 +25,6 @@
 		CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CBBE1E8A24D718F700071FA7 /* Scraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBE1E8924D718F700071FA7 /* Scraping.swift */; };
-		CBBE1E8B24D718F700071FA7 /* Scraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBE1E8924D718F700071FA7 /* Scraping.swift */; };
-		CBBE1E8C24D718F700071FA7 /* Scraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBE1E8924D718F700071FA7 /* Scraping.swift */; };
 		CBE5B89424B2113C00EFF560 /* NewScrapingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE5B89324B2113C00EFF560 /* NewScrapingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,8 +124,9 @@
 		CB1918712493D43500B26363 /* Web Scraping Tool */ = {
 			isa = PBXGroup;
 			children = (
-				CB2F2AA824E9933A004B1FFA /* Services */,
 				CB007A01249B220C006BC83A /* Models */,
+				CB2F2AA824E9933A004B1FFA /* Services */,
+				CBBE1E8924D718F700071FA7 /* Scraping.swift */,
 				CBBE1E8824D6F58500071FA7 /* Utils */,
 				CB19187B2493D43500B26363 /* ContentView.swift */,
 				CBE5B89324B2113C00EFF560 /* NewScrapingView.swift */,
@@ -172,7 +171,6 @@
 		CB2F2AA824E9933A004B1FFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CBBE1E8924D718F700071FA7 /* Scraping.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -336,7 +334,6 @@
 				CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB007A04249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */,
 				CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */,
-				CBBE1E8B24D718F700071FA7 /* Scraping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +344,6 @@
 				CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB007A05249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */,
 				CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */,
-				CBBE1E8C24D718F700071FA7 /* Scraping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
