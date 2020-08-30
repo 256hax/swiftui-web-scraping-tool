@@ -10,8 +10,8 @@ import SwiftUI
 import CoreData
 
 class UpdateUserInput: ObservableObject {
-    @Published var name = ""
-    @Published var url = ""
+    @Published var name    = ""
+    @Published var url     = ""
     @Published var keyword = ""
 }
 
@@ -20,6 +20,7 @@ struct EditScrapingView: View {
     // Observe for user input
     @ObservedObject var updateUserInput = UpdateUserInput()
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var scraping = Scraping()
 
     // Declare ScrapingPage data
     let scrapingPage: ScrapingPage
@@ -37,6 +38,30 @@ struct EditScrapingView: View {
                     TextField("Scraping Name", text: $updateUserInput.name)
                     TextField("Scraping Url", text: $updateUserInput.url)
                     TextField("Search Keyword", text: $updateUserInput.keyword)
+                }
+                Section {
+                    HStack {
+                        Spacer()
+                        Button(
+                            action: {
+                                let url = "https://example.com/"
+                                let pattern   = "example"
+//                                let scraping = Scraping()
+//                                scraping.test(inputUrl: url, pattern: pattern)
+                                self.scraping.test(inputUrl: url, pattern: pattern)
+                                print(self.$scraping.countMatches)
+                            }
+                        ) {
+                            Text("Running Test")
+                        }
+                    }
+                    HStack {
+                        Spacer()
+                        Text("")
+                            .foregroundColor(Color.gray)
+                        Text("")
+                            .foregroundColor(Color.gray)
+                    }
                 }
             }
             .navigationBarItems(

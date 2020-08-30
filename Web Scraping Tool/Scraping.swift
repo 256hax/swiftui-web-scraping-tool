@@ -8,7 +8,10 @@
 
 import Foundation
 
-class Scraping {
+class Scraping: ObservableObject {
+    @Published var isMatch = false
+    @Published var countMatches = 0
+    
     func test(inputUrl: String, pattern: String) {
         let encodingUrl: String = inputUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: encodingUrl)!
@@ -25,11 +28,7 @@ class Scraping {
     
     func regex(inputText: String, pattern: String) {
         let nsregex   = NSRegex(pattern)
-        print( nsregex.countMatches(inputText) )
+        self.countMatches = nsregex.countMatches(inputText)
+//        print(self.countMatches)
     }
 }
-
-//let url = "https://example.com/"
-//let pattern   = "example"
-//let scraping = Scraping()
-//scraping.test(inputUrl: url, pattern: pattern)
