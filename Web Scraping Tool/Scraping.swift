@@ -16,11 +16,13 @@ class Scraping: ObservableObject {
         let encodingUrl: String = inputUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: encodingUrl)!
 
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else { return }
             guard let html = String(data: data, encoding: .utf8) else { return }
             
-            self.regex(inputText: html, pattern: pattern)
+            DispatchQueue.main.async {
+                self.regex(inputText: html, pattern: pattern)
+            }
         }
 
         task.resume()
