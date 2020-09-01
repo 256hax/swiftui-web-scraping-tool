@@ -48,10 +48,7 @@ struct EditScrapingView: View {
                             action: {
                                 let url = "https://example.com/"
                                 let pattern   = "example"
-//                                let scraping = Scraping()
-//                                scraping.test(inputUrl: url, pattern: pattern)
                                 self.scraping.test(inputUrl: url, pattern: pattern)
-                                print(self.converting.isMatchToString(self.scraping.isMatch))
                             }
                         ) {
                             Text("Running Test")
@@ -59,9 +56,9 @@ struct EditScrapingView: View {
                     }
                     HStack {
                         Spacer()
-                        Text("")
+                        Text("\(self.converting.isMatchToString(self.scraping.isMatch))")
                             .foregroundColor(Color.gray)
-                        Text("\(self.scraping.countMatches)")
+                        Text("\(self.scraping.countMatches) times")
                             .foregroundColor(Color.gray)
                     }
                 }
