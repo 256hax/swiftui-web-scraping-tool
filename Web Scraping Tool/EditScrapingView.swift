@@ -21,7 +21,7 @@ struct EditScrapingView: View {
     @ObservedObject var updateUserInput = UpdateUserInput()
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var scraping = Scraping()
-
+    
     // Declare ScrapingPage data
     let scrapingPage: ScrapingPage
     init(scrapingPage: ScrapingPage) {
@@ -30,6 +30,8 @@ struct EditScrapingView: View {
         self.updateUserInput.url     = scrapingPage.url ?? ""
         self.updateUserInput.keyword = scrapingPage.keyword ?? ""
     }
+    
+    let converting = Converting()
     
     var body: some View {
         NavigationView {
@@ -49,7 +51,7 @@ struct EditScrapingView: View {
 //                                let scraping = Scraping()
 //                                scraping.test(inputUrl: url, pattern: pattern)
                                 self.scraping.test(inputUrl: url, pattern: pattern)
-                                print(self.$scraping.countMatches)
+                                print(self.converting.isMatchToString(self.scraping.isMatch))
                             }
                         ) {
                             Text("Running Test")
@@ -59,7 +61,7 @@ struct EditScrapingView: View {
                         Spacer()
                         Text("")
                             .foregroundColor(Color.gray)
-                        Text("")
+                        Text("\(self.scraping.countMatches)")
                             .foregroundColor(Color.gray)
                     }
                 }

@@ -30,7 +30,7 @@ class Scraping: ObservableObject {
     
     func regex(inputText: String, pattern: String) {
         let nsregex   = NSRegex(pattern)
+        self.isMatch = nsregex.isMatch(inputText)
         self.countMatches = nsregex.countMatches(inputText)
-//        print(self.countMatches)
     }
 }

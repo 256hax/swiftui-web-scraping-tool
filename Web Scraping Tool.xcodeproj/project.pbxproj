@@ -25,6 +25,9 @@
 		CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CBBE1E8A24D718F700071FA7 /* Scraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBE1E8924D718F700071FA7 /* Scraping.swift */; };
+		CBC4BFE124FDFE5900538D1D /* ConvertingString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4BFDF24FDFE5900538D1D /* ConvertingString.swift */; };
+		CBC4BFE224FDFE5900538D1D /* ConvertingString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4BFDF24FDFE5900538D1D /* ConvertingString.swift */; };
+		CBC4BFE624FDFF4100538D1D /* Converting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4BFE524FDFF4100538D1D /* Converting.swift */; };
 		CBE5B89424B2113C00EFF560 /* NewScrapingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE5B89324B2113C00EFF560 /* NewScrapingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,8 @@
 		CB19189B2493D43700B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegex.swift; sourceTree = "<group>"; };
 		CBBE1E8924D718F700071FA7 /* Scraping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scraping.swift; sourceTree = "<group>"; };
+		CBC4BFDF24FDFE5900538D1D /* ConvertingString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConvertingString.swift; path = helpers/ConvertingString.swift; sourceTree = "<group>"; };
+		CBC4BFE524FDFF4100538D1D /* Converting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converting.swift; sourceTree = "<group>"; };
 		CBE5B89324B2113C00EFF560 /* NewScrapingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScrapingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +133,7 @@
 				CB2F2AA824E9933A004B1FFA /* Services */,
 				CBBE1E8924D718F700071FA7 /* Scraping.swift */,
 				CBBE1E8824D6F58500071FA7 /* Utils */,
+				CBC4BFE424FDFF4100538D1D /* helpers */,
 				CB19187B2493D43500B26363 /* ContentView.swift */,
 				CBE5B89324B2113C00EFF560 /* NewScrapingView.swift */,
 				CB020132249F76F600964040 /* EditScrapingView.swift */,
@@ -138,6 +144,7 @@
 				CB1918852493D43600B26363 /* Info.plist */,
 				CB1918742493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld */,
 				CB19187F2493D43600B26363 /* Preview Content */,
+				CBC4BFDF24FDFE5900538D1D /* ConvertingString.swift */,
 			);
 			path = "Web Scraping Tool";
 			sourceTree = "<group>";
@@ -181,6 +188,14 @@
 				CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CBC4BFE424FDFF4100538D1D /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CBC4BFE524FDFF4100538D1D /* Converting.swift */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +334,7 @@
 				CB020133249F76F600964040 /* EditScrapingView.swift in Sources */,
 				CB19187C2493D43500B26363 /* ContentView.swift in Sources */,
 				CBE5B89424B2113C00EFF560 /* NewScrapingView.swift in Sources */,
+				CBC4BFE624FDFF4100538D1D /* Converting.swift in Sources */,
 				CB1918732493D43500B26363 /* AppDelegate.swift in Sources */,
 				CB1918762493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld in Sources */,
 				CB007A03249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */,
@@ -334,6 +350,7 @@
 				CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB007A04249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */,
 				CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */,
+				CBC4BFE124FDFE5900538D1D /* ConvertingString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +361,7 @@
 				CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB007A05249BA692006BC83A /* ScrapingPage+extensions.swift in Sources */,
 				CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */,
+				CBC4BFE224FDFE5900538D1D /* ConvertingString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
