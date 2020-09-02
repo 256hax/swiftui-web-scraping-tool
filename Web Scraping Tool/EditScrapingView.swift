@@ -58,7 +58,7 @@ struct EditScrapingView: View {
                         Spacer()
                         Text("\(self.converting.isMatchToString(self.scraping.isMatch))")
                             .foregroundColor(Color.gray)
-                        Text("\(self.scraping.countMatches) times")
+                        Text("\(self.converting.countWithTimes(self.scraping.countMatches))")
                             .foregroundColor(Color.gray)
                     }
                 }
@@ -74,7 +74,6 @@ struct EditScrapingView: View {
                             scrapingUrl: self.updateUserInput.url,
                             scrapingKeyword: self.updateUserInput.keyword
                         )
-                        
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 ) {
