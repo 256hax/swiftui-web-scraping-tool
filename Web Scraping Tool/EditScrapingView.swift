@@ -33,6 +33,14 @@ struct EditScrapingView: View {
     
     let converting = Converting()
     
+    var runningTestResult: String {
+        // Case1: Default text
+        // Case2: Run scraping
+        // Case3: Completion result
+        let text = "\(self.converting.isMatchToString(self.scraping.isMatch)) \(self.converting.countWithTimes(self.scraping.countMatches))"
+        return text
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -56,10 +64,11 @@ struct EditScrapingView: View {
                     }
                     HStack {
                         Spacer()
-                        Text("\(self.converting.isMatchToString(self.scraping.isMatch))")
-                            .foregroundColor(Color.gray)
-                        Text("\(self.converting.countWithTimes(self.scraping.countMatches))")
-                            .foregroundColor(Color.gray)
+//                        Text("\(self.converting.isMatchToString(self.scraping.isMatch))")
+//                            .foregroundColor(Color.gray)
+//                        Text("\(self.converting.countWithTimes(self.scraping.countMatches))")
+//                            .foregroundColor(Color.gray)
+                        Text(runningTestResult)
                     }
                 }
             }
