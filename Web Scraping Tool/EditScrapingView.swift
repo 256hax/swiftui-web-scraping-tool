@@ -34,6 +34,7 @@ struct EditScrapingView: View {
     let converting = Converting()
     
     var runningTestResult: String {
+        // [todo]
         // Case1: Default text
         // Case2: Run scraping
         // Case3: Completion result
@@ -45,17 +46,19 @@ struct EditScrapingView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Scraping Name", text: $updateUserInput.name)
-                    TextField("Scraping Url", text: $updateUserInput.url)
-                    TextField("Search Keyword", text: $updateUserInput.keyword)
+                    TextField("Scraping Name", text: $updateUserInput.name).autocapitalization(.none)
+                    TextField("Scraping Url", text: $updateUserInput.url).autocapitalization(.none)
+                    TextField("Search Keyword", text: $updateUserInput.keyword).autocapitalization(.none)
                 }
                 Section {
                     HStack {
                         Spacer()
                         Button(
                             action: {
+                                // [todo] delete sample value
                                 let url = "https://example.com/"
                                 let pattern   = "example"
+                                
                                 self.scraping.test(inputUrl: url, pattern: pattern)
                             }
                         ) {

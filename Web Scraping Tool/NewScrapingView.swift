@@ -19,9 +19,9 @@ struct NewScrapingView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Scraping Name", text: $scrapingName)
-                    TextField("Scraping Url", text: $scrapingUrl)
-                    TextField("Search Keyword", text: $scrapingKeyword)
+                    TextField("Scraping Name", text: $scrapingName).autocapitalization(.none)
+                    TextField("Scraping Url", text: $scrapingUrl).autocapitalization(.none)
+                    TextField("Search Keyword", text: $scrapingKeyword).autocapitalization(.none)
                 }
                 Section {
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
