@@ -25,7 +25,7 @@ class Scraping: ObservableObject {
             guard let data = data else { return }
             guard let html = String(data: data, encoding: .utf8) else { return }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.async {
                 self.regex(inputText: html, pattern: pattern)
             }
         }

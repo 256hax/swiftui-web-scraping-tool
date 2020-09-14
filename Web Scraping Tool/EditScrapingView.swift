@@ -20,6 +20,7 @@ struct EditScrapingView: View {
     // Observe for user input
     @ObservedObject var updateUserInput = UpdateUserInput()
     @Environment(\.presentationMode) var presentationMode
+    // Call Services/Scraping
     @ObservedObject var scraping = Scraping()
     
     // Declare ScrapingPage data
@@ -59,6 +60,7 @@ struct EditScrapingView: View {
                                 let url = "https://example.com/"
                                 let pattern   = "example"
                                 
+                                Thread.sleep(forTimeInterval: 0.5)
                                 self.scraping.test(inputUrl: url, pattern: pattern)
                             }
                         ) {
@@ -67,10 +69,6 @@ struct EditScrapingView: View {
                     }
                     HStack {
                         Spacer()
-//                        Text("\(self.converting.isMatchToString(self.scraping.isMatch))")
-//                            .foregroundColor(Color.gray)
-//                        Text("\(self.converting.countWithTimes(self.scraping.countMatches))")
-//                            .foregroundColor(Color.gray)
                         Text(runningTestResult)
                     }
                 }
