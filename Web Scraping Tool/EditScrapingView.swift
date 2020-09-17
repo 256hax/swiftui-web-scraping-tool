@@ -24,8 +24,8 @@ struct EditScrapingView: View {
     @ObservedObject var scraping = Scraping()
     
     // Declare ScrapingPage data
-    let scrapingPage: ScrapingPage
-    init(scrapingPage: ScrapingPage) {
+    let scrapingPage: ScrapingPageCoredataModel
+    init(scrapingPage: ScrapingPageCoredataModel) {
         self.scrapingPage = scrapingPage
         self.updateUserInput.name    = scrapingPage.name ?? "new name"
         self.updateUserInput.url     = scrapingPage.url ?? ""
@@ -77,7 +77,7 @@ struct EditScrapingView: View {
                 leading: Text("Update Scraping"),
                 trailing: Button(
                     action: {
-                        ScrapingPage.update(
+                        ScrapingPageCoredataModel.update(
                             in: self.viewContext,
                             scrapingPage: self.scrapingPage,
                             scrapingName: self.updateUserInput.name,
@@ -99,7 +99,7 @@ struct UpdateScrapingView_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let scrapingPage = ScrapingPage(context: context)
+        let scrapingPage = ScrapingPageCoredataModel(context: context)
         scrapingPage.name = "Find example in Example.com"
         scrapingPage.url = "https://example.com/"
         scrapingPage.keyword = "Example"

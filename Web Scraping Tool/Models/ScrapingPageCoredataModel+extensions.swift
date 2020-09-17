@@ -1,5 +1,5 @@
 //
-//  ScrapingPage+extensions.swift
+//  ScrapingPageCoredataModel+extensions.swift
 //  Web Scraping Tool
 //
 //  Created by user on 2020/06/18.
@@ -9,16 +9,16 @@
 import Foundation
 import CoreData
 
-extension ScrapingPage: Identifiable {
+extension ScrapingPageCoredataModel: Identifiable {
 }
 
-extension ScrapingPage {
+extension ScrapingPageCoredataModel {
     static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
-        let newScrapingPage       = ScrapingPage(context: viewContext)
-        newScrapingPage.name      = scrapingName.isEmpty ? "No Name" : scrapingName
-        newScrapingPage.url       = scrapingUrl
-        newScrapingPage.keyword   = scrapingKeyword
-        newScrapingPage.updatedAt = Date()
+        let ScrapingPage       = ScrapingPageCoredataModel(context: viewContext)
+        ScrapingPage.name      = scrapingName.isEmpty ? "No Name" : scrapingName
+        ScrapingPage.url       = scrapingUrl
+        ScrapingPage.keyword   = scrapingKeyword
+        ScrapingPage.updatedAt = Date()
         
         do {
             try  viewContext.save()
@@ -30,7 +30,7 @@ extension ScrapingPage {
         }
     }
     
-    static func update(in viewContext: NSManagedObjectContext, scrapingPage: ScrapingPage, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
+    static func update(in viewContext: NSManagedObjectContext, scrapingPage: ScrapingPageCoredataModel, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
         let scrapingPage        = scrapingPage
         scrapingPage.name       = scrapingName
         scrapingPage.url        = scrapingUrl
@@ -48,7 +48,7 @@ extension ScrapingPage {
     }
 }
 
-extension Collection where Element == ScrapingPage, Index == Int {
+extension Collection where Element == ScrapingPageCoredataModel, Index == Int {
     func delete(at indices: IndexSet, from managedObjectContext: NSManagedObjectContext) {
         indices.forEach { managedObjectContext.delete(self[$0]) }
  

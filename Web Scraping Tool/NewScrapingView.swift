@@ -33,7 +33,7 @@ struct NewScrapingView: View {
                 leading: Text("Add Scraping"),
                 trailing: Button(
                     action: {
-                        ScrapingPage.create(
+                        ScrapingPageCoredataModel.create(
                             in: self.viewContext,
                             scrapingName: self.scrapingName,
                             scrapingUrl: self.scrapingUrl,

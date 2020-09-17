@@ -37,11 +37,11 @@ struct MasterView: View {
     @State var showScrapingDetail = false
     @Environment(\.managedObjectContext) var viewContext
 
-    // Get ScrapingPage object from CoreData
+    // Get ScrapingPageCoredataModel object from CoreData
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPage.updatedAt, ascending: false)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoredataModel.updatedAt, ascending: false)],
         animation: .default)
-    var scrapingPages: FetchedResults<ScrapingPage>
+    var scrapingPages: FetchedResults<ScrapingPageCoredataModel>
 
     var body: some View {
         List {
