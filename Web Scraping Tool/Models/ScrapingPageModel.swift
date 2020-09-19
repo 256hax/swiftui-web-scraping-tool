@@ -6,10 +6,13 @@
 //  Copyright © 2020 256hax. All rights reserved.
 //
 
-//import Foundation
-//
-//final class UpdateUserInput: ObservableObject {
-//    @Published var name    = ""
-//    @Published var url     = ""
-//    @Published var keyword = ""
-//}
+import Foundation
+
+class UpdateUserInput {
+    @Published var name = ""
+    @Published var url = ""
+    @Published var keyword = ""
+}
+
+extension UpdateUserInput: ObservableObject {
+}

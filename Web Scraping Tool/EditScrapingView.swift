@@ -9,16 +9,12 @@
 import SwiftUI
 import CoreData
 
-class UpdateUserInput: ObservableObject {
-    @Published var name    = ""
-    @Published var url     = ""
-    @Published var keyword = ""
-}
-
 struct EditScrapingView: View {
     @Environment(\.managedObjectContext) var viewContext
     // Observe for user input
     @ObservedObject var updateUserInput = UpdateUserInput()
+//    @EnvironmentObject var updateUserInput: UpdateUserInput
+
     @Environment(\.presentationMode) var presentationMode
     // Call Services/Scraping
     @ObservedObject var scraping = Scraping()
