@@ -29,9 +29,10 @@ struct ContentView: View {
             .sheet(isPresented: $showScrapingDetail) {
                 NewScrapingView().environment(\.managedObjectContext, self.viewContext)
             }
-        }.navigationViewStyle(DoubleColumnNavigationViewStyle())
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
+
 
 struct MasterView: View {
     @State var showScrapingDetail = false
@@ -51,7 +52,9 @@ struct MasterView: View {
                         self.showScrapingDetail = true
                     }
                 ) {
-                    Text("\(scrapingPage.name!)")
+                    HStack {
+                        Text("\(scrapingPage.name!)")
+                    }
                 }
                 .sheet(isPresented: self.$showScrapingDetail) {
                     EditScrapingView(scrapingPage: scrapingPage).environment(\.managedObjectContext, self.viewContext)

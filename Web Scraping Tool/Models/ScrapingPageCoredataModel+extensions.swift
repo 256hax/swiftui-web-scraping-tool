@@ -9,9 +9,6 @@
 import Foundation
 import CoreData
 
-extension ScrapingPageCoredataModel: Identifiable {
-}
-
 extension ScrapingPageCoredataModel {
     static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
         let ScrapingPage       = ScrapingPageCoredataModel(context: viewContext)

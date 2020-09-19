@@ -6,10 +6,10 @@
 //  Copyright © 2020 256hax. All rights reserved.
 //
 
-import Foundation
-
-struct ScrapigPageModel {
-    var scrapingName: String
-    var scrapingUrl: String
-    var scrapingKeyword: String
-}
+//import Foundation
+//
+//final class UpdateUserInput: ObservableObject {
+//    @Published var name    = ""
+//    @Published var url     = ""
+//    @Published var keyword = ""
+//}
