@@ -42,25 +42,25 @@ struct MasterView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoredataModel.updatedAt, ascending: false)],
         animation: .default)
-    var scrapingPages: FetchedResults<ScrapingPageCoredataModel>
+    var scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>
 
     var body: some View {
         List {
-            ForEach(scrapingPages, id: \.self) { scrapingPage in
+            ForEach(scrapingPagesCoredataModel, id: \.self) { scrapingPageCoredataModel in
                 Button(
                     action: {
                         self.showScrapingDetail = true
                     }
                 ) {
                     HStack {
-                        Text("\(scrapingPage.name!)")
+                        Text("\(scrapingPageCoredataModel.name!)")
                     }
                 }
                 .sheet(isPresented: self.$showScrapingDetail) {
-                    EditScrapingView(scrapingPage: scrapingPage).environment(\.managedObjectContext, self.viewContext)
+                    EditScrapingView(scrapingPageCoredataModel: scrapingPageCoredataModel).environment(\.managedObjectContext, self.viewContext)
                 }
             }.onDelete { indices in
-                self.scrapingPages.delete(at: indices, from: self.viewContext)
+                self.scrapingPagesCoredataModel.delete(at: indices, from: self.viewContext)
             }
         }
     }
