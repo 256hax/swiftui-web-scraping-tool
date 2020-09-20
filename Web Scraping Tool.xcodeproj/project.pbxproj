@@ -21,11 +21,11 @@
 		CB1918842493D43600B26363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB1918822493D43600B26363 /* LaunchScreen.storyboard */; };
 		CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19188E2493D43600B26363 /* Web_Scraping_ToolTests.swift */; };
 		CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918992493D43700B26363 /* Web_Scraping_ToolUITests.swift */; };
-		CB2750BB250E3AD3006E0B7C /* Scraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2750BA250E3AD3006E0B7C /* Scraping.swift */; };
+		CB2750BB250E3AD3006E0B7C /* ScrapingPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2750BA250E3AD3006E0B7C /* ScrapingPageService.swift */; };
 		CB2F2AA524E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
-		CB389BC32513402800CA23E5 /* ScrapingPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB389BC22513402800CA23E5 /* ScrapingPageModel.swift */; };
+		CB389BC32513402800CA23E5 /* ScrapingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB389BC22513402800CA23E5 /* ScrapingPageViewModel.swift */; };
 		CBC4BFE624FDFF4100538D1D /* Converting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4BFE524FDFF4100538D1D /* Converting.swift */; };
 		CBE5B89424B2113C00EFF560 /* NewScrapingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE5B89324B2113C00EFF560 /* NewScrapingView.swift */; };
 /* End PBXBuildFile section */
@@ -65,9 +65,9 @@
 		CB1918952493D43700B26363 /* Web_Scraping_ToolUITests.swift */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Web_Scraping_ToolUITests.swift; path = "Web Scraping ToolUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1918992493D43700B26363 /* Web_Scraping_ToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Scraping_ToolUITests.swift; sourceTree = "<group>"; };
 		CB19189B2493D43700B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB2750BA250E3AD3006E0B7C /* Scraping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scraping.swift; path = Services/Scraping.swift; sourceTree = "<group>"; };
+		CB2750BA250E3AD3006E0B7C /* ScrapingPageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapingPageService.swift; sourceTree = "<group>"; };
 		CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegex.swift; sourceTree = "<group>"; };
-		CB389BC22513402800CA23E5 /* ScrapingPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingPageModel.swift; sourceTree = "<group>"; };
+		CB389BC22513402800CA23E5 /* ScrapingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingPageViewModel.swift; sourceTree = "<group>"; };
 		CBC4BFE524FDFF4100538D1D /* Converting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converting.swift; sourceTree = "<group>"; };
 		CBE5B89324B2113C00EFF560 /* NewScrapingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScrapingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */,
-				CB389BC22513402800CA23E5 /* ScrapingPageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +108,7 @@
 		CB0F514D25125A3C0030DD72 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CB389BC22513402800CA23E5 /* ScrapingPageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -146,7 +146,6 @@
 				CB007A01249B220C006BC83A /* Models */,
 				CB0F514D25125A3C0030DD72 /* ViewModels */,
 				CB2F2AA824E9933A004B1FFA /* Services */,
-				CB2750BA250E3AD3006E0B7C /* Scraping.swift */,
 				CB0F514E25125A530030DD72 /* Views */,
 				CBBE1E8824D6F58500071FA7 /* Utils */,
 				CBC4BFE424FDFF4100538D1D /* helpers */,
@@ -193,6 +192,7 @@
 		CB2F2AA824E9933A004B1FFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CB2750BA250E3AD3006E0B7C /* ScrapingPageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -351,10 +351,10 @@
 				CBC4BFE624FDFF4100538D1D /* Converting.swift in Sources */,
 				CB1918732493D43500B26363 /* AppDelegate.swift in Sources */,
 				CB1918762493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld in Sources */,
-				CB2750BB250E3AD3006E0B7C /* Scraping.swift in Sources */,
+				CB2750BB250E3AD3006E0B7C /* ScrapingPageService.swift in Sources */,
 				CB007A03249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */,
 				CB2F2AA524E8EAF7004B1FFA /* NSRegex.swift in Sources */,
-				CB389BC32513402800CA23E5 /* ScrapingPageModel.swift in Sources */,
+				CB389BC32513402800CA23E5 /* ScrapingPageViewModel.swift in Sources */,
 				CB1918782493D43500B26363 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

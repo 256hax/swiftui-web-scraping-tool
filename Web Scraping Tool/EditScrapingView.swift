@@ -12,12 +12,11 @@ import CoreData
 struct EditScrapingView: View {
     @Environment(\.managedObjectContext) var viewContext
     // Observe for user input
-    @ObservedObject var updateUserInput = UpdateUserInput()
-//    @EnvironmentObject var updateUserInput: UpdateUserInput
+    @ObservedObject var updateUserInput = ScrapingPageViewModel()
 
     @Environment(\.presentationMode) var presentationMode
     // Call Services/Scraping
-    @ObservedObject var scraping = Scraping()
+    @ObservedObject var scraping = ScrapingPageService()
     
     // Declare ScrapingPage data
     let scrapingPage: ScrapingPageCoredataModel
@@ -27,6 +26,11 @@ struct EditScrapingView: View {
         self.updateUserInput.url     = scrapingPage.url ?? ""
         self.updateUserInput.keyword = scrapingPage.keyword ?? ""
     }
+
+//    let scrapingPage: ScrapingPageCoredataModel
+//    init() {
+//        self.scrapingPage.SetCoredata(self.scrapingPage)
+//    }
     
     let converting = Converting()
     

@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// For Business Layer
-class Scraping: ObservableObject {
+// For Business Layer
+class ScrapingPageService: ObservableObject {
     @Published var isMatch = false
     @Published var countMatches = 0
     
