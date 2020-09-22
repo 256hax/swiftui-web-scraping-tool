@@ -16,9 +16,9 @@ class ScrapingPageViewModel: ObservableObject {
 }
 
 extension ScrapingPageViewModel {
-    func SetCoredata(_ scrapingPage: ScrapingPageCoredataModel) {
-        self.name    = scrapingPage.name ?? "new name"
-        self.url     = scrapingPage.url ?? ""
-        self.keyword = scrapingPage.keyword ?? ""
+    func SetCoredata(_ scrapingPageCoredataModel: ScrapingPageCoredataModel) {
+        self.name    = scrapingPageCoredataModel.name ?? "new name"
+        self.url     = scrapingPageCoredataModel.url ?? ""
+        self.keyword = scrapingPageCoredataModel.keyword ?? ""
     }
 }

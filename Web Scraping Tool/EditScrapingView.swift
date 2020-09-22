@@ -19,18 +19,19 @@ struct EditScrapingView: View {
     @ObservedObject var scrapingPageService = ScrapingPageService()
     
     // Declare ScrapingPage data
+//    let scrapingPageCoredataModel: ScrapingPageCoredataModel
+//    init(scrapingPageCoredataModel: ScrapingPageCoredataModel) {
+//        self.scrapingPageCoredataModel = scrapingPageCoredataModel
+//        self.scrapingPageViewModel.name    = scrapingPageCoredataModel.name ?? "new name"
+//        self.scrapingPageViewModel.url     = scrapingPageCoredataModel.url ?? ""
+//        self.scrapingPageViewModel.keyword = scrapingPageCoredataModel.keyword ?? ""
+//    }
+
     let scrapingPageCoredataModel: ScrapingPageCoredataModel
     init(scrapingPageCoredataModel: ScrapingPageCoredataModel) {
         self.scrapingPageCoredataModel = scrapingPageCoredataModel
-        self.scrapingPageViewModel.name    = scrapingPageCoredataModel.name ?? "new name"
-        self.scrapingPageViewModel.url     = scrapingPageCoredataModel.url ?? ""
-        self.scrapingPageViewModel.keyword = scrapingPageCoredataModel.keyword ?? ""
+        self.scrapingPageViewModel.SetCoredata(self.scrapingPageCoredataModel)
     }
-
-//    let scrapingPage: ScrapingPageCoredataModel
-//    init() {
-//        self.scrapingPage.SetCoredata(self.scrapingPage)
-//    }
     
     let converting = Converting()
     
