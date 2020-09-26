@@ -9,24 +9,14 @@
 import SwiftUI
 import CoreData
 
-struct EditScrapingView: View {
+struct EditScrapingPageView: View {
     @Environment(\.managedObjectContext) var viewContext
-    // Observe for user input
+    // Observe user input
     @ObservedObject var scrapingPageViewModel = ScrapingPageViewModel()
 
     @Environment(\.presentationMode) var presentationMode
-    // Call Services/Scraping
     @ObservedObject var scrapingPageService = ScrapingPageService()
     
-    // Declare ScrapingPage data
-//    let scrapingPageCoredataModel: ScrapingPageCoredataModel
-//    init(scrapingPageCoredataModel: ScrapingPageCoredataModel) {
-//        self.scrapingPageCoredataModel = scrapingPageCoredataModel
-//        self.scrapingPageViewModel.name    = scrapingPageCoredataModel.name ?? "new name"
-//        self.scrapingPageViewModel.url     = scrapingPageCoredataModel.url ?? ""
-//        self.scrapingPageViewModel.keyword = scrapingPageCoredataModel.keyword ?? ""
-//    }
-
     let scrapingPageCoredataModel: ScrapingPageCoredataModel
     init(scrapingPageCoredataModel: ScrapingPageCoredataModel) {
         self.scrapingPageCoredataModel = scrapingPageCoredataModel
@@ -105,6 +95,6 @@ struct UpdateScrapingView_Previews: PreviewProvider {
         scrapingPageCoredataModel.url = "https://example.com/"
         scrapingPageCoredataModel.keyword = "Example"
         
-        return EditScrapingView(scrapingPageCoredataModel: scrapingPageCoredataModel).environment(\.managedObjectContext, context)
+        return EditScrapingPageView(scrapingPageCoredataModel: scrapingPageCoredataModel).environment(\.managedObjectContext, context)
     }
 }

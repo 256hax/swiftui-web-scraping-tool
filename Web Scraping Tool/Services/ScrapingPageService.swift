@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 // For Business Layer
 class ScrapingPageService: ObservableObject {
@@ -40,5 +41,14 @@ class ScrapingPageService: ObservableObject {
         let nsregex   = NSRegex(pattern)
         self.isMatch = nsregex.isMatch(inputText)
         self.countMatches = nsregex.countMatches(inputText)
+    }
+    
+    func create(scrapingPageViewModel: ScrapingPageViewModel, viewContext: NSManagedObjectContext) {
+        ScrapingPageCoredataModel.create(
+            in: viewContext,
+            scrapingName: scrapingPageViewModel.name,
+            scrapingUrl: scrapingPageViewModel.url,
+            scrapingKeyword: scrapingPageViewModel.keyword
+        )
     }
 }
