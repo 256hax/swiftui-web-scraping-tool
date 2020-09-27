@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreData
 
 class ScrapingPageViewModel: ObservableObject {
     @Published var name = ""

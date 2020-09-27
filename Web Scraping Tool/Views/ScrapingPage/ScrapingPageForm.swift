@@ -40,7 +40,7 @@ struct ScrapingPageForm: View {
                             let url = "https://example.com/"
                             let pattern   = "example"
                             
-                            Thread.sleep(forTimeInterval: 0.5)
+                            Thread.sleep(forTimeInterval: 0.2)
                             self.scrapingPageService.test(inputUrl: url, pattern: pattern)
                         }
                     ) {
@@ -58,7 +58,6 @@ struct ScrapingPageForm: View {
 
 struct ScrapingPageForm_Previews: PreviewProvider {
     static var previews: some View {
-        // [todo] add preview
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        NewScrapingPageView()
     }
 }

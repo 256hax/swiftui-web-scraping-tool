@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct EditScrapingPageView: View {
     @Environment(\.managedObjectContext) var viewContext
