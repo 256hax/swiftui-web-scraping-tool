@@ -11,9 +11,7 @@ import CoreData
 
 struct EditScrapingPageView: View {
     @Environment(\.managedObjectContext) var viewContext
-    // Observe user input
     @ObservedObject var scrapingPageViewModel = ScrapingPageViewModel()
-
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var scrapingPageService = ScrapingPageService()
     
@@ -23,57 +21,19 @@ struct EditScrapingPageView: View {
         self.scrapingPageViewModel.SetCoredata(self.scrapingPageCoredataModel)
     }
     
-    let converting = Converting()
-    
-    var runningTestResult: String {
-        // [todo]
-        // Case1: Default text
-        // Case2: Run scraping
-        // Case3: Completion result
-        let text = "\(self.converting.isMatchToString(self.scrapingPageService.isMatch)) \(self.converting.countWithTimes(self.scrapingPageService.countMatches))"
-        return text
-    }
-    
     var body: some View {
         NavigationView {
-            Form {
-                Section {
-                    TextField("Scraping Name", text: $scrapingPageViewModel.name).autocapitalization(.none)
-                    TextField("Scraping Url", text: $scrapingPageViewModel.url).autocapitalization(.none)
-                    TextField("Search Keyword", text: $scrapingPageViewModel.keyword).autocapitalization(.none)
-                }
-                Section {
-                    HStack {
-                        Spacer()
-                        Button(
-                            action: {
-                                // [todo] delete sample value
-                                let url = "https://example.com/"
-                                let pattern   = "example"
-                                
-                                Thread.sleep(forTimeInterval: 0.5)
-                                self.scrapingPageService.test(inputUrl: url, pattern: pattern)
-                            }
-                        ) {
-                            Text("Running Test")
-                        }
-                    }
-                    HStack {
-                        Spacer()
-                        Text(runningTestResult)
-                    }
-                }
-            }
+            ScrapingPageForm(
+                scrapingPageViewModel: scrapingPageViewModel,
+                scrapingPageService: scrapingPageService)
             .navigationBarItems(
-                leading: Text("Update Scraping"),
+                leading: Text("Add Scraping"),
                 trailing: Button(
                     action: {
-                        ScrapingPageCoredataModel.update(
-                            in: self.viewContext,
-                            scrapingPage: self.scrapingPageCoredataModel,
-                            scrapingName: self.scrapingPageViewModel.name,
-                            scrapingUrl: self.scrapingPageViewModel.url,
-                            scrapingKeyword: self.scrapingPageViewModel.keyword
+                        scrapingPageService.update(
+                            scrapingPageViewModel: scrapingPageViewModel,
+                            scrapingPageCoredataModel: scrapingPageCoredataModel,
+                            viewContext: viewContext
                         )
                         self.presentationMode.wrappedValue.dismiss()
                     }

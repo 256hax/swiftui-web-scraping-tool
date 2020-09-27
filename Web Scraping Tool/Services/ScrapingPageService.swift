@@ -51,4 +51,14 @@ class ScrapingPageService: ObservableObject {
             scrapingKeyword: scrapingPageViewModel.keyword
         )
     }
+    
+    func update(scrapingPageViewModel: ScrapingPageViewModel, scrapingPageCoredataModel: ScrapingPageCoredataModel, viewContext: NSManagedObjectContext) {
+        ScrapingPageCoredataModel.update(
+            in: viewContext,
+            scrapingPageCoredataModel: scrapingPageCoredataModel,
+            scrapingName: scrapingPageViewModel.name,
+            scrapingUrl: scrapingPageViewModel.url,
+            scrapingKeyword: scrapingPageViewModel.keyword
+        )
+    }
 }

@@ -27,12 +27,12 @@ extension ScrapingPageCoredataModel {
         }
     }
     
-    static func update(in viewContext: NSManagedObjectContext, scrapingPage: ScrapingPageCoredataModel, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
-        let scrapingPage        = scrapingPage
-        scrapingPage.name       = scrapingName
-        scrapingPage.url        = scrapingUrl
-        scrapingPage.keyword    = scrapingKeyword
-        scrapingPage.updatedAt  = Date()
+    static func update(in viewContext: NSManagedObjectContext, scrapingPageCoredataModel: ScrapingPageCoredataModel, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
+        let scrapingPageCoredataModel       = scrapingPageCoredataModel
+        scrapingPageCoredataModel.name      = scrapingName
+        scrapingPageCoredataModel.url       = scrapingUrl
+        scrapingPageCoredataModel.keyword   = scrapingKeyword
+        scrapingPageCoredataModel.updatedAt = Date()
         
         do {
             try  viewContext.save()
