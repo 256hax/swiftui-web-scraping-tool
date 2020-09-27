@@ -16,7 +16,9 @@ struct NewScrapingPageView: View {
     
     var body: some View {
         NavigationView {
-            ScrapingPageForm(scrapingPageViewModel: scrapingPageViewModel)
+            ScrapingPageForm(
+                scrapingPageViewModel: scrapingPageViewModel,
+                scrapingPageService: scrapingPageService)
             .navigationBarItems(
                 leading: Text("Add Scraping"),
                 trailing: Button(
