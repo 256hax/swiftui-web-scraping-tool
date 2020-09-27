@@ -36,12 +36,8 @@ struct ScrapingPageForm: View {
                     Spacer()
                     Button(
                         action: {
-                            // [todo] delete sample value
-                            let url = "https://example.com/"
-                            let pattern   = "example"
-                            
                             Thread.sleep(forTimeInterval: 0.2)
-                            self.scrapingPageService.test(inputUrl: url, pattern: pattern)
+                            self.scrapingPageService.test(inputUrl: scrapingPageViewModel.url, pattern: scrapingPageViewModel.keyword)
                         }
                     ) {
                         Text("Running Test")

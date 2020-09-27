@@ -50,7 +50,7 @@ struct UpdateScrapingView_Previews: PreviewProvider {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let scrapingPageCoredataModel = ScrapingPageCoredataModel(context: context)
-        scrapingPageCoredataModel.name = "Find example in Example.com"
+        scrapingPageCoredataModel.name = "Find \"Example\" words in Example.com"
         scrapingPageCoredataModel.url = "https://example.com/"
         scrapingPageCoredataModel.keyword = "Example"
         
