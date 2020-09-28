@@ -20,24 +20,27 @@ class ScrapingPageService: ObservableObject {
     ///   - inputUrl: Crawling URL
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
     func test(inputUrl: String, pattern: String) {
+        // Start ProgressView
+        self.isScraping = true
+
         let encodingUrl: String = inputUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: encodingUrl)!
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else {
-                print("No data, exit.")
-                // End ProgressView
-                return
-            }
-            guard let html = String(data: data, encoding: .utf8) else { return }
-            
-            // Start ProgressView
-            self.isScraping = true
 
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
             // Prevent double submission and feel scraping
             let delayTime = DispatchTime.now() + Double.random(in: 0.1...2)
             
             DispatchQueue.main.asyncAfter(deadline: delayTime) {
+                guard let data = data else {
+                    print("No data, exit.")
+                    // End ProgressView
+                    self.isScraping = false
+
+                    return
+                }
+
+                guard let html = String(data: data, encoding: .utf8) else { return }
+
                 self.regex(inputText: html, pattern: pattern)
                 // End ProgressView
                 self.isScraping = false
