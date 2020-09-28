@@ -13,6 +13,7 @@ import CoreData
 class ScrapingPageService: ObservableObject {
     @Published var isMatch = false
     @Published var countMatches = 0
+    @Published var isScraping = false
     
     /// Running Test
     /// - Parameters:
@@ -21,13 +22,21 @@ class ScrapingPageService: ObservableObject {
     func test(inputUrl: String, pattern: String) {
         let encodingUrl: String = inputUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: encodingUrl)!
+        
+        // Start ProgressView
+        self.isScraping = true
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else { return }
             guard let html = String(data: data, encoding: .utf8) else { return }
             
-            DispatchQueue.main.async {
+            // Prevent double submission and feel scraping
+            let delayTime = DispatchTime.now() + Double.random(in: 0.1...2)
+            
+            DispatchQueue.main.asyncAfter(deadline: delayTime) {
                 self.regex(inputText: html, pattern: pattern)
+                // End ProgressView
+                self.isScraping = false
             }
         }
         task.resume()

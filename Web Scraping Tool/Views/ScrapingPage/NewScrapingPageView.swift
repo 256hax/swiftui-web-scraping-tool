@@ -20,7 +20,7 @@ struct NewScrapingPageView: View {
                 scrapingPageViewModel: scrapingPageViewModel,
                 scrapingPageService: scrapingPageService)
             .navigationBarItems(
-                leading: Text("Add Scraping"),
+                leading: Text("Add Scraping Page"),
                 trailing: Button(
                     action: {
                         scrapingPageService.create(scrapingPageViewModel: scrapingPageViewModel, viewContext: viewContext)

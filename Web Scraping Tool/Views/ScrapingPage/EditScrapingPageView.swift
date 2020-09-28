@@ -26,7 +26,7 @@ struct EditScrapingPageView: View {
                 scrapingPageViewModel: scrapingPageViewModel,
                 scrapingPageService: scrapingPageService)
             .navigationBarItems(
-                leading: Text("Add Scraping"),
+                leading: Text("Update Scraping Page"),
                 trailing: Button(
                     action: {
                         scrapingPageService.update(

@@ -36,7 +36,9 @@ struct ScrapingPageForm: View {
                     Spacer()
                     Button(
                         action: {
-                            Thread.sleep(forTimeInterval: 0.2)
+                            // Prevent double submission
+                            Thread.sleep(forTimeInterval: 0.1)
+                            
                             self.scrapingPageService.test(inputUrl: scrapingPageViewModel.url, pattern: scrapingPageViewModel.keyword)
                         }
                     ) {
@@ -45,7 +47,11 @@ struct ScrapingPageForm: View {
                 }
                 HStack {
                     Spacer()
-                    Text(runningTestResult)
+                    if(scrapingPageService.isScraping) {
+                        ProgressView("Scraping...")
+                    } else {
+                        Text(runningTestResult)
+                    }
                 }
             }
         }
