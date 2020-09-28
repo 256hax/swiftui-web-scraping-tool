@@ -23,13 +23,17 @@ class ScrapingPageService: ObservableObject {
         let encodingUrl: String = inputUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: encodingUrl)!
         
-        // Start ProgressView
-        self.isScraping = true
-
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
+            guard let data = data else {
+                print("No data, exit.")
+                // End ProgressView
+                return
+            }
             guard let html = String(data: data, encoding: .utf8) else { return }
             
+            // Start ProgressView
+            self.isScraping = true
+
             // Prevent double submission and feel scraping
             let delayTime = DispatchTime.now() + Double.random(in: 0.1...2)
             

@@ -16,10 +16,6 @@ struct ScrapingPageForm: View {
     let converting = Converting()
     
     var runningTestResult: String {
-        // [todo]
-        // Case1: Default text
-        // Case2: Run scraping
-        // Case3: Completion result
         let text = "\(self.converting.isMatchToString(self.scrapingPageService.isMatch)) \(self.converting.countWithTimes(self.scrapingPageService.countMatches))"
         return text
     }
@@ -28,7 +24,7 @@ struct ScrapingPageForm: View {
         Form {
             Section {
                 TextField("Scraping Name", text: $scrapingPageViewModel.name).autocapitalization(.none)
-                TextField("Scraping Url", text: $scrapingPageViewModel.url).autocapitalization(.none)
+                TextField("Scraping URL", text: $scrapingPageViewModel.url).autocapitalization(.none)
                 TextField("Search Keyword", text: $scrapingPageViewModel.keyword).autocapitalization(.none)
             }
             Section {
