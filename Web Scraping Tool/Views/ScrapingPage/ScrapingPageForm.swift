@@ -13,11 +13,8 @@ struct ScrapingPageForm: View {
     @ObservedObject var scrapingPageViewModel: ScrapingPageViewModel
     @ObservedObject var scrapingPageService: ScrapingPageService
 
-    let converting = Converting()
-    
-    var runningTestResult: String {
-        let text = "\(self.converting.isMatchToString(self.scrapingPageService.isMatch)) \(self.converting.countWithTimes(self.scrapingPageService.countMatches))"
-        return text
+    var runningTestResultText: String {
+        return scrapingPageService.runningTestResult
     }
 
     var body: some View {
@@ -46,7 +43,7 @@ struct ScrapingPageForm: View {
                     if(scrapingPageService.isScraping) {
                         ProgressView("Scraping...")
                     } else {
-                        Text(runningTestResult)
+                        Text(runningTestResultText)
                     }
                 }
             }

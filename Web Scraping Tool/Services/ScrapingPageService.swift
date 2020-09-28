@@ -12,8 +12,9 @@ import CoreData
 // For Business Layer
 class ScrapingPageService: ObservableObject {
     @Published var isMatch = false
-    @Published var countMatches = 0
+//    @Published var countMatches = 0
     @Published var isScraping = false
+    @Published var runningTestResult = "-"
     
     /// Running Test
     /// - Parameters:
@@ -32,13 +33,15 @@ class ScrapingPageService: ObservableObject {
             
             DispatchQueue.main.asyncAfter(deadline: delayTime) {
                 guard let data = data else {
-                    print("No data, exit.")
+                    // [Error case]
                     // End ProgressView
                     self.isScraping = false
-
+                    self.runningTestResult = "Unable to access Website.Check URL."
+                    
                     return
                 }
 
+                // [Success case]
                 guard let html = String(data: data, encoding: .utf8) else { return }
 
                 self.regex(inputText: html, pattern: pattern)
@@ -54,9 +57,12 @@ class ScrapingPageService: ObservableObject {
     ///   - inputText: String Data for Regular Expression
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
     func regex(inputText: String, pattern: String) {
-        let nsregex   = NSRegex(pattern)
-        self.isMatch = nsregex.isMatch(inputText)
-        self.countMatches = nsregex.countMatches(inputText)
+        let nsregex = NSRegex(pattern)
+        let converting = Converting()
+        let convertedIsMatch = converting.isMatchToString(nsregex.isMatch(inputText))
+        let convertedCountMatches = converting.countWithTimes(nsregex.countMatches(inputText))
+
+        self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
     }
     
     func create(scrapingPageViewModel: ScrapingPageViewModel, viewContext: NSManagedObjectContext) {
