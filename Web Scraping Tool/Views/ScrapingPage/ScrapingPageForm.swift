@@ -19,7 +19,7 @@ struct ScrapingPageForm: View {
 
     var body: some View {
         Form {
-            Section {
+            Section(footer: Text("Search Keyword supports Regular Expression")) {
                 TextField("Scraping Name", text: $scrapingPageViewModel.name).autocapitalization(.none)
                 TextField("Scraping URL", text: $scrapingPageViewModel.url).autocapitalization(.none)
                 TextField("Search Keyword", text: $scrapingPageViewModel.keyword).autocapitalization(.none)

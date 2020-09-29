@@ -21,6 +21,11 @@ class ScrapingPageService: ObservableObject {
     ///   - inputUrl: Crawling URL
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
     func test(inputUrl: String, pattern: String) {
+        // Exit if input is empty
+        if(inputUrl.count == 0 || pattern.count == 0) {
+            return
+        }
+
         // Start ProgressView
         self.isScraping = true
 
