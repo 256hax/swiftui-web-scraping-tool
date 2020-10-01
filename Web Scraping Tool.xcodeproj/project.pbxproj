@@ -26,6 +26,7 @@
 		CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB389BC32513402800CA23E5 /* ScrapingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB389BC22513402800CA23E5 /* ScrapingPageViewModel.swift */; };
+		CB3FAEAB2524CAA200B26B6E /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3FAEAA2524CAA200B26B6E /* WebView.swift */; };
 		CBBE2688251EFB4700BE933D /* ScrapingPageForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBE2687251EFB4700BE933D /* ScrapingPageForm.swift */; };
 		CBC4BFE624FDFF4100538D1D /* Converting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4BFE524FDFF4100538D1D /* Converting.swift */; };
 		CBE5B89424B2113C00EFF560 /* NewScrapingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE5B89324B2113C00EFF560 /* NewScrapingPageView.swift */; };
@@ -69,6 +70,7 @@
 		CB2750BA250E3AD3006E0B7C /* ScrapingPageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapingPageService.swift; sourceTree = "<group>"; };
 		CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegex.swift; sourceTree = "<group>"; };
 		CB389BC22513402800CA23E5 /* ScrapingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingPageViewModel.swift; sourceTree = "<group>"; };
+		CB3FAEAA2524CAA200B26B6E /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		CBBE2687251EFB4700BE933D /* ScrapingPageForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingPageForm.swift; sourceTree = "<group>"; };
 		CBBE268F252089F800BE933D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CBC4BFE524FDFF4100538D1D /* Converting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converting.swift; sourceTree = "<group>"; };
@@ -120,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				CBBE2686251EF80100BE933D /* ScrapingPage */,
+				CB19187B2493D43500B26363 /* ContentView.swift */,
+				CB3FAEAA2524CAA200B26B6E /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,7 +157,6 @@
 				CB0F514E25125A530030DD72 /* Views */,
 				CBBE1E8824D6F58500071FA7 /* Utils */,
 				CBC4BFE424FDFF4100538D1D /* helpers */,
-				CB19187B2493D43500B26363 /* ContentView.swift */,
 				CB1918722493D43500B26363 /* AppDelegate.swift */,
 				CB1918772493D43500B26363 /* SceneDelegate.swift */,
 				CB19187D2493D43600B26363 /* Assets.xcassets */,
@@ -360,6 +363,7 @@
 			files = (
 				CB020133249F76F600964040 /* EditScrapingPageView.swift in Sources */,
 				CB19187C2493D43500B26363 /* ContentView.swift in Sources */,
+				CB3FAEAB2524CAA200B26B6E /* WebView.swift in Sources */,
 				CBE5B89424B2113C00EFF560 /* NewScrapingPageView.swift in Sources */,
 				CBC4BFE624FDFF4100538D1D /* Converting.swift in Sources */,
 				CB1918732493D43500B26363 /* AppDelegate.swift in Sources */,

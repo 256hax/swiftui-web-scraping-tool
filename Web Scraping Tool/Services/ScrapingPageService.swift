@@ -12,7 +12,6 @@ import CoreData
 // For Business Layer
 class ScrapingPageService: ObservableObject {
     @Published var isMatch = false
-//    @Published var countMatches = 0
     @Published var isScraping = false
     @Published var runningTestResult = "-"
     
@@ -41,7 +40,7 @@ class ScrapingPageService: ObservableObject {
                     // [Error case]
                     // End ProgressView
                     self.isScraping = false
-                    self.runningTestResult = "Unable to access Website.Check URL."
+                    self.runningTestResult = "Unable to access Website. Check URL."
                     
                     return
                 }
