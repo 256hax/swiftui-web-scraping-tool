@@ -10,7 +10,7 @@
 		CB007A03249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */; };
 		CB007A04249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */; };
 		CB007A05249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */; };
-		CB02012F249F4E5000964040 /* Web_Scraping_ToolTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = CB19188A2493D43600B26363 /* Web_Scraping_ToolTests.swift */; };
+		CB02012F249F4E5000964040 /* Web Scraping ToolTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */; };
 		CB020133249F76F600964040 /* EditScrapingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB020132249F76F600964040 /* EditScrapingPageView.swift */; };
 		CB1918732493D43500B26363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918722493D43500B26363 /* AppDelegate.swift */; };
 		CB1918762493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB1918742493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld */; };
@@ -61,7 +61,7 @@
 		CB1918802493D43600B26363 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB1918832493D43600B26363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB1918852493D43600B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB19188A2493D43600B26363 /* Web_Scraping_ToolTests.swift */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Web_Scraping_ToolTests.swift; path = "Web Scraping ToolTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web Scraping ToolTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB19188E2493D43600B26363 /* Web_Scraping_ToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Scraping_ToolTests.swift; sourceTree = "<group>"; };
 		CB1918902493D43600B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB1918952493D43700B26363 /* Web_Scraping_ToolUITests.swift */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Web_Scraping_ToolUITests.swift; path = "Web Scraping ToolUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				CB19186F2493D43500B26363 /* Web Scraping Tool.app */,
-				CB19188A2493D43600B26363 /* Web_Scraping_ToolTests.swift */,
+				CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */,
 				CB1918952493D43700B26363 /* Web_Scraping_ToolUITests.swift */,
 			);
 			name = Products;
@@ -263,7 +263,7 @@
 			);
 			name = "Web Scraping ToolTests";
 			productName = "Web Scraping ToolTests";
-			productReference = CB19188A2493D43600B26363 /* Web_Scraping_ToolTests.swift */;
+			productReference = CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		CB1918942493D43600B26363 /* Web Scraping ToolUITests */ = {
@@ -343,7 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB02012F249F4E5000964040 /* Web_Scraping_ToolTests.swift in Resources */,
+				CB02012F249F4E5000964040 /* Web Scraping ToolTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6GWP8JADK;
 				INFOPLIST_FILE = "Web Scraping ToolTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -613,7 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6GWP8JADK;
 				INFOPLIST_FILE = "Web Scraping ToolTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
