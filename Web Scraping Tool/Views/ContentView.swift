@@ -12,7 +12,6 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var viewContext
     @State var showScrapingDetail = false
     @State var isRunning: Bool = false
-    var scrapingPageMasterService = ScrapingPageMasterService()
  
     var body: some View {
         VStack {

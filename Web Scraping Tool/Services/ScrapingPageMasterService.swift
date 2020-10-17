@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import CoreData
 
-class ScrapingPageMasterService {
+class ScrapingPageMasterService: ObservableObject {
     @Published var isMatch = false
     @Published var isScraping = false
     @Published var runningTestResult = "-"
 
     func controlScraping(isRunning: Bool) {
-//        runScraping(inputUrl: "https://example.com/", pattern: "Example")
-        print("ok")
+        self.runScraping(inputUrl: "https://example.com/", pattern: "Example")
+//        print("ok")
     }
     
     /// Run Scraping
@@ -70,5 +71,6 @@ class ScrapingPageMasterService {
         let convertedCountMatches = converting.countWithTimes(nsregex.countMatches(inputText))
 
         self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
+        print(        self.runningTestResult)
     }
 }

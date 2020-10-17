@@ -10,18 +10,26 @@ import SwiftUI
 
 struct ScrapingPageMasterRun: View {
     @State var isRunning: Bool = false
-    var scrapingPageMasterService = ScrapingPageMasterService()
+    @ObservedObject var scrapingPageMasterService = ScrapingPageMasterService()
 
+    var runningTestResultText: String {
+        return scrapingPageMasterService.runningTestResult
+    }
+    
     var body: some View {
-        // Scraping Start/Stop
-        if(scrapingPageMasterService.isScraping) {
-            ProgressView("Scraping...")
-        }
-        Button(action: {
-            self.isRunning.toggle()
-            scrapingPageMasterService.controlScraping(isRunning: self.isRunning)
-        }) {
-            Image(systemName: self.isRunning ? "play.fill" : "stop.fill")
+        VStack {
+            if(scrapingPageMasterService.isScraping) {
+                ProgressView("Scraping...")
+            } else {
+                Text(runningTestResultText)
+            }
+            
+            Button(action: {
+                self.isRunning.toggle()
+                  scrapingPageMasterService.controlScraping(isRunning: self.isRunning)
+            }) {
+                Image(systemName: self.isRunning ? "play.fill" : "stop.fill")
+            }
         }
     }
 }
