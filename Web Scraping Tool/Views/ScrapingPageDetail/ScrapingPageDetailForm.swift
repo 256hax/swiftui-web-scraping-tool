@@ -8,22 +8,22 @@
 
 import SwiftUI
 
-struct ScrapingPageForm: View {
+struct ScrapingPageDetailForm: View {
     @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var scrapingPageViewModel: ScrapingPageViewModel
-    @ObservedObject var scrapingPageService: ScrapingPageService
+    @ObservedObject var scrapingPageDetailViewModel: ScrapingPageDetailViewModel
+    @ObservedObject var scrapingPageDetailService: ScrapingPageDetailService
 
     var runningTestResultText: String {
-        return scrapingPageService.runningTestResult
+        return scrapingPageDetailService.runningTestResult
     }
 
     var body: some View {
         Form {
             // Settings
             Section(footer: Text("Search Keyword supports Regular Expression")) {
-                TextField("Scraping Name", text: $scrapingPageViewModel.name).autocapitalization(.none)
-                TextField("Scraping URL", text: $scrapingPageViewModel.url).autocapitalization(.none)
-                TextField("Search Keyword", text: $scrapingPageViewModel.keyword).autocapitalization(.none)
+                TextField("Scraping Name", text: $scrapingPageDetailViewModel.name).autocapitalization(.none)
+                TextField("Scraping URL", text: $scrapingPageDetailViewModel.url).autocapitalization(.none)
+                TextField("Search Keyword", text: $scrapingPageDetailViewModel.keyword).autocapitalization(.none)
             }
             // Running Test
             Section {
@@ -34,7 +34,7 @@ struct ScrapingPageForm: View {
                             // Prevent double submission
                             Thread.sleep(forTimeInterval: 0.1)
                             
-                            self.scrapingPageService.test(inputUrl: scrapingPageViewModel.url, pattern: scrapingPageViewModel.keyword)
+                            self.scrapingPageDetailService.test(inputUrl: scrapingPageDetailViewModel.url, pattern: scrapingPageDetailViewModel.keyword)
                         }
                     ) {
                         Text("Running Test")
@@ -42,7 +42,7 @@ struct ScrapingPageForm: View {
                 }
                 HStack {
                     Spacer()
-                    if(scrapingPageService.isScraping) {
+                    if(scrapingPageDetailService.isScraping) {
                         ProgressView("Scraping...")
                     } else {
                         Text(runningTestResultText)
@@ -51,14 +51,14 @@ struct ScrapingPageForm: View {
             }
         }
         // Scraping URL Preview
-        if(scrapingPageViewModel.url.count > 0) {
-            WebView(loadUrl: scrapingPageViewModel.url)
+        if(scrapingPageDetailViewModel.url.count > 0) {
+            WebView(loadUrl: scrapingPageDetailViewModel.url)
         }
     }
 }
 
 struct ScrapingPageForm_Previews: PreviewProvider {
     static var previews: some View {
-        NewScrapingPageView()
+        NewScrapingPageDetailView()
     }
 }

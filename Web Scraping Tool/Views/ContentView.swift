@@ -11,25 +11,36 @@ struct ContentView: View {
     // Handling for CoreData Object
     @Environment(\.managedObjectContext) var viewContext
     @State var showScrapingDetail = false
+    @State var isRunning: Bool = false
+    var scrapingPageMasterService = ScrapingPageMasterService()
  
     var body: some View {
-        NavigationView {
-            MasterView()
-                .navigationBarTitle(Text("Master"))
-                .navigationBarItems(
-                    leading: EditButton(),
-                    trailing: Button(
-                        action: {
-                            self.showScrapingDetail = true
+        VStack {
+            NavigationView {
+                MasterView()
+                    .navigationBarTitle(Text("Master"))
+                    .navigationBarItems(
+                        leading: EditButton(),
+                        trailing: Button(
+                            action: {
+                                self.showScrapingDetail = true
+                            }
+                        ) {
+                            Image(systemName: "plus")
                         }
-                    ) {
-                        Image(systemName: "plus")
-                    }
-                )
-            .sheet(isPresented: $showScrapingDetail) {
-                NewScrapingPageView().environment(\.managedObjectContext, self.viewContext)
+                    )
+                .sheet(isPresented: $showScrapingDetail) {
+                    NewScrapingPageDetailView().environment(\.managedObjectContext, self.viewContext)
+                }
+            }.navigationViewStyle(StackNavigationViewStyle())
+            
+            Button(action: {
+                self.isRunning.toggle()
+                scrapingPageMasterService.controlScraping(isRunning: self.isRunning)
+            }) {
+                Image(systemName: self.isRunning ? "play.fill" : "stop.fill")
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
     }
 }
 
@@ -37,7 +48,7 @@ struct ContentView: View {
 struct MasterView: View {
     @State var showScrapingDetail = false
     @Environment(\.managedObjectContext) var viewContext
-
+    
     // Get ScrapingPageCoredataModel object from CoreData
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoredataModel.updatedAt, ascending: false)],
@@ -57,7 +68,7 @@ struct MasterView: View {
                     }
                 }
                 .sheet(isPresented: self.$showScrapingDetail) {
-                    EditScrapingPageView(scrapingPageCoredataModel: scrapingPageCoredataModel).environment(\.managedObjectContext, self.viewContext)
+                    EditScrapingPageDetailView(scrapingPageCoredataModel: scrapingPageCoredataModel).environment(\.managedObjectContext, self.viewContext)
                 }
             }.onDelete { indices in
                 self.scrapingPagesCoredataModel.delete(at: indices, from: self.viewContext)

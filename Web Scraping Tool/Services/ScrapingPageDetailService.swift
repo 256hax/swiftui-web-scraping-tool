@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 // For Business Layer
-class ScrapingPageService: ObservableObject {
+class ScrapingPageDetailService: ObservableObject {
     @Published var isMatch = false
     @Published var isScraping = false
     @Published var runningTestResult = "-"
@@ -69,22 +69,22 @@ class ScrapingPageService: ObservableObject {
         self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
     }
     
-    func create(scrapingPageViewModel: ScrapingPageViewModel, viewContext: NSManagedObjectContext) {
+    func create(scrapingPageDetailViewModel: ScrapingPageDetailViewModel, viewContext: NSManagedObjectContext) {
         ScrapingPageCoredataModel.create(
             in: viewContext,
-            scrapingName: scrapingPageViewModel.name,
-            scrapingUrl: scrapingPageViewModel.url,
-            scrapingKeyword: scrapingPageViewModel.keyword
+            scrapingName: scrapingPageDetailViewModel.name,
+            scrapingUrl: scrapingPageDetailViewModel.url,
+            scrapingKeyword: scrapingPageDetailViewModel.keyword
         )
     }
     
-    func update(scrapingPageViewModel: ScrapingPageViewModel, scrapingPageCoredataModel: ScrapingPageCoredataModel, viewContext: NSManagedObjectContext) {
+    func update(scrapingPageDetailViewModel: ScrapingPageDetailViewModel, scrapingPageCoredataModel: ScrapingPageCoredataModel, viewContext: NSManagedObjectContext) {
         ScrapingPageCoredataModel.update(
             in: viewContext,
             scrapingPageCoredataModel: scrapingPageCoredataModel,
-            scrapingName: scrapingPageViewModel.name,
-            scrapingUrl: scrapingPageViewModel.url,
-            scrapingKeyword: scrapingPageViewModel.keyword
+            scrapingName: scrapingPageDetailViewModel.name,
+            scrapingUrl: scrapingPageDetailViewModel.url,
+            scrapingKeyword: scrapingPageDetailViewModel.keyword
         )
     }
 }

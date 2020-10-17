@@ -8,22 +8,22 @@
 
 import SwiftUI
 
-struct NewScrapingPageView: View {
+struct NewScrapingPageDetailView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var scrapingPageViewModel = ScrapingPageViewModel()
-    @ObservedObject var scrapingPageService = ScrapingPageService()
+    @ObservedObject var scrapingPageDetailViewModel = ScrapingPageDetailViewModel()
+    @ObservedObject var scrapingPageDetailService = ScrapingPageDetailService()
     
     var body: some View {
         NavigationView {
-            ScrapingPageForm(
-                scrapingPageViewModel: scrapingPageViewModel,
-                scrapingPageService: scrapingPageService)
+            ScrapingPageDetailForm(
+                scrapingPageDetailViewModel: scrapingPageDetailViewModel,
+                scrapingPageDetailService: scrapingPageDetailService)
             .navigationBarItems(
                 leading: Text("Add Scraping Page"),
                 trailing: Button(
                     action: {
-                        scrapingPageService.create(scrapingPageViewModel: scrapingPageViewModel, viewContext: viewContext)
+                        scrapingPageDetailService.create(scrapingPageDetailViewModel: scrapingPageDetailViewModel, viewContext: viewContext)
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 ) {
@@ -36,6 +36,6 @@ struct NewScrapingPageView: View {
 
 struct CreateScrapingView_Previews: PreviewProvider {
     static var previews: some View {
-        NewScrapingPageView()
+        NewScrapingPageDetailView()
     }
 }

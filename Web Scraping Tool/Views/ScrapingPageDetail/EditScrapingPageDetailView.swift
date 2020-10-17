@@ -8,29 +8,29 @@
 
 import SwiftUI
 
-struct EditScrapingPageView: View {
+struct EditScrapingPageDetailView: View {
     @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var scrapingPageViewModel = ScrapingPageViewModel()
+    @ObservedObject var scrapingPageDetailViewModel = ScrapingPageDetailViewModel()
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var scrapingPageService = ScrapingPageService()
+    @ObservedObject var scrapingPageDetailService = ScrapingPageDetailService()
     
     let scrapingPageCoredataModel: ScrapingPageCoredataModel
     init(scrapingPageCoredataModel: ScrapingPageCoredataModel) {
         self.scrapingPageCoredataModel = scrapingPageCoredataModel
-        self.scrapingPageViewModel.SetCoredata(self.scrapingPageCoredataModel)
+        self.scrapingPageDetailViewModel.SetCoredata(self.scrapingPageCoredataModel)
     }
     
     var body: some View {
         NavigationView {
-            ScrapingPageForm(
-                scrapingPageViewModel: scrapingPageViewModel,
-                scrapingPageService: scrapingPageService)
+            ScrapingPageDetailForm(
+                scrapingPageDetailViewModel: scrapingPageDetailViewModel,
+                scrapingPageDetailService: scrapingPageDetailService)
             .navigationBarItems(
                 leading: Text("Update Scraping Page"),
                 trailing: Button(
                     action: {
-                        scrapingPageService.update(
-                            scrapingPageViewModel: scrapingPageViewModel,
+                        scrapingPageDetailService.update(
+                            scrapingPageDetailViewModel: scrapingPageDetailViewModel,
                             scrapingPageCoredataModel: scrapingPageCoredataModel,
                             viewContext: viewContext
                         )
@@ -54,6 +54,6 @@ struct UpdateScrapingView_Previews: PreviewProvider {
         scrapingPageCoredataModel.url = "https://example.com/"
         scrapingPageCoredataModel.keyword = "Example"
         
-        return EditScrapingPageView(scrapingPageCoredataModel: scrapingPageCoredataModel).environment(\.managedObjectContext, context)
+        return EditScrapingPageDetailView(scrapingPageCoredataModel: scrapingPageCoredataModel).environment(\.managedObjectContext, context)
     }
 }
