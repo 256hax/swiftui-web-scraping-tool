@@ -34,7 +34,10 @@ struct ScrapingPageDetailForm: View {
                             // Prevent double submission
                             Thread.sleep(forTimeInterval: 0.1)
                             
-                            self.scrapingPageDetailService.test(inputUrl: scrapingPageDetailViewModel.url, pattern: scrapingPageDetailViewModel.keyword)
+                            scrapingPageDetailService.test(
+                                inputUrl: scrapingPageDetailViewModel.url,
+                                pattern: scrapingPageDetailViewModel.keyword
+                            )
                         }
                     ) {
                         Text("Running Test")
