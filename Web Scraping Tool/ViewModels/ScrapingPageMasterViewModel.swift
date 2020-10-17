@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 class ScrapingPageMasterViewModel: ObservableObject {
     // Empty so far

@@ -34,12 +34,8 @@ struct ContentView: View {
                 }
             }.navigationViewStyle(StackNavigationViewStyle())
             
-            Button(action: {
-                self.isRunning.toggle()
-                scrapingPageMasterService.controlScraping(isRunning: self.isRunning)
-            }) {
-                Image(systemName: self.isRunning ? "play.fill" : "stop.fill")
-            }
+            // Run Scraping components
+            ScrapingPageMasterRun()
         }
     }
 }
