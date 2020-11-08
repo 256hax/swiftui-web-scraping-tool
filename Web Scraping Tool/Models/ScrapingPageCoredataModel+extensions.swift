@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 extension ScrapingPageCoredataModel {
     static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {

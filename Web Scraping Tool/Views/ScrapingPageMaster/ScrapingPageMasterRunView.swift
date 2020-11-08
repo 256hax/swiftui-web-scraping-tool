@@ -8,9 +8,15 @@
 
 import SwiftUI
 
-struct ScrapingPageMasterRun: View {
+struct ScrapingPageMasterRunView: View {
     @State var isRunning: Bool = false
     @ObservedObject var scrapingPageMasterService = ScrapingPageMasterService()
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoredataModel.updatedAt, ascending: false)],
+        animation: .default
+    )
+    var scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>
 
     var runningTestResultText: String {
         return scrapingPageMasterService.runningTestResult
@@ -26,9 +32,9 @@ struct ScrapingPageMasterRun: View {
             
             Button(action: {
                 self.isRunning.toggle()
-                  scrapingPageMasterService.controlScraping(isRunning: self.isRunning)
+                scrapingPageMasterService.runScraping(scrapingPagesCoredataModel: self.scrapingPagesCoredataModel)
             }) {
-                Image(systemName: self.isRunning ? "play.fill" : "stop.fill")
+                Image(systemName: self.isRunning ? "stop.fill" : "play.fill")
             }
         }
     }
@@ -36,6 +42,6 @@ struct ScrapingPageMasterRun: View {
 
 struct ScrapingPageMasterRun_Previews: PreviewProvider {
     static var previews: some View {
-        ScrapingPageMasterRun()
+        ScrapingPageMasterRunView()
     }
 }

@@ -34,7 +34,7 @@ struct ContentView: View {
             }.navigationViewStyle(StackNavigationViewStyle())
             
             // Run Scraping components
-            ScrapingPageMasterRun()
+            ScrapingPageMasterRunView()
         }
     }
 }

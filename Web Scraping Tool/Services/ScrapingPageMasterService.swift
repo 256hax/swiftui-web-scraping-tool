@@ -8,22 +8,22 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class ScrapingPageMasterService: ObservableObject {
     @Published var isMatch = false
     @Published var isScraping = false
     @Published var runningTestResult = "-"
 
-    func controlScraping(isRunning: Bool) {
-        self.runScraping(inputUrl: "https://example.com/", pattern: "Example")
-//        print("ok")
+    func runScraping(scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>) {
+        print(scrapingPagesCoredataModel)
     }
     
     /// Run Scraping
     /// - Parameters:
     ///   - inputUrl: Crawling URL
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
-    func runScraping(inputUrl: String, pattern: String) {
+    func scrapingTask(inputUrl: String, pattern: String) {
         // Exit if input is empty
         if(inputUrl.count == 0 || pattern.count == 0) {
             return
