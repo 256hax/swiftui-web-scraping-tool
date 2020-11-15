@@ -33,8 +33,9 @@ struct ContentView: View {
                 }
             }.navigationViewStyle(StackNavigationViewStyle())
             
-            // Run Scraping components
+            // Scraping Manager
             ScrapingPageMasterRunView()
+            Spacer()
         }
     }
 }

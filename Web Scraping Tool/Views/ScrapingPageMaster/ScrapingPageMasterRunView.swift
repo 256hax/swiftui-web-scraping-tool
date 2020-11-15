@@ -18,21 +18,18 @@ struct ScrapingPageMasterRunView: View {
     )
     var scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>
 
-    var runningTestResultText: String {
-        return scrapingPageMasterService.runningTestResult
-    }
-    
     var body: some View {
         VStack {
-            if(scrapingPageMasterService.isScraping) {
-                ProgressView("Scraping...")
-            } else {
-                Text(runningTestResultText)
-            }
+            Text(String(format: "Next Scraping %.1f", scrapingPageMasterService.countdownTimer))
             
             Button(action: {
                 self.isRunning.toggle()
-                scrapingPageMasterService.runScraping(scrapingPagesCoredataModel: self.scrapingPagesCoredataModel)
+                
+                if(self.isRunning) {
+                    scrapingPageMasterService.startScraping(scrapingPagesCoredataModel: self.scrapingPagesCoredataModel)
+                } else {
+                    scrapingPageMasterService.stopScraping()
+                }
             }) {
                 Image(systemName: self.isRunning ? "stop.fill" : "play.fill")
             }

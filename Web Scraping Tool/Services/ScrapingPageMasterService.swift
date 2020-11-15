@@ -15,8 +15,27 @@ class ScrapingPageMasterService: ObservableObject {
     @Published var isScraping = false
     @Published var runningTestResult = "-"
 
-    func runScraping(scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>) {
-        print(scrapingPagesCoredataModel)
+    var timer = Timer()
+    let defaultCountdownTimer = 30.0
+    @Published var countdownTimer: Double
+    
+    init() {
+        self.countdownTimer = self.defaultCountdownTimer
+    }
+ 
+    func startScraping(scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>) {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            self.countdownTimer -= 0.1
+            
+            if(self.countdownTimer < 1) {
+                self.stopScraping()
+            }
+        }
+    }
+    
+    func stopScraping() {
+        timer.invalidate()
+        self.countdownTimer = self.defaultCountdownTimer
     }
     
     /// Run Scraping
@@ -71,6 +90,5 @@ class ScrapingPageMasterService: ObservableObject {
         let convertedCountMatches = converting.countWithTimes(nsregex.countMatches(inputText))
 
         self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
-        print(        self.runningTestResult)
     }
 }
