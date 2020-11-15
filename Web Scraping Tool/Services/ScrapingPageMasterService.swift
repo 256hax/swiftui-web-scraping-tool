@@ -16,7 +16,9 @@ class ScrapingPageMasterService: ObservableObject {
     @Published var runningTestResult = "-"
 
     var timer = Timer()
-    let defaultCountdownTimer = 30.0
+    let defaultCountdownTimer = 5.0
+    let timeInterval = 0.1
+    let resetCountdownTimerLimit = 0.1
     @Published var countdownTimer: Double
     
     init() {
@@ -24,11 +26,13 @@ class ScrapingPageMasterService: ObservableObject {
     }
  
     func startScraping(scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>) {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            self.countdownTimer -= 0.1
+        timer = Timer.scheduledTimer(withTimeInterval: self.timeInterval, repeats: true) { timer in
+            self.countdownTimer -= self.timeInterval
             
-            if(self.countdownTimer < 1) {
-                self.stopScraping()
+            if(self.countdownTimer < self.resetCountdownTimerLimit) {
+                self.countdownTimer = self.defaultCountdownTimer
+                
+                self.scrapingTask(inputUrl: "https://example.com/", pattern: "Example")
             }
         }
     }
@@ -90,5 +94,6 @@ class ScrapingPageMasterService: ObservableObject {
         let convertedCountMatches = converting.countWithTimes(nsregex.countMatches(inputText))
 
         self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
+        print(self.runningTestResult)
     }
 }
