@@ -44,7 +44,6 @@ struct ContentView: View {
 struct MasterView: View {
     @State var showScrapingDetail = false
     @Environment(\.managedObjectContext) var viewContext
-    @State var scrapingResult: [String:String] = [:]
 
     // Get ScrapingPageCoredataModel object from CoreData
     @FetchRequest(
