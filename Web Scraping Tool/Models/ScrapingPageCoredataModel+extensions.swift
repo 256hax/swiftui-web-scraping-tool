@@ -13,6 +13,7 @@ import SwiftUI
 extension ScrapingPageCoredataModel {
     static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
         let scrapingPageCoredataModel       = ScrapingPageCoredataModel(context: viewContext)
+        scrapingPageCoredataModel.uuidString        = UUID().uuidString
         scrapingPageCoredataModel.name      = scrapingName.isEmpty ? "No Name" : scrapingName
         scrapingPageCoredataModel.url       = scrapingUrl
         scrapingPageCoredataModel.keyword   = scrapingKeyword

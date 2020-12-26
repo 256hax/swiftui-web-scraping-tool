@@ -44,7 +44,8 @@ struct ContentView: View {
 struct MasterView: View {
     @State var showScrapingDetail = false
     @Environment(\.managedObjectContext) var viewContext
-    
+    @State var scrapingResult: [String:String] = [:]
+
     // Get ScrapingPageCoredataModel object from CoreData
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoredataModel.updatedAt, ascending: false)],
@@ -59,8 +60,19 @@ struct MasterView: View {
                         self.showScrapingDetail = true
                     }
                 ) {
-                    HStack {
-                        Text("\(scrapingPageCoredataModel.name!)")
+                    VStack {
+                        HStack {
+                            Text("\(scrapingPageCoredataModel.name!)")
+                                .font(.largeTitle)
+                                .fontWeight(.thin)
+                            Spacer()
+                        }
+                        HStack {
+                            Text("\(scrapingPageCoredataModel.url!)")
+                                .font(.caption)
+                                .fontWeight(.thin)
+                            Spacer()
+                        }
                     }
                 }
                 .sheet(isPresented: self.$showScrapingDetail) {

@@ -20,8 +20,6 @@ struct ScrapingPageMasterRunView: View {
 
     var body: some View {
         VStack {
-            Text(String(format: "Next Scraping %.1f", scrapingPageMasterService.countdownTimer))
-            
             Button(action: {
                 self.isRunning.toggle()
                 
@@ -33,6 +31,8 @@ struct ScrapingPageMasterRunView: View {
             }) {
                 Image(systemName: self.isRunning ? "stop.fill" : "play.fill")
             }
+            
+            Text(String(format: "Next Scraping %.1f", scrapingPageMasterService.countdownTimer))
         }
     }
 }
