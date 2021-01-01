@@ -13,12 +13,16 @@ import SwiftUI
 class ScrapingPageMasterService: ObservableObject {
     @Published var isMatch = false
     @Published var isScraping = false
-    @Published var runningTestResult = "-"
+    @Published var runningTestResult = ""
 
     var timer = Timer()
-    let defaultCountdownTimer = 5.0
+    // Next Scraping Count Down Timer (sec).
+    let defaultCountdownTimer = 300.0
+    // Time Interval (sec).
     let timeInterval = 0.1
+    // Reset Timing. Shouldn't use "0.0". It start minus count down (ex: -0.1) issue.
     let resetCountdownTimerLimit = 0.1
+    // Double is better for count down.
     @Published var countdownTimer: Double
     
     init() {
@@ -31,8 +35,10 @@ class ScrapingPageMasterService: ObservableObject {
             
             if(self.countdownTimer < self.resetCountdownTimerLimit) {
                 self.countdownTimer = self.defaultCountdownTimer
-                
-                self.scrapingTask(inputUrl: "https://example.com/", pattern: "Example")
+                                
+                for s in scrapingPagesCoredataModel {
+                    self.scrapingTask(inputUrl: s.url!, pattern: s.keyword!, name: s.name!)
+                }
             }
         }
     }
@@ -46,7 +52,7 @@ class ScrapingPageMasterService: ObservableObject {
     /// - Parameters:
     ///   - inputUrl: Crawling URL
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
-    func scrapingTask(inputUrl: String, pattern: String) {
+    func scrapingTask(inputUrl: String, pattern: String, name: String) {
         // Exit if input is empty
         if(inputUrl.count == 0 || pattern.count == 0) {
             return
@@ -67,7 +73,7 @@ class ScrapingPageMasterService: ObservableObject {
                     // [Error case]
                     // End ProgressView
                     self.isScraping = false
-                    self.runningTestResult = "Unable to access Website. Check URL."
+                    self.runningTestResult = "\(name): Unable to access Website. Check URL."
                     
                     return
                 }
@@ -75,25 +81,44 @@ class ScrapingPageMasterService: ObservableObject {
                 // [Success case]
                 guard let html = String(data: data, encoding: .utf8) else { return }
 
-                self.regex(inputText: html, pattern: pattern)
+                self.regex(inputText: html, pattern: pattern, name: name)
+                
+                let nsregex = NSRegex(pattern)
+                if(nsregex.isMatch(html)) {
+                    self.postNotification(title: name, body: self.runningTestResult)
+                }
+                
                 // End ProgressView
                 self.isScraping = false
             }
         }
         task.resume()
+        // "URLSession.shared.dataTask" can't get return. Should write all code in there.
     }
     
     /// Run Regular Expression
     /// - Parameters:
     ///   - inputText: String Data for Regular Expression
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
-    func regex(inputText: String, pattern: String) {
+    func regex(inputText: String, pattern: String, name: String) {
         let nsregex = NSRegex(pattern)
         let converting = Converting()
         let convertedIsMatch = converting.isMatchToString(nsregex.isMatch(inputText))
         let convertedCountMatches = converting.countWithTimes(nsregex.countMatches(inputText))
 
-        self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
-        print(self.runningTestResult)
+        // Result is used on some screen.
+        self.runningTestResult = "\(name): \(convertedIsMatch) \(convertedCountMatches)"
+    }
+    
+    func postNotification(title: String, body: String) {
+       let content = UNMutableNotificationContent()
+       content.title = "Hit!"
+       content.body = body
+    
+       let id = "reminder-\(UUID())"
+       let request = UNNotificationRequest(identifier: id, content: content, trigger: nil)
+    
+       let center = UNUserNotificationCenter.current()
+       center.add(request, withCompletionHandler: nil)
     }
 }

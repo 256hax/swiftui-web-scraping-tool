@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ScrapingPageMasterRunView: View {
     @State var isRunning: Bool = false
+    @State var isButtonEnabled: Bool = false
     @ObservedObject var scrapingPageMasterService = ScrapingPageMasterService()
     
     @FetchRequest(
@@ -31,9 +32,34 @@ struct ScrapingPageMasterRunView: View {
             }) {
                 Image(systemName: self.isRunning ? "stop.fill" : "play.fill")
             }
+            .disabled(!self.isButtonEnabled)
+            .padding()
             
             Text(String(format: "Next Scraping %.1f", scrapingPageMasterService.countdownTimer))
-        }
+            Text(scrapingPageMasterService.runningTestResult)
+                .font(.caption)
+        }.onAppear(perform: {
+            self.getAuthorization()
+        })
+    }
+    
+    func getAuthorization() {
+       let center = UNUserNotificationCenter.current()
+        
+       center.getNotificationSettings(completionHandler: { settings in
+          if settings.authorizationStatus == .authorized {
+             self.isButtonEnabled = true
+          } else {
+             center.requestAuthorization(options: [.alert, .sound], completionHandler: { granted, error in
+                if granted && error == nil {
+                   self.isButtonEnabled = true
+                } else {
+                   self.isButtonEnabled = false
+                }
+             })
+          }
+       })
+        
     }
 }
 
