@@ -162,7 +162,6 @@
 			children = (
 				CB007A01249B220C006BC83A /* Models */,
 				CB0F514D25125A3C0030DD72 /* ViewModels */,
-				CB2F2AA824E9933A004B1FFA /* Services */,
 				CB0F514E25125A530030DD72 /* Views */,
 				CBBE1E8824D6F58500071FA7 /* Utils */,
 				CBC4BFE424FDFF4100538D1D /* helpers */,
@@ -201,13 +200,6 @@
 				CB19189B2493D43700B26363 /* Info.plist */,
 			);
 			path = "Web Scraping ToolUITests";
-			sourceTree = "<group>";
-		};
-		CB2F2AA824E9933A004B1FFA /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		CBBE1E8824D6F58500071FA7 /* Utils */ = {
