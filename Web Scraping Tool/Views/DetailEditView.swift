@@ -12,7 +12,7 @@ struct DetailEditView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var detailViewModel = DetailViewModel()
-    @ObservedObject var testViewModel = TestViewModel()
+    @ObservedObject var testViewModel   = TestViewModel()
     
     let scrapingPageCoreData: ScrapingPageCoreData
     init(scrapingPageCoreData: ScrapingPageCoreData) {
@@ -49,10 +49,10 @@ struct UpdateScrapingView_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let scrapingPageCoreData = ScrapingPageCoreData(context: context)
-        scrapingPageCoreData.name = "Find \"Example\" words in Example.com"
-        scrapingPageCoreData.url = "https://example.com/"
-        scrapingPageCoreData.keyword = "Example"
+        let scrapingPageCoreData        = ScrapingPageCoreData(context: context)
+        scrapingPageCoreData.name       = "Find \"Example\" words in Example.com"
+        scrapingPageCoreData.url        = "https://example.com/"
+        scrapingPageCoreData.keyword    = "Example"
         
         return DetailEditView(scrapingPageCoreData: scrapingPageCoreData).environment(\.managedObjectContext, context)
     }

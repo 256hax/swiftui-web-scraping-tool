@@ -1,5 +1,5 @@
 //
-//  MasterView.swift
+//  MasterListView.swift
 //  Web Scraping Tool
 //
 //  Created by user on 2021/01/03.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MasterView: View {
+struct MasterListView: View {
     @State var showDetail = false
     @Environment(\.managedObjectContext) var viewContext
 
@@ -54,6 +54,6 @@ struct MasterView: View {
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return MasterView().environment(\.managedObjectContext, context)
+        return MasterListView().environment(\.managedObjectContext, context)
     }
 }

@@ -11,16 +11,16 @@ import CoreData
 import SwiftUI
 
 class RunViewModel: ObservableObject {
-    @Published var isMatch = false
-    @Published var isScraping = false
-    @Published var runningTestResult = ""
-    @Published var isRunning: Bool = false
+    @Published var isMatch              = false
+    @Published var isScraping           = false
+    @Published var runningTestResult    = ""
+    @Published var isRunning: Bool      = false
 
     @Published var countdownTimer: Double
-    var timer = Timer() // Next Scraping Count Down Timer (sec).
-    let defaultCountdownTimer = 300.0 // Time Interval (sec).
-    let timeInterval = 0.1 // Reset Timing. Shouldn't use "0.0". It start minus count down (ex: -0.1) issue.
-    let resetCountdownTimerLimit = 0.1 // Double is better for usability.
+    var timer                       = Timer()   // Next Scraping Count Down Timer (sec).
+    let defaultCountdownTimer       = 300.0     // Time Interval (sec).
+    let timeInterval                = 0.1       // Reset Timing. Shouldn't use "0.0". It start minus count down (ex: -0.1) issue.
+    let resetCountdownTimerLimit    = 0.1       // Double is better for usability.
     
     init() {
         self.countdownTimer = self.defaultCountdownTimer
@@ -108,12 +108,12 @@ class RunViewModel: ObservableObject {
     }
     
     func postNotification(title: String, body: String) {
-       let content = UNMutableNotificationContent()
-       content.title = "Hit!"
-       content.body = body
+       let content      = UNMutableNotificationContent()
+       content.title    = "Hit!"
+       content.body     = body
     
-       let id = "reminder-\(UUID())"
-       let request = UNNotificationRequest(identifier: id, content: content, trigger: nil)
+       let id       = "reminder-\(UUID())"
+       let request  = UNNotificationRequest(identifier: id, content: content, trigger: nil)
     
        let center = UNUserNotificationCenter.current()
        center.add(request, withCompletionHandler: nil)

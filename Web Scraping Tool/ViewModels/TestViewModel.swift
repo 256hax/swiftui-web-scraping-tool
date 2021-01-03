@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 class TestViewModel: ObservableObject {
-    @Published var isMatch = false
-    @Published var isScraping = false
-    @Published var runningTestResult = "-"
+    @Published var isMatch              = false
+    @Published var isScraping           = false
+    @Published var runningTestResult    = "-"
     
     /// Running Test
     /// - Parameters:
@@ -60,10 +60,10 @@ class TestViewModel: ObservableObject {
     ///   - inputText: String Data for Regular Expression
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
     func regex(inputText: String, pattern: String) {
-        let nsregex = NSRegex(pattern)
-        let converting = Converting()
-        let convertedIsMatch = converting.isMatchToString(nsregex.isMatch(inputText))
-        let convertedCountMatches = converting.numberToCount(nsregex.countMatches(inputText))
+        let nsregex                 = NSRegex(pattern)
+        let converting              = Converting()
+        let convertedIsMatch        = converting.isMatchToString(nsregex.isMatch(inputText))
+        let convertedCountMatches   = converting.numberToCount(nsregex.countMatches(inputText))
 
         self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
     }

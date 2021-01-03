@@ -15,8 +15,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NavigationView {
-                MasterView()
-                    .navigationBarTitle(Text("Master"))
+                MasterListView()
+                    .navigationBarTitle(Text("Scraping Page"))
                     .navigationBarItems(
                         leading: EditButton(),
                         trailing: Button(
@@ -32,7 +32,6 @@ struct ContentView: View {
                 }
             }.navigationViewStyle(StackNavigationViewStyle())
             
-            // Scraping Manager
             MasterRunView()
             Spacer()
         }

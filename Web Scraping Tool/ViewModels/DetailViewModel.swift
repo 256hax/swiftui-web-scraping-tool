@@ -9,15 +9,15 @@
 import Foundation
 
 class DetailViewModel: ObservableObject {
-    @Published var name = ""
-    @Published var url = ""
-    @Published var keyword = ""
+    @Published var name     = ""
+    @Published var url      = ""
+    @Published var keyword  = ""
 }
 
 extension DetailViewModel {
     func SetCoreData(_ scrapingPageCoreData: ScrapingPageCoreData) {
-        self.name    = scrapingPageCoreData.name ?? "new name"
-        self.url     = scrapingPageCoreData.url ?? ""
-        self.keyword = scrapingPageCoreData.keyword ?? ""
+        self.name       = scrapingPageCoreData.name ?? "new name"
+        self.url        = scrapingPageCoreData.url ?? ""
+        self.keyword    = scrapingPageCoreData.keyword ?? ""
     }
 }

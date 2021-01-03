@@ -12,7 +12,7 @@ struct DetailNewView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var detailViewModel = DetailViewModel()
-    @ObservedObject var testViewModel = TestViewModel()
+    @ObservedObject var testViewModel   = TestViewModel()
     
     var body: some View {
         NavigationView {
