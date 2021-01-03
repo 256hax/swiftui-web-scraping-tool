@@ -1,5 +1,5 @@
 //
-//  ScrapingPageCoredataModel+extensions.swift
+//  ScrapingPageCoreData+extensions.swift
 //  Web Scraping Tool
 //
 //  Created by user on 2020/06/18.
@@ -10,14 +10,14 @@ import Foundation
 import CoreData
 import SwiftUI
 
-extension ScrapingPageCoredataModel {
+extension ScrapingPageCoreData {
     static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
-        let scrapingPageCoredataModel        = ScrapingPageCoredataModel(context: viewContext)
-        scrapingPageCoredataModel.uuidString = UUID().uuidString
-        scrapingPageCoredataModel.name       = scrapingName.isEmpty ? "No Name" : scrapingName
-        scrapingPageCoredataModel.url        = scrapingUrl
-        scrapingPageCoredataModel.keyword    = scrapingKeyword
-        scrapingPageCoredataModel.updatedAt  = Date()
+        let scrapingPageCoreData      = ScrapingPageCoreData(context: viewContext)
+        scrapingPageCoreData.uuidString = UUID().uuidString
+        scrapingPageCoreData.name       = scrapingName.isEmpty ? "No Name" : scrapingName
+        scrapingPageCoreData.url        = scrapingUrl
+        scrapingPageCoreData.keyword    = scrapingKeyword
+        scrapingPageCoreData.updatedAt  = Date()
         
         do {
             try  viewContext.save()
@@ -29,12 +29,11 @@ extension ScrapingPageCoredataModel {
         }
     }
     
-    static func update(in viewContext: NSManagedObjectContext, scrapingPageCoredataModel: ScrapingPageCoredataModel, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
-        let scrapingPageCoredataModel       = scrapingPageCoredataModel
-        scrapingPageCoredataModel.name      = scrapingName
-        scrapingPageCoredataModel.url       = scrapingUrl
-        scrapingPageCoredataModel.keyword   = scrapingKeyword
-        scrapingPageCoredataModel.updatedAt = Date()
+    static func update(in viewContext: NSManagedObjectContext, scrapingPageCoreData: ScrapingPageCoreData, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
+        scrapingPageCoreData.name      = scrapingName
+        scrapingPageCoreData.url       = scrapingUrl
+        scrapingPageCoreData.keyword   = scrapingKeyword
+        scrapingPageCoreData.updatedAt = Date()
         
         do {
             try  viewContext.save()
@@ -47,7 +46,7 @@ extension ScrapingPageCoredataModel {
     }
 }
 
-extension Collection where Element == ScrapingPageCoredataModel, Index == Int {
+extension Collection where Element == ScrapingPageCoreData, Index == Int {
     func delete(at indices: IndexSet, from managedObjectContext: NSManagedObjectContext) {
         indices.forEach { managedObjectContext.delete(self[$0]) }
  

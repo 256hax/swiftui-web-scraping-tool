@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB007A03249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */; };
-		CB007A04249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */; };
-		CB007A05249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */; };
+		CB007A03249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoreData+extensions.swift */; };
+		CB007A04249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoreData+extensions.swift */; };
+		CB007A05249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB007A02249BA692006BC83A /* ScrapingPageCoreData+extensions.swift */; };
 		CB02012F249F4E5000964040 /* Web Scraping ToolTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */; };
 		CB020133249F76F600964040 /* EditScrapingPageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB020132249F76F600964040 /* EditScrapingPageDetailView.swift */; };
 		CB1918732493D43500B26363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918722493D43500B26363 /* AppDelegate.swift */; };
@@ -54,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrapingPageCoredataModel+extensions.swift"; sourceTree = "<group>"; };
+		CB007A02249BA692006BC83A /* ScrapingPageCoreData+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrapingPageCoreData+extensions.swift"; sourceTree = "<group>"; };
 		CB020132249F76F600964040 /* EditScrapingPageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScrapingPageDetailView.swift; sourceTree = "<group>"; };
 		CB19186F2493D43500B26363 /* Web Scraping Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Web Scraping Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1918722493D43500B26363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		CB007A01249B220C006BC83A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CB007A02249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift */,
+				CB007A02249BA692006BC83A /* ScrapingPageCoreData+extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 				CBBE2688251EFB4700BE933D /* ScrapingPageDetailForm.swift in Sources */,
 				CB1918762493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld in Sources */,
 				CB31275025A0B5CC00458BC9 /* TestViewModel.swift in Sources */,
-				CB007A03249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */,
+				CB007A03249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
 				CB53F93A253B293E0012F343 /* ScrapingPageMasterRunView.swift in Sources */,
 				CB2F2AA524E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB389BC32513402800CA23E5 /* ScrapingPageDetailViewModel.swift in Sources */,
@@ -401,7 +401,7 @@
 			files = (
 				CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB53F93B253B293E0012F343 /* ScrapingPageMasterRunView.swift in Sources */,
-				CB007A04249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */,
+				CB007A04249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
 				CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,7 +412,7 @@
 			files = (
 				CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB53F93C253B293E0012F343 /* ScrapingPageMasterRunView.swift in Sources */,
-				CB007A05249BA692006BC83A /* ScrapingPageCoredataModel+extensions.swift in Sources */,
+				CB007A05249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
 				CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

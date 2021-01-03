@@ -1,5 +1,5 @@
 //
-//  ScrapingPageMasterService.swift
+//  RunViewModel.swift
 //  Web Scraping Tool
 //
 //  Created by user on 2020/10/15.
@@ -29,14 +29,14 @@ class RunViewModel: ObservableObject {
         self.countdownTimer = self.defaultCountdownTimer
     }
  
-    func startScraping(scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>) {
+    func startScraping(scrapingPageCoreData: FetchedResults<ScrapingPageCoreData>) {
         timer = Timer.scheduledTimer(withTimeInterval: self.timeInterval, repeats: true) { timer in
             self.countdownTimer -= self.timeInterval
             
             if(self.countdownTimer < self.resetCountdownTimerLimit) {
                 self.countdownTimer = self.defaultCountdownTimer
                                 
-                for s in scrapingPagesCoredataModel {
+                for s in scrapingPageCoreData {
                     self.scrapingTask(inputUrl: s.url!, pattern: s.keyword!, name: s.name!)
                 }
             }

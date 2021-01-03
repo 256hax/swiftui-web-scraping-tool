@@ -45,15 +45,15 @@ struct MasterView: View {
     @State var showScrapingDetail = false
     @Environment(\.managedObjectContext) var viewContext
 
-    // Get ScrapingPageCoredataModel object from CoreData
+    // Get ScrapingPageCoreData object from CoreData
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoredataModel.updatedAt, ascending: false)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoreData.updatedAt, ascending: false)],
         animation: .default)
-    var scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>
+    var scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoreData>
 
     var body: some View {
         List {
-            ForEach(scrapingPagesCoredataModel, id: \.self) { scrapingPageCoredataModel in
+            ForEach(scrapingPagesCoredataModel, id: \.self) { scrapingPageCoreData in
                 Button(
                     action: {
                         self.showScrapingDetail = true
@@ -61,13 +61,13 @@ struct MasterView: View {
                 ) {
                     VStack {
                         HStack {
-                            Text("\(scrapingPageCoredataModel.name!)")
+                            Text("\(scrapingPageCoreData.name!)")
                                 .font(.largeTitle)
                                 .fontWeight(.thin)
                             Spacer()
                         }
                         HStack {
-                            Text("\(scrapingPageCoredataModel.url!)")
+                            Text("\(scrapingPageCoreData.url!)")
                                 .font(.caption)
                                 .fontWeight(.thin)
                             Spacer()
@@ -75,7 +75,7 @@ struct MasterView: View {
                     }
                 }
                 .sheet(isPresented: self.$showScrapingDetail) {
-                    EditScrapingPageDetailView(scrapingPageCoredataModel: scrapingPageCoredataModel).environment(\.managedObjectContext, self.viewContext)
+                    EditScrapingPageDetailView(scrapingPageCoreData: scrapingPageCoreData).environment(\.managedObjectContext, self.viewContext)
                 }
             }.onDelete { indices in
                 self.scrapingPagesCoredataModel.delete(at: indices, from: self.viewContext)

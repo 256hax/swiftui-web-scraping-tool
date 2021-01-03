@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ScrapingPageCoredataModel" representedClassName="ScrapingPageCoredataModel" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H114" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ScrapingPageCoreData" representedClassName="ScrapingPageCoreData" syncable="YES" codeGenerationType="class">
         <attribute name="keyword" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -8,6 +8,6 @@
         <attribute name="uuidString" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="ScrapingPageCoredataModel" positionX="261" positionY="198" width="128" height="118"/>
+        <element name="ScrapingPageCoreData" positionX="261" positionY="198" width="128" height="118"/>
     </elements>
 </model>

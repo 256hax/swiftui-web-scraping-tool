@@ -14,10 +14,10 @@ struct ScrapingPageMasterRunView: View {
     @ObservedObject var scrapingPageMasterService = RunViewModel()
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoredataModel.updatedAt, ascending: false)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoreData.updatedAt, ascending: false)],
         animation: .default
     )
-    var scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoredataModel>
+    var scrapingPageCoreData: FetchedResults<ScrapingPageCoreData>
 
     var body: some View {
         VStack {
@@ -25,7 +25,7 @@ struct ScrapingPageMasterRunView: View {
                 self.isRunning.toggle()
                 
                 if(self.isRunning) {
-                    scrapingPageMasterService.startScraping(scrapingPagesCoredataModel: self.scrapingPagesCoredataModel)
+                    scrapingPageMasterService.startScraping(scrapingPageCoreData: self.scrapingPageCoreData)
                 } else {
                     scrapingPageMasterService.stopScraping()
                 }

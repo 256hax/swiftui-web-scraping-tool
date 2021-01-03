@@ -70,7 +70,7 @@ class TestViewModel: ObservableObject {
     }
     
     func create(scrapingPageDetailViewModel: ScrapingPageDetailViewModel, viewContext: NSManagedObjectContext) {
-        ScrapingPageCoredataModel.create(
+        ScrapingPageCoreData.create(
             in: viewContext,
             scrapingName: scrapingPageDetailViewModel.name,
             scrapingUrl: scrapingPageDetailViewModel.url,
@@ -78,10 +78,10 @@ class TestViewModel: ObservableObject {
         )
     }
     
-    func update(scrapingPageDetailViewModel: ScrapingPageDetailViewModel, scrapingPageCoredataModel: ScrapingPageCoredataModel, viewContext: NSManagedObjectContext) {
-        ScrapingPageCoredataModel.update(
+    func update(scrapingPageDetailViewModel: ScrapingPageDetailViewModel, scrapingPageCoreData: ScrapingPageCoreData, viewContext: NSManagedObjectContext) {
+        ScrapingPageCoreData.update(
             in: viewContext,
-            scrapingPageCoredataModel: scrapingPageCoredataModel,
+            scrapingPageCoreData: scrapingPageCoreData,
             scrapingName: scrapingPageDetailViewModel.name,
             scrapingUrl: scrapingPageDetailViewModel.url,
             scrapingKeyword: scrapingPageDetailViewModel.keyword
