@@ -10,27 +10,27 @@ import SwiftUI
 
 struct EditScrapingPageDetailView: View {
     @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var scrapingPageDetailViewModel = ScrapingPageDetailViewModel()
+    @ObservedObject var detailViewModel = DetailViewModel()
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var scrapingPageDetailService = TestViewModel()
     
     let scrapingPageCoreData: ScrapingPageCoreData
     init(scrapingPageCoreData: ScrapingPageCoreData) {
         self.scrapingPageCoreData = scrapingPageCoreData
-        self.scrapingPageDetailViewModel.SetCoredata(self.scrapingPageCoreData)
+        self.detailViewModel.SetCoredata(self.scrapingPageCoreData)
     }
     
     var body: some View {
         NavigationView {
             ScrapingPageDetailForm(
-                scrapingPageDetailViewModel: scrapingPageDetailViewModel,
+                detailViewModel: detailViewModel,
                 scrapingPageDetailService: scrapingPageDetailService)
             .navigationBarItems(
                 leading: Text("Update Scraping Page"),
                 trailing: Button(
                     action: {
                         scrapingPageDetailService.update(
-                            scrapingPageDetailViewModel: scrapingPageDetailViewModel,
+                            detailViewModel: detailViewModel,
                             scrapingPageCoreData: scrapingPageCoreData,
                             viewContext: viewContext
                         )

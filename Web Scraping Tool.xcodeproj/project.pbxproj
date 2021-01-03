@@ -26,7 +26,7 @@
 		CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB31274F25A0B5CC00458BC9 /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB31274D25A0B5CC00458BC9 /* RunViewModel.swift */; };
 		CB31275025A0B5CC00458BC9 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB31274E25A0B5CC00458BC9 /* TestViewModel.swift */; };
-		CB389BC32513402800CA23E5 /* ScrapingPageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB389BC22513402800CA23E5 /* ScrapingPageDetailViewModel.swift */; };
+		CB389BC32513402800CA23E5 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB389BC22513402800CA23E5 /* DetailViewModel.swift */; };
 		CB3FAEAB2524CAA200B26B6E /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3FAEAA2524CAA200B26B6E /* WebView.swift */; };
 		CB53F93A253B293E0012F343 /* ScrapingPageMasterRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB53F939253B293E0012F343 /* ScrapingPageMasterRunView.swift */; };
 		CB53F93B253B293E0012F343 /* ScrapingPageMasterRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB53F939253B293E0012F343 /* ScrapingPageMasterRunView.swift */; };
@@ -74,7 +74,7 @@
 		CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegex.swift; sourceTree = "<group>"; };
 		CB31274D25A0B5CC00458BC9 /* RunViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
 		CB31274E25A0B5CC00458BC9 /* TestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
-		CB389BC22513402800CA23E5 /* ScrapingPageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingPageDetailViewModel.swift; sourceTree = "<group>"; };
+		CB389BC22513402800CA23E5 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		CB3FAEAA2524CAA200B26B6E /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		CB53F939253B293E0012F343 /* ScrapingPageMasterRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingPageMasterRunView.swift; sourceTree = "<group>"; };
 		CBBE2687251EFB4700BE933D /* ScrapingPageDetailForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingPageDetailForm.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		CB0F514D25125A3C0030DD72 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CB389BC22513402800CA23E5 /* ScrapingPageDetailViewModel.swift */,
+				CB389BC22513402800CA23E5 /* DetailViewModel.swift */,
 				CB31274D25A0B5CC00458BC9 /* RunViewModel.swift */,
 				CB31274E25A0B5CC00458BC9 /* TestViewModel.swift */,
 			);
@@ -389,7 +389,7 @@
 				CB007A03249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
 				CB53F93A253B293E0012F343 /* ScrapingPageMasterRunView.swift in Sources */,
 				CB2F2AA524E8EAF7004B1FFA /* NSRegex.swift in Sources */,
-				CB389BC32513402800CA23E5 /* ScrapingPageDetailViewModel.swift in Sources */,
+				CB389BC32513402800CA23E5 /* DetailViewModel.swift in Sources */,
 				CB31274F25A0B5CC00458BC9 /* RunViewModel.swift in Sources */,
 				CB1918782493D43500B26363 /* SceneDelegate.swift in Sources */,
 			);

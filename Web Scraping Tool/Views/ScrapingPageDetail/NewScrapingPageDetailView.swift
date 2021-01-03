@@ -11,19 +11,19 @@ import SwiftUI
 struct NewScrapingPageDetailView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var scrapingPageDetailViewModel = ScrapingPageDetailViewModel()
+    @ObservedObject var detailViewModel = DetailViewModel()
     @ObservedObject var scrapingPageDetailService = TestViewModel()
     
     var body: some View {
         NavigationView {
             ScrapingPageDetailForm(
-                scrapingPageDetailViewModel: scrapingPageDetailViewModel,
+                detailViewModel: detailViewModel,
                 scrapingPageDetailService: scrapingPageDetailService)
             .navigationBarItems(
                 leading: Text("Add Scraping Page"),
                 trailing: Button(
                     action: {
-                        scrapingPageDetailService.create(scrapingPageDetailViewModel: scrapingPageDetailViewModel, viewContext: viewContext)
+                        scrapingPageDetailService.create(detailViewModel: detailViewModel, viewContext: viewContext)
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 ) {

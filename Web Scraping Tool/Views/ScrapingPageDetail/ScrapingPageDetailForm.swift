@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ScrapingPageDetailForm: View {
     @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var scrapingPageDetailViewModel: ScrapingPageDetailViewModel
+    @ObservedObject var detailViewModel: DetailViewModel
     @ObservedObject var scrapingPageDetailService: TestViewModel
 
     var runningTestResultText: String {
@@ -21,9 +21,9 @@ struct ScrapingPageDetailForm: View {
         Form {
             // Settings
             Section(footer: Text("Search Keyword supports Regular Expression")) {
-                TextField("Scraping Name", text: $scrapingPageDetailViewModel.name).autocapitalization(.none)
-                TextField("Scraping URL", text: $scrapingPageDetailViewModel.url).autocapitalization(.none)
-                TextField("Search Keyword", text: $scrapingPageDetailViewModel.keyword).autocapitalization(.none)
+                TextField("Scraping Name", text: $detailViewModel.name).autocapitalization(.none)
+                TextField("Scraping URL", text: $detailViewModel.url).autocapitalization(.none)
+                TextField("Search Keyword", text: $detailViewModel.keyword).autocapitalization(.none)
             }
             // Running Test
             Section {
@@ -35,8 +35,8 @@ struct ScrapingPageDetailForm: View {
                             Thread.sleep(forTimeInterval: 0.1)
                             
                             scrapingPageDetailService.test(
-                                inputUrl: scrapingPageDetailViewModel.url,
-                                pattern: scrapingPageDetailViewModel.keyword
+                                inputUrl: detailViewModel.url,
+                                pattern: detailViewModel.keyword
                             )
                         }
                     ) {
@@ -54,8 +54,8 @@ struct ScrapingPageDetailForm: View {
             }
         }
         // Scraping URL Preview
-        if(scrapingPageDetailViewModel.url.count > 0) {
-            WebView(loadUrl: scrapingPageDetailViewModel.url)
+        if(detailViewModel.url.count > 0) {
+            WebView(loadUrl: detailViewModel.url)
         }
     }
 }

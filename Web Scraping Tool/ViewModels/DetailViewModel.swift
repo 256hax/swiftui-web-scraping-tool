@@ -8,13 +8,13 @@
 
 import Foundation
 
-class ScrapingPageDetailViewModel: ObservableObject {
+class DetailViewModel: ObservableObject {
     @Published var name = ""
     @Published var url = ""
     @Published var keyword = ""
 }
 
-extension ScrapingPageDetailViewModel {
+extension DetailViewModel {
     func SetCoredata(_ scrapingPageCoreData: ScrapingPageCoreData) {
         self.name    = scrapingPageCoreData.name ?? "new name"
         self.url     = scrapingPageCoreData.url ?? ""
