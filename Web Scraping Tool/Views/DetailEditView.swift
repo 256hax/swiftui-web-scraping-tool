@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct DetailEditView: View {
+    @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var detailViewModel = DetailViewModel()
-    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var testViewModel = TestViewModel()
     
     let scrapingPageCoreData: ScrapingPageCoreData

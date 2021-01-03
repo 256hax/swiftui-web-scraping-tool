@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct DetailNewView: View {
-    @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var detailViewModel = DetailViewModel()
     @ObservedObject var testViewModel = TestViewModel()
     

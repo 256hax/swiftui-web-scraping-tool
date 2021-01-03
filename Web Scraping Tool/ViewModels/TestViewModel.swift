@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-// For Business Layer
 class TestViewModel: ObservableObject {
     @Published var isMatch = false
     @Published var isScraping = false
