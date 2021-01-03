@@ -16,15 +16,11 @@ class RunViewModel: ObservableObject {
     @Published var runningTestResult = ""
     @Published var isRunning: Bool = false
 
-    var timer = Timer()
-    // Next Scraping Count Down Timer (sec).
-    let defaultCountdownTimer = 300.0
-    // Time Interval (sec).
-    let timeInterval = 0.1
-    // Reset Timing. Shouldn't use "0.0". It start minus count down (ex: -0.1) issue.
-    let resetCountdownTimerLimit = 0.1
-    // Double is better for count down.
     @Published var countdownTimer: Double
+    var timer = Timer() // Next Scraping Count Down Timer (sec).
+    let defaultCountdownTimer = 300.0 // Time Interval (sec).
+    let timeInterval = 0.1 // Reset Timing. Shouldn't use "0.0". It start minus count down (ex: -0.1) issue.
+    let resetCountdownTimerLimit = 0.1 // Double is better for usability.
     
     init() {
         self.countdownTimer = self.defaultCountdownTimer
