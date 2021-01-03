@@ -19,8 +19,8 @@ class RunViewModel: ObservableObject {
     @Published var countdownTimer: Double
     var timer                       = Timer()   // Next Scraping Count Down Timer (sec).
     let defaultCountdownTimer       = 300.0     // Time Interval (sec).
-    let timeInterval                = 0.1       // Reset Timing. Shouldn't use "0.0". It start minus count down (ex: -0.1) issue.
-    let resetCountdownTimerLimit    = 0.1       // Double is better for usability.
+    let timeInterval                = 0.1       // Reset Timing. Shouldn't set "0.0". It'll be starting minus count down (ex: -0.1).
+    let resetCountdownTimerLimit    = 0.1       // Reset Timer Limit (sec). Double is better for usability.
     
     init() {
         self.countdownTimer = self.defaultCountdownTimer
@@ -49,6 +49,7 @@ class RunViewModel: ObservableObject {
     /// - Parameters:
     ///   - inputUrl: Crawling URL
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
+    ///   - name: Scraping Name
     func scrapingTask(inputUrl: String, pattern: String, name: String) {
         // Exit if input is empty
         if(inputUrl.count == 0 || pattern.count == 0) {
@@ -82,6 +83,7 @@ class RunViewModel: ObservableObject {
                 
                 let nsregex = NSRegex(pattern)
                 if(nsregex.isMatch(html)) {
+                    // Run Local Push Nortification when scraping hit.
                     self.postNotification(title: name, body: self.runningTestResult)
                 }
                 
@@ -97,6 +99,7 @@ class RunViewModel: ObservableObject {
     /// - Parameters:
     ///   - inputText: String Data for Regular Expression
     ///   - pattern: Patterns for Regular Expression. ex) c(.*)t
+    ///   - name: Scraping Name
     func regex(inputText: String, pattern: String, name: String) {
         let nsregex = NSRegex(pattern)
         let converting = Converting()
@@ -107,6 +110,10 @@ class RunViewModel: ObservableObject {
         self.runningTestResult = "\(name): \(convertedIsMatch) \(convertedCountMatches)"
     }
     
+    /// Local Push Nortification
+    /// - Parameters:
+    ///   - title: Nortification Title
+    ///   - body: Nortification Body
     func postNotification(title: String, body: String) {
        let content      = UNMutableNotificationContent()
        content.title    = "Hit!"
