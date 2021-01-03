@@ -1,5 +1,5 @@
 //
-//  ScrapingPageModel.swift
+//  DetailViewModel.swift
 //  Web Scraping Tool
 //
 //  Created by user on 2020/09/17.

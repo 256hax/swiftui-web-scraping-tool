@@ -29,12 +29,12 @@ struct ContentView: View {
                         }
                     )
                 .sheet(isPresented: $showScrapingDetail) {
-                    NewScrapingPageDetailView().environment(\.managedObjectContext, self.viewContext)
+                    DetailNewView().environment(\.managedObjectContext, self.viewContext)
                 }
             }.navigationViewStyle(StackNavigationViewStyle())
             
             // Scraping Manager
-            ScrapingPageMasterRunView()
+            MasterRunView()
             Spacer()
         }
     }
@@ -75,7 +75,7 @@ struct MasterView: View {
                     }
                 }
                 .sheet(isPresented: self.$showScrapingDetail) {
-                    EditScrapingPageDetailView(scrapingPageCoreData: scrapingPageCoreData).environment(\.managedObjectContext, self.viewContext)
+                    DetailEditView(scrapingPageCoreData: scrapingPageCoreData).environment(\.managedObjectContext, self.viewContext)
                 }
             }.onDelete { indices in
                 self.scrapingPagesCoredataModel.delete(at: indices, from: self.viewContext)
