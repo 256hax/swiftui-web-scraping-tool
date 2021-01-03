@@ -14,6 +14,7 @@ class RunViewModel: ObservableObject {
     @Published var isMatch = false
     @Published var isScraping = false
     @Published var runningTestResult = ""
+    @Published var isRunning: Bool = false
 
     var timer = Timer()
     // Next Scraping Count Down Timer (sec).

@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct MasterRunView: View {
-    @State var isRunning: Bool = false
+    // Shouldn't move Binding Enabling Button code to outside. It get following error.
+    // -> Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates.
     @State var isButtonEnabled: Bool = false
     @ObservedObject var runViewModel = RunViewModel()
     
@@ -22,15 +23,15 @@ struct MasterRunView: View {
     var body: some View {
         VStack {
             Button(action: {
-                self.isRunning.toggle()
+                runViewModel.isRunning.toggle()
                 
-                if(self.isRunning) {
+                if(runViewModel.isRunning) {
                     runViewModel.startScraping(scrapingPageCoreData: self.scrapingPageCoreData)
                 } else {
                     runViewModel.stopScraping()
                 }
             }) {
-                Image(systemName: self.isRunning ? "stop.fill" : "play.fill")
+                Image(systemName: runViewModel.isRunning ? "stop.fill" : "play.fill")
             }
             .disabled(!self.isButtonEnabled)
             .padding()
