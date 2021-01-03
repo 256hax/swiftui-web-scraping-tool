@@ -16,10 +16,10 @@ class Converting {
         return isMatch == true ? "Matched" : "No Match"
     }
     
-    /// Count With Times
+    /// Convert Number To Count
     /// - Parameter count: Count number. ex) Matched number in Regular Expression
     /// - Returns: Count with times. Return empty string if no counting.
-    func countWithTimes(_ count: Int) -> String {
+    func numberToCount(_ count: Int) -> String {
         switch count {
         case 0:
             return ""

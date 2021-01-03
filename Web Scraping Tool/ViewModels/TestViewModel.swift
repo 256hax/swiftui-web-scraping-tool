@@ -64,7 +64,7 @@ class TestViewModel: ObservableObject {
         let nsregex = NSRegex(pattern)
         let converting = Converting()
         let convertedIsMatch = converting.isMatchToString(nsregex.isMatch(inputText))
-        let convertedCountMatches = converting.countWithTimes(nsregex.countMatches(inputText))
+        let convertedCountMatches = converting.numberToCount(nsregex.countMatches(inputText))
 
         self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
     }

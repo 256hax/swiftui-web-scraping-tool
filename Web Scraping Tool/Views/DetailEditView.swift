@@ -12,24 +12,24 @@ struct DetailEditView: View {
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var detailViewModel = DetailViewModel()
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var scrapingPageDetailService = TestViewModel()
+    @ObservedObject var testViewModel = TestViewModel()
     
     let scrapingPageCoreData: ScrapingPageCoreData
     init(scrapingPageCoreData: ScrapingPageCoreData) {
         self.scrapingPageCoreData = scrapingPageCoreData
-        self.detailViewModel.SetCoredata(self.scrapingPageCoreData)
+        self.detailViewModel.SetCoreData(self.scrapingPageCoreData)
     }
     
     var body: some View {
         NavigationView {
             DetailFormView(
                 detailViewModel: detailViewModel,
-                scrapingPageDetailService: scrapingPageDetailService)
+                testViewModel: testViewModel)
             .navigationBarItems(
                 leading: Text("Update Scraping Page"),
                 trailing: Button(
                     action: {
-                        scrapingPageDetailService.update(
+                        testViewModel.update(
                             detailViewModel: detailViewModel,
                             scrapingPageCoreData: scrapingPageCoreData,
                             viewContext: viewContext

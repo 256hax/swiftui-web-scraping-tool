@@ -11,7 +11,7 @@ import SwiftUI
 struct MasterRunView: View {
     @State var isRunning: Bool = false
     @State var isButtonEnabled: Bool = false
-    @ObservedObject var scrapingPageMasterService = RunViewModel()
+    @ObservedObject var runViewModel = RunViewModel()
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoreData.updatedAt, ascending: false)],
@@ -25,9 +25,9 @@ struct MasterRunView: View {
                 self.isRunning.toggle()
                 
                 if(self.isRunning) {
-                    scrapingPageMasterService.startScraping(scrapingPageCoreData: self.scrapingPageCoreData)
+                    runViewModel.startScraping(scrapingPageCoreData: self.scrapingPageCoreData)
                 } else {
-                    scrapingPageMasterService.stopScraping()
+                    runViewModel.stopScraping()
                 }
             }) {
                 Image(systemName: self.isRunning ? "stop.fill" : "play.fill")
@@ -35,8 +35,8 @@ struct MasterRunView: View {
             .disabled(!self.isButtonEnabled)
             .padding()
             
-            Text(String(format: "Next Scraping %.1f", scrapingPageMasterService.countdownTimer))
-            Text(scrapingPageMasterService.runningTestResult)
+            Text(String(format: "Next Scraping %.1f", runViewModel.countdownTimer))
+            Text(runViewModel.runningTestResult)
                 .font(.caption)
         }.onAppear(perform: {
             self.getAuthorization()

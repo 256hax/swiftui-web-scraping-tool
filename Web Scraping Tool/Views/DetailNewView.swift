@@ -12,18 +12,18 @@ struct DetailNewView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var detailViewModel = DetailViewModel()
-    @ObservedObject var scrapingPageDetailService = TestViewModel()
+    @ObservedObject var testViewModel = TestViewModel()
     
     var body: some View {
         NavigationView {
             DetailFormView(
                 detailViewModel: detailViewModel,
-                scrapingPageDetailService: scrapingPageDetailService)
+                testViewModel: testViewModel)
             .navigationBarItems(
                 leading: Text("Add Scraping Page"),
                 trailing: Button(
                     action: {
-                        scrapingPageDetailService.create(detailViewModel: detailViewModel, viewContext: viewContext)
+                        testViewModel.create(detailViewModel: detailViewModel, viewContext: viewContext)
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 ) {

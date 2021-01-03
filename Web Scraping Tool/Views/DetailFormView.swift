@@ -11,10 +11,10 @@ import SwiftUI
 struct DetailFormView: View {
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var detailViewModel: DetailViewModel
-    @ObservedObject var scrapingPageDetailService: TestViewModel
+    @ObservedObject var testViewModel: TestViewModel
 
     var runningTestResultText: String {
-        return scrapingPageDetailService.runningTestResult
+        return testViewModel.runningTestResult
     }
 
     var body: some View {
@@ -34,7 +34,7 @@ struct DetailFormView: View {
                             // Prevent double submission
                             Thread.sleep(forTimeInterval: 0.1)
                             
-                            scrapingPageDetailService.test(
+                            testViewModel.test(
                                 inputUrl: detailViewModel.url,
                                 pattern: detailViewModel.keyword
                             )
@@ -45,7 +45,7 @@ struct DetailFormView: View {
                 }
                 HStack {
                     Spacer()
-                    if(scrapingPageDetailService.isScraping) {
+                    if(testViewModel.isScraping) {
                         ProgressView("Scraping...")
                     } else {
                         Text(runningTestResultText)

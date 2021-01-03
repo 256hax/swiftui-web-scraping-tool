@@ -104,7 +104,7 @@ class RunViewModel: ObservableObject {
         let nsregex = NSRegex(pattern)
         let converting = Converting()
         let convertedIsMatch = converting.isMatchToString(nsregex.isMatch(inputText))
-        let convertedCountMatches = converting.countWithTimes(nsregex.countMatches(inputText))
+        let convertedCountMatches = converting.numberToCount(nsregex.countMatches(inputText))
 
         // Result is used on some screen.
         self.runningTestResult = "\(name): \(convertedIsMatch) \(convertedCountMatches)"
