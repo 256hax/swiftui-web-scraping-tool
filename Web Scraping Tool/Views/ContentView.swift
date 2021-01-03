@@ -53,7 +53,7 @@ struct MasterView: View {
 
     var body: some View {
         List {
-            ForEach(scrapingPagesCoredataModel, id: \.self) { scrapingPageCoreData in
+            ForEach(scrapingPagesCoredataModel, id: \.self) { s in
                 Button(
                     action: {
                         self.showScrapingDetail = true
@@ -61,13 +61,13 @@ struct MasterView: View {
                 ) {
                     VStack {
                         HStack {
-                            Text("\(scrapingPageCoreData.name!)")
+                            Text("\(s.name!)")
                                 .font(.largeTitle)
                                 .fontWeight(.thin)
                             Spacer()
                         }
                         HStack {
-                            Text("\(scrapingPageCoreData.url!)")
+                            Text("\(s.url!)")
                                 .font(.caption)
                                 .fontWeight(.thin)
                             Spacer()
@@ -75,7 +75,7 @@ struct MasterView: View {
                     }
                 }
                 .sheet(isPresented: self.$showScrapingDetail) {
-                    DetailEditView(scrapingPageCoreData: scrapingPageCoreData).environment(\.managedObjectContext, self.viewContext)
+                    DetailEditView(scrapingPageCoreData: s).environment(\.managedObjectContext, self.viewContext)
                 }
             }.onDelete { indices in
                 self.scrapingPagesCoredataModel.delete(at: indices, from: self.viewContext)
