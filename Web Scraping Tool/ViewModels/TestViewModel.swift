@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 // For Business Layer
-class ScrapingPageDetailService: ObservableObject {
+class TestViewModel: ObservableObject {
     @Published var isMatch = false
     @Published var isScraping = false
     @Published var runningTestResult = "-"

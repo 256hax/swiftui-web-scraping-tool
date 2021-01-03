@@ -12,7 +12,7 @@ struct NewScrapingPageDetailView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var scrapingPageDetailViewModel = ScrapingPageDetailViewModel()
-    @ObservedObject var scrapingPageDetailService = ScrapingPageDetailService()
+    @ObservedObject var scrapingPageDetailService = TestViewModel()
     
     var body: some View {
         NavigationView {

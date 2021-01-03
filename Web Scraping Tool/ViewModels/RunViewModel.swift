@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import SwiftUI
 
-class ScrapingPageMasterService: ObservableObject {
+class RunViewModel: ObservableObject {
     @Published var isMatch = false
     @Published var isScraping = false
     @Published var runningTestResult = ""

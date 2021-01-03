@@ -11,7 +11,7 @@ import SwiftUI
 struct ScrapingPageMasterRunView: View {
     @State var isRunning: Bool = false
     @State var isButtonEnabled: Bool = false
-    @ObservedObject var scrapingPageMasterService = ScrapingPageMasterService()
+    @ObservedObject var scrapingPageMasterService = RunViewModel()
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoredataModel.updatedAt, ascending: false)],

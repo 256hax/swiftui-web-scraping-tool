@@ -11,7 +11,7 @@ import SwiftUI
 struct ScrapingPageDetailForm: View {
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var scrapingPageDetailViewModel: ScrapingPageDetailViewModel
-    @ObservedObject var scrapingPageDetailService: ScrapingPageDetailService
+    @ObservedObject var scrapingPageDetailService: TestViewModel
 
     var runningTestResultText: String {
         return scrapingPageDetailService.runningTestResult
