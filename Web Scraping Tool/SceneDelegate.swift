@@ -68,9 +68,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
-    // MARK: Nortification for foreground
+    // MARK: Notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-       completionHandler([.banner])
+        completionHandler([.banner, .sound])
     }
 
 }

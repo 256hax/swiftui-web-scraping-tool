@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 
 class TestViewModel: ObservableObject {
-    @Published var isMatch              = false
-    @Published var isScraping           = false // for SwiftUI ProgressView
+    @Published var isMatch          = false
+    @Published var isScraping       = false // for SwiftUI ProgressView
     @Published var runningResult    = "-"
     
     /// Running Test

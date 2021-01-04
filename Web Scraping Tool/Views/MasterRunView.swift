@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct MasterRunView: View {
-    // Shouldn't move Binding Enabling Button code to outside. It get following error.
-    // -> Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates.
+    /// - Note: Shouldn't Enabling Button move to outside. It get following error.
+    /// -> Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates.
     @State var isButtonEnabled: Bool = false
     @ObservedObject var runViewModel = RunViewModel()
     
@@ -44,6 +44,9 @@ struct MasterRunView: View {
         })
     }
     
+    
+    /// Get Authorization for Notification
+    /// - Note: Shouldn't move to outslide file.
     func getAuthorization() {
        let center = UNUserNotificationCenter.current()
         
@@ -60,7 +63,6 @@ struct MasterRunView: View {
              })
           }
        })
-        
     }
 }
 

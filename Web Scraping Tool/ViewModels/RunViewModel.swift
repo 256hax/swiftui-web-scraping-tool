@@ -19,7 +19,7 @@ class RunViewModel: ObservableObject {
     // MARK: Countdown Timer
     @Published var countdownTimer: Double
     var timer                       = Timer()   // Next Scraping Count Down Timer (sec).
-    let defaultCountdownTimer       = 300.0     // Time Interval (sec).
+    let defaultCountdownTimer       = 10.0     // Time Interval (sec).
     let timeInterval                = 0.1       // Reset Timing. Shouldn't set "0.0". It'll be starting minus count down (ex: -0.1).
     let resetCountdownTimerLimit    = 0.1       // Reset Timer Limit (sec). Double is better for usability.
     
@@ -84,7 +84,7 @@ class RunViewModel: ObservableObject {
                 
                 let nsregex = NSRegex(pattern)
                 if(nsregex.isMatch(html)) {
-                    // Run Local Push Nortification when scraping hit.
+                    // Run Local Push Notification when scraping hit.
                     self.postNotification(title: name, body: self.runningResult)
                 }
                 
@@ -111,20 +111,21 @@ class RunViewModel: ObservableObject {
         self.runningResult = "\(name): \(convertedIsMatch) \(convertedCountMatches)"
     }
     
-    /// Local Push Nortification
+    /// Local Push Notification
     /// - Parameters:
-    ///   - title: Nortification Title
-    ///   - body: Nortification Body
+    ///   - title: Notification Title
+    ///   - body: Notification Body
     /// - Note: userNotificationCenter settings is in SceneDelegate.swift
     func postNotification(title: String, body: String) {
-       let content      = UNMutableNotificationContent()
-       content.title    = "Hit!"
-       content.body     = body
+        let content      = UNMutableNotificationContent()
+        content.title    = "Hit!"
+        content.body     = body
+        content.sound = UNNotificationSound.default
     
-       let id       = "reminder-\(UUID())"
-       let request  = UNNotificationRequest(identifier: id, content: content, trigger: nil)
-    
-       let center = UNUserNotificationCenter.current()
-       center.add(request, withCompletionHandler: nil)
+        let id       = "reminder-\(UUID())"
+        let request  = UNNotificationRequest(identifier: id, content: content, trigger: nil)
+
+        let center = UNUserNotificationCenter.current()
+        center.add(request, withCompletionHandler: nil)
     }
 }
