@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MasterRunView: View {
-    /// - Note: Shouldn't Enabling Button move to outside. It get following error.
+    /// - Note: Shouldn't Enabling Button move to outside(ex: ViewModel). To be following an error.
     /// -> Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates.
     @State var isButtonEnabled: Bool = false
     @ObservedObject var runViewModel = RunViewModel()
@@ -44,9 +44,8 @@ struct MasterRunView: View {
         })
     }
     
-    
     /// Get Authorization for Notification
-    /// - Note: Shouldn't move to outslide file.
+    /// - Note: Shouldn't move to outslide(ex: ViewModel).
     func getAuthorization() {
        let center = UNUserNotificationCenter.current()
         
