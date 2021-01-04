@@ -14,7 +14,7 @@ struct MasterListView: View {
 
     // Get ScrapingPageCoreData object from CoreData
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoreData.updatedAt, ascending: false)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoreData.name, ascending: true)],
         animation: .default)
     var scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoreData>
 
