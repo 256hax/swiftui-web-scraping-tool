@@ -13,19 +13,19 @@ struct DetailFormView: View {
     @ObservedObject var detailViewModel: DetailViewModel
     @ObservedObject var testViewModel: TestViewModel
 
-    var runningTestResultText: String {
-        return testViewModel.runningTestResult
+    var runningResultText: String {
+        return testViewModel.runningResult
     }
 
     var body: some View {
         Form {
-            // Settings
+            // MARK: Settings
             Section(footer: Text("Search Keyword supports Regular Expression")) {
                 TextField("Scraping Name", text: $detailViewModel.name).autocapitalization(.none)
                 TextField("Scraping URL", text: $detailViewModel.url).autocapitalization(.none)
                 TextField("Search Keyword", text: $detailViewModel.keyword).autocapitalization(.none)
             }
-            // Running Test
+            // MARK: Running Test
             Section {
                 HStack {
                     Spacer()
@@ -48,7 +48,7 @@ struct DetailFormView: View {
                     if(testViewModel.isScraping) {
                         ProgressView("Scraping...")
                     } else {
-                        Text(runningTestResultText)
+                        Text(runningResultText)
                     }
                 }
             }

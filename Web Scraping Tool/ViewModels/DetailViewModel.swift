@@ -15,8 +15,7 @@ class DetailViewModel: ObservableObject {
 }
 
 extension DetailViewModel {
-    /// Set Core Data for nil guard
-    /// - Parameter scrapingPageCoreData: Core Data object
+    // MARK: Set Core Data for nil guard
     func SetCoreData(_ scrapingPageCoreData: ScrapingPageCoreData) {
         self.name       = scrapingPageCoreData.name ?? "new name"
         self.url        = scrapingPageCoreData.url ?? ""

@@ -12,10 +12,11 @@ import SwiftUI
 
 class RunViewModel: ObservableObject {
     @Published var isMatch              = false
-    @Published var isScraping           = false
-    @Published var runningTestResult    = ""
-    @Published var isRunning: Bool      = false
+    @Published var isScraping           = false // for SwiftUI ProgressView
+    @Published var runningResult        = ""
+    @Published var isRunning: Bool      = false // for Start/Stop button. At MasterRunView.swift.
 
+    // MARK: Countdown Timer
     @Published var countdownTimer: Double
     var timer                       = Timer()   // Next Scraping Count Down Timer (sec).
     let defaultCountdownTimer       = 300.0     // Time Interval (sec).
@@ -71,7 +72,7 @@ class RunViewModel: ObservableObject {
                     // [Error case]
                     // End ProgressView
                     self.isScraping = false
-                    self.runningTestResult = "\(name): Unable to access Website. Check URL."
+                    self.runningResult = "\(name): Unable to access Website. Check URL."
                     
                     return
                 }
@@ -84,7 +85,7 @@ class RunViewModel: ObservableObject {
                 let nsregex = NSRegex(pattern)
                 if(nsregex.isMatch(html)) {
                     // Run Local Push Nortification when scraping hit.
-                    self.postNotification(title: name, body: self.runningTestResult)
+                    self.postNotification(title: name, body: self.runningResult)
                 }
                 
                 // End ProgressView
@@ -107,13 +108,14 @@ class RunViewModel: ObservableObject {
         let convertedCountMatches = converting.numberToCount(nsregex.countMatches(inputText))
 
         // Result is used on some screen.
-        self.runningTestResult = "\(name): \(convertedIsMatch) \(convertedCountMatches)"
+        self.runningResult = "\(name): \(convertedIsMatch) \(convertedCountMatches)"
     }
     
     /// Local Push Nortification
     /// - Parameters:
     ///   - title: Nortification Title
     ///   - body: Nortification Body
+    /// - Note: userNotificationCenter settings is in SceneDelegate.swift
     func postNotification(title: String, body: String) {
        let content      = UNMutableNotificationContent()
        content.title    = "Hit!"

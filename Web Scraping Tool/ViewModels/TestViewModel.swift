@@ -11,8 +11,8 @@ import CoreData
 
 class TestViewModel: ObservableObject {
     @Published var isMatch              = false
-    @Published var isScraping           = false
-    @Published var runningTestResult    = "-"
+    @Published var isScraping           = false // for SwiftUI ProgressView
+    @Published var runningResult    = "-"
     
     /// Running Test
     /// - Parameters:
@@ -39,7 +39,7 @@ class TestViewModel: ObservableObject {
                     // [Error case]
                     // End ProgressView
                     self.isScraping = false
-                    self.runningTestResult = "Unable to access Website. Check URL."
+                    self.runningResult = "Unable to access Website. Check URL."
                     
                     return
                 }
@@ -65,7 +65,7 @@ class TestViewModel: ObservableObject {
         let convertedIsMatch        = converting.isMatchToString(nsregex.isMatch(inputText))
         let convertedCountMatches   = converting.numberToCount(nsregex.countMatches(inputText))
 
-        self.runningTestResult = "\(convertedIsMatch) \(convertedCountMatches)"
+        self.runningResult = "\(convertedIsMatch) \(convertedCountMatches)"
     }
     
     func create(detailViewModel: DetailViewModel, viewContext: NSManagedObjectContext) {

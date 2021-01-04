@@ -37,7 +37,7 @@ struct MasterRunView: View {
             .padding()
             
             Text(String(format: "Next Scraping %.1f", runViewModel.countdownTimer))
-            Text(runViewModel.runningTestResult)
+            Text(runViewModel.runningResult)
                 .font(.caption)
         }.onAppear(perform: {
             self.getAuthorization()
