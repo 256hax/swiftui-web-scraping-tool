@@ -35,6 +35,12 @@ struct ContentView: View {
             MasterRunView()
             Spacer()
         }
+        .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true
+        }
+        .onDisappear {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
     }
 }
 

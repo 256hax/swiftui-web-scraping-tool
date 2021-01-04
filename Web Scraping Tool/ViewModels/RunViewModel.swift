@@ -19,7 +19,7 @@ class RunViewModel: ObservableObject {
     // MARK: Countdown Timer
     @Published var countdownTimer: Double
     var timer                       = Timer()   // Next Scraping Count Down Timer (sec).
-    let defaultCountdownTimer       = 10.0     // Time Interval (sec).
+    let defaultCountdownTimer       = 300.0     // Time Interval (sec).
     let timeInterval                = 0.1       // Reset Timing. Shouldn't set "0.0". It'll be starting minus count down (ex: -0.1).
     let resetCountdownTimerLimit    = 0.1       // Reset Timer Limit (sec). Double is better for usability.
     
