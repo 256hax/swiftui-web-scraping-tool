@@ -54,7 +54,8 @@ struct DetailFormView: View {
             }
         }
         // Scraping URL Preview
-        if(detailViewModel.url.count > 0) {
+        // Count 12 means URL need at least 12 charactors(ex: https://a.co).
+        if(detailViewModel.url.count >= 12) {
             WebView(loadUrl: detailViewModel.url)
         }
     }

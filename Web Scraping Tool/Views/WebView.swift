@@ -10,14 +10,15 @@ import SwiftUI
 import WebKit
 
 struct WebView: UIViewRepresentable {
-    var loadUrl: String
+    let loadUrl: String
 
     func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        uiView.load(URLRequest(url: URL(string: loadUrl)!))
+        let loadUrlEncoding = loadUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        uiView.load(URLRequest(url: URL(string: loadUrlEncoding)!))
     }
 }
 
