@@ -30,6 +30,7 @@
 		CB39F05925A1CA2B00CFB0C7 /* DetailNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39F05525A1CA2B00CFB0C7 /* DetailNewView.swift */; };
 		CB39F06425A1E36600CFB0C7 /* MasterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39F06325A1E36600CFB0C7 /* MasterListView.swift */; };
 		CB3FAEAB2524CAA200B26B6E /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3FAEAA2524CAA200B26B6E /* WebView.swift */; };
+		CB5E485E25BC257F00ED3264 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5E485D25BC257F00ED3264 /* TimerModel.swift */; };
 		CBC4BFE624FDFF4100538D1D /* Converting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4BFE524FDFF4100538D1D /* Converting.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		CB39F05525A1CA2B00CFB0C7 /* DetailNewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewView.swift; sourceTree = "<group>"; };
 		CB39F06325A1E36600CFB0C7 /* MasterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterListView.swift; sourceTree = "<group>"; };
 		CB3FAEAA2524CAA200B26B6E /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		CB5E485D25BC257F00ED3264 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		CBBE268F252089F800BE933D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CBC4BFE524FDFF4100538D1D /* Converting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				CB007A02249BA692006BC83A /* ScrapingPageCoreData+extensions.swift */,
+				CB5E485D25BC257F00ED3264 /* TimerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				CB31275025A0B5CC00458BC9 /* TestViewModel.swift in Sources */,
 				CB39F05825A1CA2B00CFB0C7 /* DetailEditView.swift in Sources */,
 				CB007A03249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
+				CB5E485E25BC257F00ED3264 /* TimerModel.swift in Sources */,
 				CB2F2AA524E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB389BC32513402800CA23E5 /* DetailViewModel.swift in Sources */,
 				CB31274F25A0B5CC00458BC9 /* RunViewModel.swift in Sources */,

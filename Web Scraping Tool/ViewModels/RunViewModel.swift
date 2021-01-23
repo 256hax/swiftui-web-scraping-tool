@@ -18,21 +18,19 @@ class RunViewModel: ObservableObject {
 
     // MARK: Countdown Timer
     @Published var countdownTimer: Double
-    var timer                       = Timer()   // Next Scraping Count Down Timer (sec).
-    let defaultCountdownTimer       = 300.0     // Time Interval (sec).
-    let timeInterval                = 0.1       // Reset Timing. Shouldn't set "0.0". It'll be starting minus count down (ex: -0.1).
-    let resetCountdownTimerLimit    = 0.1       // Reset Timer Limit (sec). Double is better for usability.
+    var timer       = Timer()  // Next Scraping Count Down Timer (sec).
+    var timerModel  = TimerModel()
     
     init() {
-        self.countdownTimer = self.defaultCountdownTimer
+        self.countdownTimer = self.timerModel.defaultCountdownTimer
     }
  
     func startScraping(scrapingPageCoreData: FetchedResults<ScrapingPageCoreData>) {
-        timer = Timer.scheduledTimer(withTimeInterval: self.timeInterval, repeats: true) { timer in
-            self.countdownTimer -= self.timeInterval
+        timer = Timer.scheduledTimer(withTimeInterval: self.timerModel.timeInterval, repeats: true) { timer in
+            self.countdownTimer -= self.timerModel.timeInterval
             
-            if(self.countdownTimer < self.resetCountdownTimerLimit) {
-                self.countdownTimer = self.defaultCountdownTimer
+            if(self.countdownTimer < self.timerModel.resetCountdownTimerLimit) {
+                self.countdownTimer = self.timerModel.defaultCountdownTimer
                                 
                 for s in scrapingPageCoreData {
                     self.scrapingTask(inputUrl: s.url!, pattern: s.keyword!, name: s.name!)
@@ -43,7 +41,7 @@ class RunViewModel: ObservableObject {
     
     func stopScraping() {
         timer.invalidate()
-        self.countdownTimer = self.defaultCountdownTimer
+        self.countdownTimer = self.timerModel.defaultCountdownTimer
     }
     
     /// Run Scraping
