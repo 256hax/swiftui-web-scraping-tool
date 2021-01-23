@@ -34,9 +34,11 @@ struct ContentView: View {
             }.navigationViewStyle(StackNavigationViewStyle())
             
             MasterRunView()
-            Spacer()
+//            Spacer()
         }
         .onAppear {
+            // A Boolean value that controls whether the idle timer is disabled for the app.
+            // true: Disable sleep
             UIApplication.shared.isIdleTimerDisabled = true
         }
         .onDisappear {

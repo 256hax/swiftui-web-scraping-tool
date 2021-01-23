@@ -22,6 +22,8 @@ struct MasterRunView: View {
 
     var body: some View {
         VStack {
+            Text("Do not close app when scraping.")
+                .font(.caption)
             Button(action: {
                 runViewModel.isRunning.toggle()
                 
