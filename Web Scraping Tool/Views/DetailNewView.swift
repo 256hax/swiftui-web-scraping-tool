@@ -23,7 +23,7 @@ struct DetailNewView: View {
                 leading: Text("Add Scraping Page"),
                 trailing: Button(
                     action: {
-                        testViewModel.create(detailViewModel: detailViewModel, viewContext: viewContext)
+                        detailViewModel.create(detailViewModel: detailViewModel, viewContext: viewContext)
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 ) {

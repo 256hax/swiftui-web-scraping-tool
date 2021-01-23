@@ -29,7 +29,7 @@ struct DetailEditView: View {
                 leading: Text("Update Scraping Page"),
                 trailing: Button(
                     action: {
-                        testViewModel.update(
+                        detailViewModel.update(
                             detailViewModel: detailViewModel,
                             scrapingPageCoreData: scrapingPageCoreData,
                             viewContext: viewContext

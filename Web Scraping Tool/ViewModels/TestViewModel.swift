@@ -67,23 +67,4 @@ class TestViewModel: ObservableObject {
 
         self.runningResult = "\(convertedIsMatch) \(convertedCountMatches)"
     }
-    
-    func create(detailViewModel: DetailViewModel, viewContext: NSManagedObjectContext) {
-        ScrapingPageCoreData.create(
-            in: viewContext,
-            scrapingName: detailViewModel.name,
-            scrapingUrl: detailViewModel.url,
-            scrapingKeyword: detailViewModel.keyword
-        )
-    }
-    
-    func update(detailViewModel: DetailViewModel, scrapingPageCoreData: ScrapingPageCoreData, viewContext: NSManagedObjectContext) {
-        ScrapingPageCoreData.update(
-            in: viewContext,
-            scrapingPageCoreData: scrapingPageCoreData,
-            scrapingName: detailViewModel.name,
-            scrapingUrl: detailViewModel.url,
-            scrapingKeyword: detailViewModel.keyword
-        )
-    }
 }

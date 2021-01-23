@@ -7,14 +7,32 @@
 //
 
 import Foundation
+import CoreData
 
 class DetailViewModel: ObservableObject {
     @Published var name     = ""
     @Published var url      = ""
     @Published var keyword  = ""
-}
-
-extension DetailViewModel {
+    
+    func create(detailViewModel: DetailViewModel, viewContext: NSManagedObjectContext) {
+        ScrapingPageCoreData.create(
+            in: viewContext,
+            scrapingName: detailViewModel.name,
+            scrapingUrl: detailViewModel.url,
+            scrapingKeyword: detailViewModel.keyword
+        )
+    }
+    
+    func update(detailViewModel: DetailViewModel, scrapingPageCoreData: ScrapingPageCoreData, viewContext: NSManagedObjectContext) {
+        ScrapingPageCoreData.update(
+            in: viewContext,
+            scrapingPageCoreData: scrapingPageCoreData,
+            scrapingName: detailViewModel.name,
+            scrapingUrl: detailViewModel.url,
+            scrapingKeyword: detailViewModel.keyword
+        )
+    }
+    
     // MARK: Set Core Data for nil guard
     func SetCoreData(_ scrapingPageCoreData: ScrapingPageCoreData) {
         self.name       = scrapingPageCoreData.name ?? "new name"
