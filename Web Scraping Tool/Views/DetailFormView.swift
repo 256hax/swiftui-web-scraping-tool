@@ -41,6 +41,7 @@ struct DetailFormView: View {
                         }
                     ) {
                         Text("Running Test")
+                            .accessibility(identifier: "detailForm_runTest_button")
                     }
                 }
                 HStack {

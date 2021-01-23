@@ -31,12 +31,14 @@ struct MasterListView: View {
                             Text("\(s.name!)")
                                 .font(.largeTitle)
                                 .fontWeight(.thin)
+                                .accessibility(identifier: "master_name_text")
                             Spacer()
                         }
                         HStack {
                             Text("\(s.url!)")
                                 .font(.caption)
                                 .fontWeight(.thin)
+                                .accessibility(identifier: "master_url_text")
                             Spacer()
                         }
                     }

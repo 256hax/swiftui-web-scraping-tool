@@ -25,6 +25,7 @@ struct ContentView: View {
                             }
                         ) {
                             Image(systemName: "plus")
+                                .accessibility(identifier: "master_new_button")
                         }
                     )
                 .sheet(isPresented: $showDetail) {

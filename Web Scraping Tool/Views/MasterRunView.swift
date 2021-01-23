@@ -32,6 +32,7 @@ struct MasterRunView: View {
                 }
             }) {
                 Image(systemName: runViewModel.isRunning ? "stop.fill" : "play.fill")
+                    .accessibility(identifier: "master_run_button")
             }
             .disabled(!self.isButtonEnabled)
             .padding()

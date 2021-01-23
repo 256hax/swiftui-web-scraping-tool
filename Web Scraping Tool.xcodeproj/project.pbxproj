@@ -18,8 +18,6 @@
 		CB19187E2493D43600B26363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB19187D2493D43600B26363 /* Assets.xcassets */; };
 		CB1918812493D43600B26363 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB1918802493D43600B26363 /* Preview Assets.xcassets */; };
 		CB1918842493D43600B26363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB1918822493D43600B26363 /* LaunchScreen.storyboard */; };
-		CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19188E2493D43600B26363 /* Web_Scraping_ToolTests.swift */; };
-		CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1918992493D43700B26363 /* Web_Scraping_ToolUITests.swift */; };
 		CB2F2AA524E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
@@ -64,10 +62,8 @@
 		CB1918832493D43600B26363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB1918852493D43600B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB19188A2493D43600B26363 /* Web Scraping ToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web Scraping ToolTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB19188E2493D43600B26363 /* Web_Scraping_ToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Scraping_ToolTests.swift; sourceTree = "<group>"; };
 		CB1918902493D43600B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB1918952493D43700B26363 /* Web_Scraping_ToolUITests.swift */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Web_Scraping_ToolUITests.swift; path = "Web Scraping ToolUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB1918992493D43700B26363 /* Web_Scraping_ToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Scraping_ToolUITests.swift; sourceTree = "<group>"; };
 		CB19189B2493D43700B26363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegex.swift; sourceTree = "<group>"; };
 		CB31274D25A0B5CC00458BC9 /* RunViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
@@ -190,7 +186,6 @@
 		CB19188D2493D43600B26363 /* Web Scraping ToolTests */ = {
 			isa = PBXGroup;
 			children = (
-				CB19188E2493D43600B26363 /* Web_Scraping_ToolTests.swift */,
 				CB1918902493D43600B26363 /* Info.plist */,
 			);
 			path = "Web Scraping ToolTests";
@@ -199,7 +194,6 @@
 		CB1918982493D43700B26363 /* Web Scraping ToolUITests */ = {
 			isa = PBXGroup;
 			children = (
-				CB1918992493D43700B26363 /* Web_Scraping_ToolUITests.swift */,
 				CB19189B2493D43700B26363 /* Info.plist */,
 			);
 			path = "Web Scraping ToolUITests";
@@ -379,7 +373,6 @@
 			files = (
 				CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB007A04249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
-				CB19188F2493D43600B26363 /* Web_Scraping_ToolTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +382,6 @@
 			files = (
 				CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB007A05249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
-				CB19189A2493D43700B26363 /* Web_Scraping_ToolUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

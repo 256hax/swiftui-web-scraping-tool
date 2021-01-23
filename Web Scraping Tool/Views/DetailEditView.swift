@@ -38,6 +38,7 @@ struct DetailEditView: View {
                     }
                 ) {
                     Text("Save")
+                        .accessibility(identifier: "detailEdit_save_button")
                 }
             )
         }

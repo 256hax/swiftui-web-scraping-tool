@@ -20,7 +20,7 @@ struct DetailNewView: View {
                 detailViewModel: detailViewModel,
                 testViewModel: testViewModel)
             .navigationBarItems(
-                leading: Text("Add Scraping Page"),
+                leading: Text("New Scraping Page"),
                 trailing: Button(
                     action: {
                         detailViewModel.create(detailViewModel: detailViewModel, viewContext: viewContext)
@@ -28,6 +28,7 @@ struct DetailNewView: View {
                     }
                 ) {
                     Text("Save")
+                        .accessibility(identifier: "detailNew_create_button")
                 }
             )
         }
