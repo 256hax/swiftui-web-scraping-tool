@@ -11,20 +11,21 @@ import SwiftUI
 struct DetailEditView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var detailViewModel = DetailViewModel()
-    @ObservedObject var testViewModel   = TestViewModel()
+    @EnvironmentObject var detailViewModel: DetailViewModel
+    @ObservedObject var testViewModel = TestViewModel()
     
-    let scrapingPageCoreData: ScrapingPageCoreData
-    init(scrapingPageCoreData: ScrapingPageCoreData) {
-        self.scrapingPageCoreData = scrapingPageCoreData
-        self.detailViewModel.SetCoreData(self.scrapingPageCoreData)
-    }
+    var scrapingPageCoreData: ScrapingPageCoreData
     
     var body: some View {
         NavigationView {
             DetailFormView(
-                detailViewModel: detailViewModel,
-                testViewModel: testViewModel)
+                testViewModel: testViewModel
+            )
+            // MARK: init
+            // EnvironmentObject can't run init so, should be in onAppear.
+            .onAppear(perform: {
+                detailViewModel.SetCoreData(scrapingPageCoreData)
+            })
             .navigationBarItems(
                 leading: Text("Update Scraping Page"),
                 trailing: Button(

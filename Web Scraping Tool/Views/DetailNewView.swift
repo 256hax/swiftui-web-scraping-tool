@@ -11,13 +11,12 @@ import SwiftUI
 struct DetailNewView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var detailViewModel = DetailViewModel()
-    @ObservedObject var testViewModel   = TestViewModel()
+    @EnvironmentObject var detailViewModel: DetailViewModel
+    @ObservedObject var testViewModel = TestViewModel()
     
     var body: some View {
         NavigationView {
             DetailFormView(
-                detailViewModel: detailViewModel,
                 testViewModel: testViewModel)
             .navigationBarItems(
                 leading: Text("New Scraping Page"),

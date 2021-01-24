@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DetailFormView: View {
     @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var detailViewModel: DetailViewModel
+    @EnvironmentObject var detailViewModel: DetailViewModel
     @ObservedObject var testViewModel: TestViewModel
 
     var runningResultText: String {

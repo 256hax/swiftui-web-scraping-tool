@@ -44,7 +44,9 @@ struct MasterListView: View {
                     }
                 }
                 .sheet(isPresented: self.$showDetail) {
-                    DetailEditView(scrapingPageCoreData: s).environment(\.managedObjectContext, self.viewContext)
+                    DetailEditView(scrapingPageCoreData: s)
+                        .environment(\.managedObjectContext, self.viewContext)
+                        .environmentObject(DetailViewModel())
                 }.navigationViewStyle(StackNavigationViewStyle())
             }.onDelete { indices in
                 self.scrapingPagesCoredataModel.delete(at: indices, from: self.viewContext)

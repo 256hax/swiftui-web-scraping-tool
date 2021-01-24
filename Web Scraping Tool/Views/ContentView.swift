@@ -18,7 +18,7 @@ struct ContentView: View {
                 MasterListView()
                     .navigationBarTitle(Text("Scraping Page"))
                     .navigationBarItems(
-                        leading: EditButton(),
+//                        leading: EditButton(), // Comment Out for SwiftUI bug.
                         trailing: Button(
                             action: {
                                 self.showDetail = true
@@ -29,7 +29,9 @@ struct ContentView: View {
                         }
                     )
                 .sheet(isPresented: $showDetail) {
-                    DetailNewView().environment(\.managedObjectContext, self.viewContext)
+                    DetailNewView()
+                        .environment(\.managedObjectContext, self.viewContext)
+                        .environmentObject(DetailViewModel())
                 }
             }.navigationViewStyle(StackNavigationViewStyle())
             
