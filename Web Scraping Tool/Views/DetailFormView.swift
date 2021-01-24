@@ -12,6 +12,7 @@ struct DetailFormView: View {
     @Environment(\.managedObjectContext) var viewContext
     @EnvironmentObject var detailViewModel: DetailViewModel
     @ObservedObject var testViewModel: TestViewModel
+    @State var typing = false
 
     var runningResultText: String {
         return testViewModel.runningResult
@@ -22,7 +23,13 @@ struct DetailFormView: View {
             // MARK: Settings
             Section(footer: Text("Search Keyword supports Regular Expression")) {
                 TextField("Scraping Name", text: $detailViewModel.name).autocapitalization(.none)
-                TextField("Scraping URL", text: $detailViewModel.url).autocapitalization(.none)
+                TextField(
+                    "Scraping URL",
+                    text: $detailViewModel.url,
+                    onEditingChanged: {_ in
+                        self.typing = true
+                    }
+                ).autocapitalization(.none)
                 TextField("Search Keyword", text: $detailViewModel.keyword).autocapitalization(.none)
             }
             // MARK: Running Test
@@ -54,9 +61,9 @@ struct DetailFormView: View {
                 }
             }
         }
-        // Scraping URL Preview
+        // MARK: Scraping URL Preview
         // Count 12 means URL need at least 12 charactors(ex: https://a.co).
-        if(detailViewModel.url.count >= 12) {
+        if(detailViewModel.url.count >= 12 && self.typing == true) {
             WebView(loadUrl: detailViewModel.url)
         }
     }
