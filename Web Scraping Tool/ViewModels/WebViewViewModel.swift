@@ -10,4 +10,5 @@ import Foundation
 
 class WebViewViewModel: ObservableObject {
     @Published var kvo: NSKeyValueObservation?
+    @Published var urlTextFieldOnCommit: Bool?
 }

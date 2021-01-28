@@ -17,7 +17,8 @@ struct DetailNewView: View {
     var body: some View {
         NavigationView {
             DetailFormView(
-                testViewModel: testViewModel)
+                testViewModel: testViewModel
+            )
             .navigationBarItems(
                 leading: Text("New Scraping Page"),
                 trailing: Button(

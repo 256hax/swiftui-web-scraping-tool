@@ -25,15 +25,13 @@ struct WebView: UIViewRepresentable {
 
         // MARK: Set Location URL to Scraping URL of Text Form
         // Get current location URL in WKWebView when Tap some link.
-        webViewViewModel.kvo = uiView.observe(\WKWebView.url, options: .new) { view, change in
+        self.webViewViewModel.kvo = uiView.observe(\WKWebView.url, options: .new) { view, change in
             if let url = view.url {
                 let urlString = "\(url)"
-                // For 2 bytes charactor URL decoding (ex: Japanese)
+                // For 2 byte charactors (ex: Japanese) URL decoding. Prevent for crash in TextField.
                 let urlStringDecoding = urlString.removingPercentEncoding!
                 self.detailViewModel.url = urlStringDecoding
             }
-
-
         }
     }
 }
