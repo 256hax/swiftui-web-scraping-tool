@@ -81,8 +81,13 @@ struct DetailFormView: View {
     }
 }
 
-struct ScrapingPageForm_Previews: PreviewProvider {
+struct DetailFormView_Previews: PreviewProvider {
     static var previews: some View {
         DetailFormView(testViewModel: TestViewModel())
+            .environmentObject(DetailViewModel())
+        
+        DetailFormView(testViewModel: TestViewModel())
+            .environmentObject(DetailViewModel())
+            .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

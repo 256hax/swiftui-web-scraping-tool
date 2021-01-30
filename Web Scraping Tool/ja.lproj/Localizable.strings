@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  Web Scraping Tool
+
+  Created by user on 2021/01/30.
+  Copyright © 2021 256hax. All rights reserved.
+*/
+
+// MARK: ContentView
+"Scraping List" = "スクレイピングリスト";
+
+// MARK: MasterRunView
+"Do not close this app while scraping." = "スクレイピング中はこのアプリを閉じないでください。";
+"Next Scraping %.1f" = "次のスクレイピングまで %.1f";
+
+// MARK: New Scraping Page
+"New Scraping Page" = "スクレイピングページを追加";
+"Save" = "保存";
+
+
+"Update Scraping Page" = "スクレイピングページの編集";

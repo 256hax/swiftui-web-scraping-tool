@@ -5,6 +5,7 @@
 //  Created by user on 2020/06/13.
 //  Copyright © 2020 256hax. All rights reserved.
 //
+
 import SwiftUI
 
 struct ContentView: View {
@@ -16,9 +17,9 @@ struct ContentView: View {
         VStack {
             NavigationView {
                 MasterListView()
-                    .navigationBarTitle(Text("Scraping Page"))
+                    .navigationBarTitle(Text("Scraping List"))
                     .navigationBarItems(
-//                        leading: EditButton(), // Comment Out for SwiftUI bug.
+                        // leading: EditButton(), // Comment Out for SwiftUI bug.
                         trailing: Button(
                             action: {
                                 self.showDetail = true
@@ -36,7 +37,6 @@ struct ContentView: View {
             }.navigationViewStyle(StackNavigationViewStyle())
             
             MasterRunView()
-//            Spacer()
         }
         .onAppear {
             // A Boolean value that controls whether the idle timer is disabled for the app.
@@ -51,7 +51,13 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return ContentView().environment(\.managedObjectContext, context)
+        let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        ContentView()
+            .environment(\.managedObjectContext, viewContext)
+        
+        ContentView()
+            .environment(\.managedObjectContext, viewContext)
+            .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

@@ -16,11 +16,11 @@ struct MasterListView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ScrapingPageCoreData.name, ascending: true)],
         animation: .default)
-    var scrapingPagesCoredataModel: FetchedResults<ScrapingPageCoreData>
+    var scrapingPageCoreData: FetchedResults<ScrapingPageCoreData>
 
     var body: some View {
         List {
-            ForEach(scrapingPagesCoredataModel, id: \.self) { s in
+            ForEach(scrapingPageCoreData, id: \.self) { s in
                 Button(
                     action: {
                         self.showDetail = true
@@ -49,7 +49,7 @@ struct MasterListView: View {
                         .environmentObject(DetailViewModel())
                 }.navigationViewStyle(StackNavigationViewStyle())
             }.onDelete { indices in
-                self.scrapingPagesCoredataModel.delete(at: indices, from: self.viewContext)
+                self.scrapingPageCoreData.delete(at: indices, from: self.viewContext)
             }
         }
     }
@@ -57,7 +57,25 @@ struct MasterListView: View {
 
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return MasterListView().environment(\.managedObjectContext, context)
+//        let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let scrapingPageCoreData        = ScrapingPageCoreData(context: viewContext)
+//        scrapingPageCoreData.uuidString = UUID().uuidString
+//        scrapingPageCoreData.name       = "Find \"Example\" words in Example.com"
+//        scrapingPageCoreData.url        = "https://example.com/"
+//        scrapingPageCoreData.keyword    = "Example"
+//        scrapingPageCoreData.updatedAt  = Date()
+//
+//        return MasterListView().environment(\.managedObjectContext, viewContext)
+        
+        let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let coreDataPreviewsModel = CoreDataPreviewsModel()
+        let scrapingPageCoreData = coreDataPreviewsModel.createSampleScrapingPage(viewContext: viewContext)
+
+        MasterListView()
+            .environment(\.managedObjectContext, viewContext)
+
+        MasterListView()
+            .environment(\.managedObjectContext, viewContext)
+            .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

@@ -35,8 +35,17 @@ struct DetailNewView: View {
     }
 }
 
-struct CreateScrapingView_Previews: PreviewProvider {
+struct DetailNewView_Previews: PreviewProvider {
     static var previews: some View {
+        let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
         DetailNewView()
+            .environment(\.managedObjectContext, viewContext)
+            .environmentObject(DetailViewModel())
+        
+        DetailNewView()
+            .environment(\.managedObjectContext, viewContext)
+            .environmentObject(DetailViewModel())
+            .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

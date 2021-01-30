@@ -22,7 +22,7 @@ struct MasterRunView: View {
 
     var body: some View {
         VStack {
-            Text("Do not close app when scraping.")
+            Text("Do not close this app while scraping.")
                 .font(.caption)
             Button(action: {
                 runViewModel.isRunning.toggle()
@@ -68,8 +68,9 @@ struct MasterRunView: View {
     }
 }
 
-struct ScrapingPageMasterRun_Previews: PreviewProvider {
+struct MasterRunView_Previews: PreviewProvider {
     static var previews: some View {
         MasterRunView()
+        MasterRunView().environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }
