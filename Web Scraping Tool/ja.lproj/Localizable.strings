@@ -11,6 +11,7 @@
 
 // MARK: MasterRunView
 "Do not close this app while scraping." = "スクレイピング中はこのアプリを閉じないでください";
+"Next Scraping " = "次のスクレイピングまで ";
 
 // MARK: DetailFormView
 "Search Keyword supports Regular Expression" = "検索キーワードは正規表現に対応しています";

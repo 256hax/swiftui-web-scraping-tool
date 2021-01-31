@@ -39,7 +39,7 @@ struct MasterRunView: View {
             .disabled(!self.isButtonEnabled)
             .padding()
             
-            Text(String(format: "Next Scraping %.1f", runViewModel.countdownTimer))
+            Text("Next Scraping ") + Text(String(runViewModel.countdownTimer))
             Text(runViewModel.runningResult)
                 .font(.caption)
         }.onAppear(perform: {
