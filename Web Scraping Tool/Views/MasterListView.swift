@@ -57,19 +57,14 @@ struct MasterListView: View {
 
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
-//        let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        let scrapingPageCoreData        = ScrapingPageCoreData(context: viewContext)
-//        scrapingPageCoreData.uuidString = UUID().uuidString
-//        scrapingPageCoreData.name       = "Find \"Example\" words in Example.com"
-//        scrapingPageCoreData.url        = "https://example.com/"
-//        scrapingPageCoreData.keyword    = "Example"
-//        scrapingPageCoreData.updatedAt  = Date()
-//
-//        return MasterListView().environment(\.managedObjectContext, viewContext)
-        
         let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let coreDataPreviewsModel = CoreDataPreviewsModel()
-        let scrapingPageCoreData = coreDataPreviewsModel.createSampleScrapingPage(viewContext: viewContext)
+        
+        // MARK: Set Core Data Sample Data for Prevews.
+        // Shouldn't omit "let".
+        //  What if use "_ ="    -> Error: Initialization of immutable value was never used
+        //  What if use "let ="  -> Error: Type '()' cannot conform to 'View'; only struct/enum/class types can conform to protocols
+        let _ = coreDataPreviewsModel.createSampleScrapingPage(viewContext: viewContext)
 
         MasterListView()
             .environment(\.managedObjectContext, viewContext)

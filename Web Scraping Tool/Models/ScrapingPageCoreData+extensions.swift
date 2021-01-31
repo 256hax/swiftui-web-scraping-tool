@@ -12,7 +12,7 @@ import SwiftUI
 
 extension ScrapingPageCoreData {
     static func create(in viewContext: NSManagedObjectContext, scrapingName: String, scrapingUrl: String, scrapingKeyword: String) {
-        let scrapingPageCoreData      = ScrapingPageCoreData(context: viewContext)
+        let scrapingPageCoreData        = ScrapingPageCoreData(context: viewContext)
         scrapingPageCoreData.uuidString = UUID().uuidString
         scrapingPageCoreData.name       = scrapingName.isEmpty ? "No Name" : scrapingName
         scrapingPageCoreData.url        = scrapingUrl

@@ -20,8 +20,6 @@
 		CB1918812493D43600B26363 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB1918802493D43600B26363 /* Preview Assets.xcassets */; };
 		CB1918842493D43600B26363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB1918822493D43600B26363 /* LaunchScreen.storyboard */; };
 		CB2F2AA524E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
-		CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
-		CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2F2AA424E8EAF7004B1FFA /* NSRegex.swift */; };
 		CB31274F25A0B5CC00458BC9 /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB31274D25A0B5CC00458BC9 /* RunViewModel.swift */; };
 		CB31275025A0B5CC00458BC9 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB31274E25A0B5CC00458BC9 /* TestViewModel.swift */; };
 		CB389BC32513402800CA23E5 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB389BC22513402800CA23E5 /* DetailViewModel.swift */; };
@@ -117,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				CB007A02249BA692006BC83A /* ScrapingPageCoreData+extensions.swift */,
-				CB5E485D25BC257F00ED3264 /* TimerModel.swift */,
 				CBF6642725C5842B002ECE60 /* CoreDataPreviewsModel.swift */,
+				CB5E485D25BC257F00ED3264 /* TimerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,12 +136,12 @@
 			isa = PBXGroup;
 			children = (
 				CB19187B2493D43500B26363 /* ContentView.swift */,
-				CB3FAEAA2524CAA200B26B6E /* WebView.swift */,
 				CB39F05425A1CA2B00CFB0C7 /* DetailEditView.swift */,
 				CB39F05225A1CA2B00CFB0C7 /* DetailFormView.swift */,
 				CB39F05525A1CA2B00CFB0C7 /* DetailNewView.swift */,
-				CB39F05325A1CA2B00CFB0C7 /* MasterRunView.swift */,
 				CB39F06325A1E36600CFB0C7 /* MasterListView.swift */,
+				CB39F05325A1CA2B00CFB0C7 /* MasterRunView.swift */,
+				CB3FAEAA2524CAA200B26B6E /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,10 +149,10 @@
 		CB1918662493D43500B26363 = {
 			isa = PBXGroup;
 			children = (
+				CB1918702493D43500B26363 /* Products */,
 				CB1918712493D43500B26363 /* Web Scraping Tool */,
 				CB19188D2493D43600B26363 /* Web Scraping ToolTests */,
 				CB1918982493D43700B26363 /* Web Scraping ToolUITests */,
-				CB1918702493D43500B26363 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,17 +170,17 @@
 			isa = PBXGroup;
 			children = (
 				CB007A01249B220C006BC83A /* Models */,
+				CB1918772493D43500B26363 /* SceneDelegate.swift */,
 				CB0F514D25125A3C0030DD72 /* ViewModels */,
 				CB0F514E25125A530030DD72 /* Views */,
 				CBBE1E8824D6F58500071FA7 /* Utils */,
-				CBC4BFE424FDFF4100538D1D /* helpers */,
-				CB1918722493D43500B26363 /* AppDelegate.swift */,
-				CB1918772493D43500B26363 /* SceneDelegate.swift */,
-				CB19187D2493D43600B26363 /* Assets.xcassets */,
-				CB1918822493D43600B26363 /* LaunchScreen.storyboard */,
-				CB1918852493D43600B26363 /* Info.plist */,
+				CBC4BFE424FDFF4100538D1D /* Helpers */,
 				CB1918742493D43500B26363 /* Web_Scraping_Tool.xcdatamodeld */,
+				CB1918722493D43500B26363 /* AppDelegate.swift */,
+				CB19187D2493D43600B26363 /* Assets.xcassets */,
+				CB1918852493D43600B26363 /* Info.plist */,
 				CB19187F2493D43600B26363 /* Preview Content */,
+				CB1918822493D43600B26363 /* LaunchScreen.storyboard */,
 				CB01222825C5152400AEC833 /* Localizable.strings */,
 			);
 			path = "Web Scraping Tool";
@@ -220,12 +218,12 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		CBC4BFE424FDFF4100538D1D /* helpers */ = {
+		CBC4BFE424FDFF4100538D1D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				CBC4BFE524FDFF4100538D1D /* Converting.swift */,
 			);
-			path = helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,7 +386,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB2F2AA624E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB007A04249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,7 +394,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB2F2AA724E8EAF7004B1FFA /* NSRegex.swift in Sources */,
 				CB007A05249BA692006BC83A /* ScrapingPageCoreData+extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

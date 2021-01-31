@@ -16,10 +16,11 @@ class CoreDataPreviewsModel {
     /// - Parameter viewContext: NSManagedObjectContext
     /// - Returns: Created sample Core Data
     /// - Note: Shouldn't write this code to Previews area directly.
+    @discardableResult
     func createSampleScrapingPage(viewContext: NSManagedObjectContext) -> ScrapingPageCoreData {
         let scrapingPageCoreData        = ScrapingPageCoreData(context: viewContext)
         scrapingPageCoreData.uuidString = UUID().uuidString
-        scrapingPageCoreData.name       = "Find \"Example\" words in Example.com"
+        scrapingPageCoreData.name       = "Find Example"
         scrapingPageCoreData.url        = "https://example.com/"
         scrapingPageCoreData.keyword    = "Example"
         scrapingPageCoreData.updatedAt  = Date()
