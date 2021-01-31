@@ -10,12 +10,29 @@
 "Scraping List" = "スクレイピングリスト";
 
 // MARK: MasterRunView
-"Do not close this app while scraping." = "スクレイピング中はこのアプリを閉じないでください。";
-"Next Scraping %.1f" = "次のスクレイピングまで %.1f";
+"Do not close this app while scraping." = "スクレイピング中はこのアプリを閉じないでください";
 
-// MARK: New Scraping Page
+// MARK: DetailFormView
+"Search Keyword supports Regular Expression" = "検索キーワードは正規表現に対応しています";
+"Scraping Name" = "スクレイピング名";
+"Scraping URL" = "スクレイピング先URL";
+"Search Keyword" = "検索キーワード";
+"Running Test" = "テスト実行";
+
+// MARK: DetailNewView
 "New Scraping Page" = "スクレイピングページを追加";
 "Save" = "保存";
 
-
+// MARK: DetailEditView
 "Update Scraping Page" = "スクレイピングページの編集";
+
+// MARK: 
+
+
+// MARK: 
+
+
+// MARK: 
+
+
+// MARK: 

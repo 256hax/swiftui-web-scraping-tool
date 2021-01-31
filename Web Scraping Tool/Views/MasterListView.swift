@@ -55,7 +55,7 @@ struct MasterListView: View {
     }
 }
 
-struct MasterView_Previews: PreviewProvider {
+struct MasterListView_Previews: PreviewProvider {
     static var previews: some View {
         let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let coreDataPreviewsModel = CoreDataPreviewsModel()
