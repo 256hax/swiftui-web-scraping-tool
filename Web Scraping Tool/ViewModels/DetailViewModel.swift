@@ -34,9 +34,15 @@ class DetailViewModel: ObservableObject {
     }
     
     // MARK: Set Core Data for nil guard
-    func SetCoreData(_ scrapingPageCoreData: ScrapingPageCoreData) {
+    func setCoreData(_ scrapingPageCoreData: ScrapingPageCoreData) {
         self.name       = scrapingPageCoreData.name ?? "new name"
         self.url        = scrapingPageCoreData.url ?? ""
         self.keyword    = scrapingPageCoreData.keyword ?? ""
+    }
+    
+    func setSampleScrapingPage() {
+        self.name       = "Find Example"
+        self.url        = "https://example.com/"
+        self.keyword    = "Example"
     }
 }

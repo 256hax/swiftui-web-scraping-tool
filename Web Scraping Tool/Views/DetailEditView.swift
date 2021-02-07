@@ -24,7 +24,7 @@ struct DetailEditView: View {
             // MARK: init
             // EnvironmentObject can't run init so, should be in onAppear.
             .onAppear(perform: {
-                detailViewModel.SetCoreData(scrapingPageCoreData)
+                detailViewModel.setCoreData(scrapingPageCoreData)
             })
             .navigationBarItems(
                 leading: Text("Update Scraping Page"),

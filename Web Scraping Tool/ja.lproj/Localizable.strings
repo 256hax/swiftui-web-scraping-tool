@@ -14,6 +14,7 @@
 "Next Scraping " = "次のスクレイピングまで ";
 
 // MARK: DetailFormView
+"Set Example Scraping" = "スクレイピング設定例";
 "Search Keyword supports Regular Expression" = "検索キーワードは正規表現に対応しています";
 "Scraping Name" = "スクレイピング名";
 "Scraping URL" = "スクレイピング先URL";
@@ -26,14 +27,3 @@
 
 // MARK: DetailEditView
 "Update Scraping Page" = "スクレイピングページの編集";
-
-// MARK: 
-
-
-// MARK: 
-
-
-// MARK: 
-
-
-// MARK: 

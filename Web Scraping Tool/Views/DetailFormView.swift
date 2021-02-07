@@ -23,7 +23,24 @@ struct DetailFormView: View {
         VStack {
             Form {
                 // MARK: Settings
-                Section(footer: Text("Search Keyword supports Regular Expression")) {
+                Section(footer:
+                    // MARK: Footer Text
+                    VStack {
+                        HStack {
+                            Text("Search Keyword supports Regular Expression")
+                            Spacer()
+                        }
+                        HStack {
+                            Button(action: {
+                                detailViewModel.setSampleScrapingPage()
+                            }) {
+                                Text("Set Example Scraping")
+                            }
+                            Spacer()
+                        }
+                    }
+                ) {
+                    // MARK: Input Form
                     TextField("Scraping Name", text: $detailViewModel.name).autocapitalization(.none)
                     TextField(
                         "Scraping URL",
