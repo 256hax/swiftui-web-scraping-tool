@@ -27,3 +27,6 @@
 
 // MARK: DetailEditView
 "Update Scraping Page" = "スクレイピングページの編集";
+
+// MARK: Local Push Notification
+"Hit!" = "ヒット！";
