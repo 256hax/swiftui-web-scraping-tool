@@ -13,6 +13,10 @@ Web Scraping for iOS App.
 
 It is necessary to known the keyword you want to detect, such as "in stock" or "Pre-order".
 
+<img src="https://raw.githubusercontent.com/256hax/swiftui-web-scraping-tool/master/docs/screen_shot/scraping_list_with_device.png" height="500px">
+<img src="https://raw.githubusercontent.com/256hax/swiftui-web-scraping-tool/master/docs/screen_shot/add_scraping_with_device.png" height="500px">
+<img src="https://raw.githubusercontent.com/256hax/swiftui-web-scraping-tool/master/docs/screen_shot/run_scraping_with_device.png" height="500px">
+
 ## Features
 - Web Scraping
 - Search Keyword support Regular Expression
